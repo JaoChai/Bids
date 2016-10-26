@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2016 at 10:42 AM
+-- Generation Time: Oct 26, 2016 at 02:12 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -232,7 +232,7 @@ CREATE TABLE `menu` (
   `menu_title` varchar(100) NOT NULL,
   `menu_meta_des` varchar(100) NOT NULL,
   `menu_meta_key` varchar(100) NOT NULL,
-  `menu_description` varchar(1000) NOT NULL
+  `menu_description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -240,8 +240,8 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`menu_id`, `menu_name`, `menu_title`, `menu_meta_des`, `menu_meta_key`, `menu_description`) VALUES
-(8, 'test2', 'test', ' test3\r\n                                                             ', 'test3\r\n                                                               ', ''),
-(9, 'test', 'test', '                              test                                                        ', '                             test                                                      ', '                                                                                 test                       ');
+(10, 'ผู้ชนะประมูล', 'gerhtrh', 'rkgmer', 'gtrhryj', '<p>trhrjryjr rgherhethtrs</p>\r\n'),
+(11, 'ช่วยเหลือ', 'erklgmrl', 'rkgmerlghm', 'wrlgmr', '<p>erlkgmklehe</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -275,7 +275,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `img`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1477467001, 1, 'Wason', 'Thamasak', 'ADMIN', '0', 'admin.jpg');
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1477472498, 1, 'Wason', 'Thamasak', 'ADMIN', '0', 'admin.jpg');
 
 -- --------------------------------------------------------
 
@@ -408,7 +408,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `img_slider`
 --
 ALTER TABLE `img_slider`
-  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
@@ -418,7 +418,7 @@ ALTER TABLE `login_attempts`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `menu_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `users`
 --
