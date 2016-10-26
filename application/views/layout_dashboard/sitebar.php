@@ -46,7 +46,9 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo site_url("dashboard/menu"); ?>"><i class="fa fa-circle-o"></i>Add Menu</a></li>
-            <!-- Loop Data Here !-->
+          <?php foreach($result as $res):?>
+            <li><a href="<?php echo site_url("menu/getmenu/".$res->menu_id); ?>"><i class="fa fa-circle-o"></i><?php echo $res->menu_name;?></a></li>
+          <?php endforeach; ?>
           </ul>
         </li>
 

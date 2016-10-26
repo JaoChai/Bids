@@ -11,18 +11,20 @@
       <div class="box">
      <div class="box-body">
        <?php $att = array('class' => 'form-horizontal');
-       echo form_open('menu/insert', $att);
+       echo form_open('menu/update', $att);
        ?>
+       <input type="hidden" name="id" value="<?php echo $res->menu_id;?>">
+       <input name="redirect" type="hidden" value="<?= $this->uri->uri_string() ?>" />
        <div class="row">
          <div class="col-md-6">
            <div class="form-group">
              <label>Name Menu:</label>
-              <input type="text" class="form-control" id="namemenu" name="namemenu" value="">
+              <input type="text" class="form-control" id="namemenu" name="namemenu" value="<?php echo $res->menu_name;?>">
            </div>
 
            <div class="form-group">
              <label>Page Meta Tag (Description):</label>
-                <textarea class="form-control" rows="3" name="meta_des"></textarea>
+                <textarea class="form-control" rows="3" name="meta_des"><?php echo $res->menu_meta_des;?></textarea>
            </div>
 
          </div>
@@ -31,12 +33,12 @@
 
            <div class="form-group">
              <label>Page Site Title:</label>
-              <input type="text" class="form-control" id="site_title" name="site_title" value="">
+              <input type="text" class="form-control" id="site_title" name="site_title" value="<?php echo $res->menu_title;?>">
            </div>
 
            <div class="form-group">
              <label>Page Meta Tag (Keyword):</label>
-               <textarea class="form-control" rows="3" name="meta_key"></textarea>
+               <textarea class="form-control" rows="3" name="meta_key"><?php echo $res->menu_meta_key;?></textarea>
            </div>
 
          </div>
@@ -44,7 +46,7 @@
          <!-- Ckeditor !-->
 
              <textarea id="cke_editor1" name="cke_editor1" rows="10" cols="80">
-
+               <?php echo $res->menu_description;?>
              </textarea>
 
           <!-- End Ckeditor !-->

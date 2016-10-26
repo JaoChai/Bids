@@ -57,11 +57,14 @@ class dashboard extends CI_Controller {
 
   }
 
-  public function menu(){
+  public function menu()
+  {
+    $this->load->model("menu_model", "menu");
+    $data['result'] = $this->menu->getall();
     $this->load->view('layout_dashboard/header');
     $this->load->view('layout_dashboard/navbar');
-    $this->load->view('layout_dashboard/sitebar');
-    $this->load->view('dashboard/menu');
+    $this->load->view('layout_dashboard/sitebar', $data);
+    $this->load->view('dashboard/menu', $data);
     $this->load->view('layout_dashboard/footer');
 
   }

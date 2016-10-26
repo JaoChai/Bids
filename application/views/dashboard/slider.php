@@ -45,14 +45,14 @@
 
              <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-                <tr>
-                  <thead>
+                <thead>
+                  <tr>
                   <th>No</th>
                   <th>Name</th>
                   <th>Picture</th>
                   <th>Action</th>
-                  </thead>
-                </tr>
+                  </tr>
+                </thead>
                 <tbody>
                   <?php $num = 1;
                   foreach($result as $res): ?>
