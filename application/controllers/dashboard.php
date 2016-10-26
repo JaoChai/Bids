@@ -66,5 +66,23 @@ class dashboard extends CI_Controller {
 
   }
 
+  public function category(){
+    $this->load->view('layout_dashboard/header');
+    $this->load->view('layout_dashboard/navbar');
+    $this->load->view('layout_dashboard/sitebar');
+    $this->load->view('dashboard/category');
+    $this->load->view('layout_dashboard/footer');
+
+  }
+
+  public function bidpackage(){
+    $this->load->view('layout_dashboard/header');
+    $this->load->view('layout_dashboard/navbar');
+    $this->load->view('layout_dashboard/sitebar');
+    $this->load->view('dashboard/bidpackage');
+    $this->load->view('layout_dashboard/footer');
+
+  }
+
 
 }
