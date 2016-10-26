@@ -24,7 +24,6 @@ class dashboard extends CI_Controller {
 
   public function setting()
   {
-
     $this->load->model("setting_model", "setting");
     $data['result'] = $this->setting->getall();
     $this->load->view('layout_dashboard/header');
@@ -81,7 +80,14 @@ class dashboard extends CI_Controller {
     $this->load->view('layout_dashboard/sitebar');
     $this->load->view('dashboard/bidpackage');
     $this->load->view('layout_dashboard/footer');
+  }
 
+  public function openpenny(){
+    $this->load->view('layout_dashboard/header');
+    $this->load->view('layout_dashboard/navbar');
+    $this->load->view('layout_dashboard/sitebar');
+    $this->load->view('dashboard/openpenny');
+    $this->load->view('layout_dashboard/footer');
   }
 
 
