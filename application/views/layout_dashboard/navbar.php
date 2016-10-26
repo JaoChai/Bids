@@ -16,11 +16,12 @@
      </a>
 
      <div class="navbar-custom-menu">
+       <?php $session_data = $this->session->userdata('logged_in'); ?>
          <ul class="nav navbar-nav">
          <li class="dropdown user user-menu">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-             <img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-             <span class="hidden-xs">Alexander Pierce</span>
+             <img src="<?php echo base_url('uploads/'. $session_data['sess_img']); ?>" class="user-image" alt="User Image">
+             <span class="hidden-xs"><?php echo $session_data['sess_fname'] . " " . $session_data['sess_lname'];?></span>
            </a>
          <li>
              <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo site_url("dashboard/logout");?>">

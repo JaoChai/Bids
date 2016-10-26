@@ -1,11 +1,12 @@
 <aside class="main-sidebar">
     <section class="sidebar">
       <div class="user-panel">
+        <?php $session_data = $this->session->userdata('logged_in'); ?>
         <div class="pull-left image">
-          <img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url('uploads/'. $session_data['sess_img']); ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?php echo $session_data['sess_fname'] . " " . $session_data['sess_lname'];?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -46,9 +47,14 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo site_url("dashboard/menu"); ?>"><i class="fa fa-circle-o"></i>Add Menu</a></li>
-          <?php foreach($result as $res):?>
-            <li><a href="<?php echo site_url("menu/getmenu/".$res->menu_id); ?>"><i class="fa fa-circle-o"></i><?php echo $res->menu_name;?></a></li>
-          <?php endforeach; ?>
+
+            <?php $sql = "SELECT * FROM menu";
+              $query = $this->db->query($sql);
+              if($query->num_rows() > 0){
+              foreach($query->result() as $row){ ?>
+              <li><a href="<?php echo site_url("menu/getmenu/".$row->menu_id);?>"><?php echo $row->menu_name;?></a></li>
+              <?php }
+              }?>
           </ul>
         </li>
 
@@ -99,6 +105,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo site_url("dashboard/openpenny"); ?>"><i class="fa fa-circle-o"></i>Open Auction</a></li>
+            <li><a href="<?php echo site_url("dashboard/openpenny"); ?>"><i class="fa fa-circle-o"></i>List Auction</a></li>
           </ul>
         </li>
 

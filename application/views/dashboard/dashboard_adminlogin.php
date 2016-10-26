@@ -26,16 +26,16 @@
 
       <form action="" method="post">
         <div class="form-group has-feedback">
-          <input type="username" class="form-control" placeholder="Username">
+          <input type="username" class="form-control" placeholder="Username" name="identity" id="identity">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
           <div class="col-xs-8">
-
+            <div id="infoMessage"><?php echo $message;?></div>
           </div>
           <!-- /.col -->
           <div class="col-xs-4">

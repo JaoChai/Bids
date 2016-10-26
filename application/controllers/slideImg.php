@@ -28,7 +28,7 @@ class slideImg extends CI_Controller {
       $error = array('error' => $this->upload->display_errors());
 			$data['result'] = $this->slide->getall();
 			$this->load->vars($data);
-
+      
       $this->load->view('layout_dashboard/header');
       $this->load->view('layout_dashboard/navbar');
       $this->load->view('layout_dashboard/sitebar');
