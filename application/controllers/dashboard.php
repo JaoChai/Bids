@@ -189,14 +189,25 @@ class dashboard extends CI_Controller {
     $this->load->view('layout_dashboard/footer');
   }
 
-  public function openpenny(){
+  public function openpenny()
+  {
     $this->load->model("auction_model", "auction");
-    $data['result'] = $this->auction->getall();
     $data['getcate'] = $this->auction->getcate();
     $this->load->view('layout_dashboard/header');
     $this->load->view('layout_dashboard/navbar');
     $this->load->view('layout_dashboard/sitebar');
     $this->load->view('dashboard/openpenny', $data);
+    $this->load->view('layout_dashboard/footer');
+  }
+
+  public function auction_list()
+  {
+    $this->load->model("auction_model", "auction");
+    $data['result'] = $this->auction->getall();
+    $this->load->view('layout_dashboard/header');
+    $this->load->view('layout_dashboard/navbar');
+    $this->load->view('layout_dashboard/sitebar');
+    $this->load->view('dashboard/auction_list', $data);
     $this->load->view('layout_dashboard/footer');
   }
 

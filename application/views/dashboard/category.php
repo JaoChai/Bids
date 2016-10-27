@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Seting Category
+      Setting Category
     </h1>
   </section>
 
@@ -90,7 +90,7 @@
       </div>
      </div>
     </div>
-    </div>
-  </div>
+
 
   </section>
+  </div>

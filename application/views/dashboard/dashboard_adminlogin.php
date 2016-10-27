@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +26,7 @@
         echo 'Variable is set';
       }else{
         echo 'Variable is not set';
+
       } ?>
       <form action="" method="post">
         <div class="form-group has-feedback">
@@ -52,7 +52,6 @@
     </div>
     <!-- /.login-box-body -->
   </div>
-
 
 
 </body>
