@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -342,358 +343,375 @@
 				      </div>
 				  </div>
 				</div>
+=======
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:keywords" content="">
+    <meta property="og:type" content="website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BidCups เว็บประมูลออนไลน์</title>
+>>>>>>> origin/master
 
-        <div class="container">
-					<div class="row">
-						<div class="col-sm-6">
-							<a href="#"><img class="img-responsive" src="<?php echo base_url();?>assets/home/images/banner-howtobid-th-01.png"></a>
-						</div>
-						<div class="col-sm-6">
-							<a href="#"><img class="img-responsive" src="<?php echo base_url();?>assets/home/images/banner-winners-th-01.png"></a>
-						</div>
-					</div>
-				</div>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/font-awesome.css">
 
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/owl.carousel.css">
 
-  <div class="bidnow_row">
-        <div class="content_middlebg">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/bootstrap-select.css">
 
-                <div class="bidnow_content" id="content_container">
-                	<div class="bidnow_content_top_image"></div>
-                    <div class="bidnow_content_middle_image" id="content_container">
-                    	<span class='pageloadermain'></span>
-                        <span class='pageloaderinner'><span class='pageloader'></span></span>
-                    	<input type="hidden" name="CurrentPageNo" id="CurrentPageNo" value="1" />
-                        <input type="hidden" name="CurrentCatID" id="CurrentCatID" value="0" />
-                        <input type="hidden" name="AuctionSearchTxt" id="AuctionSearchTxt" value="" />
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/owl.theme.default.css">
 
-                <div class="auction-item" title="4483" id="auction_4483"></div>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/style.teal.flat.css">
 
-								<div class="main_bidnow_box" id="auction_balloon_4483" >
-                                	<input type="hidden" id="index_inner_auction_flag_4483" value="1" />
-                                    <input type="hidden" id="index_inner_auction_4483" value="1" />
-                                    <!--<div class="main_bidnow_topbg_image"></div>-->
-                                    <div class="main_bidnow_middle">
-                                        <!--<div class="main_bidnow_leftbg_image">&nbsp;</div>-->
-                                        <!--<div class="main_bidnow_middlebg">-->
-                                        	<!--<div class="main_bidnow_area" onmouseover="showbidmoresavemore('4483');" onmouseout="showbidmoresavemorehide('4483');">-->
-                                            <div class="main_bidnow_area">
-                                                <div class="main_bidnow_product_image_box">
-													                                <div class="main_bidnow_product_image"><a href="#"><img src="<?php echo base_url();?>assets/home/images/thumbbig_f0a619064cfbce69b2f468f861b65bcc.jpg"  border="0" alt="" /></a></div>
-                                                </div>
-                                                <div class="main_bidnow_title">
-                                                    <a href="productdetails.php?aid=4483">Remax Sport Magnet Bluetooth Headset</a>
-													<!--<a href="productdetails.php?aid=4483">Remax Sport Magnet Bluetooth Headset</a>-->
-                                                </div>
-                                                <!-- <div class="timeleft_title">ลดจากราคา <span class="marketprice_linethrough"><span>฿990</span></span></div> -->
-                                                <div class="main_bidnow_price_inner" align="center"><div class="main_bidnow_price" id="price_index_page_main_4483"><span id="currencysymbol_4483"></span><span id="price_index_page_4483"></span></div></div>
+  </head>
 
-                                                <div class="main_bidnow_bidder"><span id="product_bidder_4483"></span></div>
+  <body>
 
-                                                <!-- <div class="main_bidnow_auction_type_edge bidmultipliericon"><img src="images/icon-bidbooster.png" title="Bid Booster"></div> -->
-
-                                                <div class="main_bidnow_timer"><span id="counter_index_page_4483"><script language="javascript" type="text/javascript">document.getElementById("counter_index_page_4483").innerHTML = calc_counter_from_time("4");</script></span></div>
-                                                <div class="auction-boxes-row">
-                                                    <div class="normal_text_boxes" style="height:17px;">
-                                                    	<span id="normal_text_bid_info_enable_4483" style="display:none;top: -2px;position: relative;">
-                                                    		จบ&nbsp;วันนี้                                                    	</span>
-    													                            <!-- <span id="every_bid_resets_clock_txt_4483" style="display:inline-block;top: -2px;position: relative;">ทุก Bid เพิ่ม 10วิ</span> -->
-                                                        <input type="hidden" id="auction_resets_clock_txt_flag_4483" value="1" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="main_bidnow_button">
-
-                                                    			<!-- <img src="images/thai/bidbtn-sml.png" onmouseover="this.src='images/thai/loginbtn-sml_hover.png'" onmouseout="this.src='images/thai/bidbtn-sml.png'" border="0" style="cursor: pointer;"  onclick="window.location.href='login.php'" id="image_main_4483" alt="" /> -->
-		                                                    <button class="btn btn-bid btn-sml" onclick="window.location.href='login.php'" id="image_main_4483" alt="Bid">Bid <span class="badge bidmulti">x1</span></button>
-
-                                                  </div>
-                                            </div>
-
-                                            		<div class="main_buynow_area">
-                                                     <div class="auction_disount_belt_main">หรือซื้อทันที BidCups ลดให้<span class="auction_disount_belt">30%</span></div>
-                                                    <div class="auction_bid_rebate_amount_main">ลดเพิ่มจาก Bid ที่ใช้ไป&nbsp;<span class="auction_bid_rebate_amount">฿<span id="index_buynow_placebids_price_4483">0</span></span><div class="auction_bid_rebate_amount_payonly">จ่ายเพียง</div>
-                                                    <span id="index_buynow_placebids_price_hid_4483" style="display:none;">0.00</span>
-                                                </div>
-
-
-                                                  <div class="auction-boxes-row">
-
-                                                        <!-- <div class="auction_saving_price-det">฿<span id="index_buynow_price_savings_4483"></span></div> -->
-
-
-                                                    </div>
-
-
-                                                                                                    <div class="auction-boxes-row" style="padding-top: 10px">
-                                                    	<!-- <img src="images/thai/buynowbtn-sml.png" onmouseover="this.src='images/thai/loginbtn-sml_hover.png'" onmouseout="this.src='images/thai/buynowbtn-sml.png'" onclick="window.location.href='login.php'" style="cursor: pointer" /> -->
-                                                    	<span class="btn btn-buy btn-sml" onclick="window.location.href='login.php'">Buy Now</span>
-                                                    </div>
-                                                                                                </div>
-                                            											                                        </div>
-                                    <div class="clear"></div>
-
-                                </div>
-
-
-
-
-
-
-<div class="clear"></div>
-</div>
-
-
-
-<!-- Category Wise Product Start -->
-<div class="leftside"></div>
-						<!-- Category Wise Product End (deepak) -->
-    <div class="clear"></div>
-        <div class="block"><a href="/register?src=homebnr"><img src="<?php echo base_url();?>assets/home/images/banner-register-th-04.png" /></a></div>
-	      <div class="clear">&nbsp;</div>
-   </div>
-
-   <div class="rightside">
-               <!-- End Meet Winner -->
-   <!-- End Winner -->
-
-   <!-- Bidpack Start -->
-   <div class="bidpack_main_box">
-                 <!--<div class="bidpack_detail_topbg">&nbsp;</div>-->
-                 <div class="bidpack_detail_middlebg">
-                   <div class="bidpack_header">
-                     <!--<div class="bidpack_header_leftbg">&nbsp;</div>-->
-                     <div class="bidpack_header_middlebg">Bid Pack</div>
-                     <!--<div class="bidpack_header_rightbg">&nbsp;</div>-->
-                   </div>
-                   <div class="bidpack_detail_box">
-                     <div class="bidpack_detail_leftbg">&nbsp;</div>
-                     <div class="bidpack_titlerow">
-                       <div class="title_bidpack">Bidpack</div>
-                       <div class="title_bidpackprice">ราคา</div>
-                       <div class="title_bidpacksavings">ประหยัด</div>
-                     </div>
-
-   				            <div class="bidpack_detail_row_odd">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
-                       <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=9">100&nbsp;Bids</a></div>
-                       <div class="bidpack_detail_price_odd">500฿</div>
-                       <div class="bidpack_detail_price_buy"><a href="buybids?pkg=9">Buy&raquo;</a></div>
-                     </div>
-
-   				                     <div class="bidpack_detail_row_even">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
-                       <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=10">200&nbsp;Bids</a></div>
-                       <div class="bidpack_detail_price_odd">1000฿</div>
-                       <div class="bidpack_detail_price_buy"><a href="buybids?pkg=10">Buy&raquo;</a></div>
-                     </div>
-
-
-   				                     <div class="bidpack_detail_row_odd">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
-                       <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=11">500&nbsp;Bids</a></div>
-                       <div class="bidpack_detail_price_odd">2500฿</div>
-                       <div class="bidpack_detail_price_buy"><a href="buybids?pkg=11">Buy&raquo;</a></div>
-                     </div>
-
-
-   				                     <div class="bidpack_detail_row_even">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
-                       <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=12">1000&nbsp;Bids</a></div>
-                       <div class="bidpack_detail_price_odd">5000฿</div>
-                       <div class="bidpack_detail_price_buy"><a href="buybids?pkg=12">Buy&raquo;</a></div>
-                     </div>
-
-   				                    <div class="bidpack_detail_rightbg">&nbsp;</div>
+    <!-- Top Header -->
+     <div class="top-header">
+       <div class="container">
+         <div class="row">
+           <div class="col-xs-12">
+             <ul class="list-inline pull-left">
+               <li class="hidden-xs"><a href="#"><i class="fa fa-phone"></i> +123-456-789</a></li>
+               <li class="hidden-xs"><a href="mailto:cs@domain.tld"><i class="fa fa-envelope"></i> cs@domain.tld</a></li>
+             </ul>
+             <ul class="list-inline pull-right">
+               <li class="hidden-xs"><a href="wishlist.html"><i class="fa fa-heart"></i> Wishlist (3)</a></li>
+               <li class="hidden-xs"><a href="compare.html"><i class="fa fa-align-left"></i> Compare (4)</a></li>
+               <li>
+                 <div class="dropdown">
+                   <button class="btn dropdown-toggle" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                     Login <span class="caret"></span>
+                   </button>
+                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-login" aria-labelledby="dropdownLogin" data-dropdown-in="zoomIn" data-dropdown-out="fadeOut">
+                     <form>
+                       <div class="form-group">
+                         <label for="username">Username</label>
+                         <input type="text" class="form-control" id="username" placeholder="Username">
+                       </div>
+                       <div class="form-group">
+                         <label for="password">Password</label>
+                         <input type="password" class="form-control" id="password" placeholder="Password">
+                       </div>
+                       <div class="checkbox">
+                         <label>
+                           <input type="checkbox"><span> Remember me</span>
+                         </label>
+                       </div>
+                       <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-long-arrow-right"></i> Login</button>
+                       <a class="btn btn-default btn-sm pull-right" href="register.html" role="button">I Want to Register</a>
+                     </form>
                    </div>
                  </div>
-                 <!--<div class="bidpack_detail_bottombg">&nbsp;</div>-->
-               </div>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- End Top Header -->
 
-   <!-- Bidpack End -->
-
-
-   <!--Auction Type Section Start Here-->
-			<div class="latestwin_detail_middlebg" style="margin-top:30px; border:none;"><a href="invite">
-       <img style="border: 1px solid;border-color: #e9eaed #dfe0e4 #d0d1d5;border-radius: 4px;" src="<?php echo base_url();?>assets/home/images/refer_friends-02.png" /></a></div>
-			<div class="auctiontype_main_box">
-                <div class="auctiontype_header">
-                  <!--<div class="bidpack_header_leftbg">&nbsp;</div>-->
-                  <div class="auctiontype_header_middlebg">Auction Types</div>
-                  <!--<div class="bidpack_header_rightbg">&nbsp;</div>-->
-                </div>
-                <div class="auctiontype_detail_box" style="min-height: 255px;">
-
-                          <div class="auctiontype_detail_row" >
-                            <div class="auctiontype_detail_icon"><img src="<?php echo base_url();?>assets/home/images/buynow_2.png" title="สามารถซื้อสินค้าได้" /></div>
-                            <div class="auctiontype_detail_title">สามารถซื้อสินค้าได้</div>
-                          </div>
-
-                          <div class="auctiontype_detail_row" >
-                            <div class="auctiontype_detail_icon"><img src="<?php echo base_url();?>assets/home/images/beginner_2.png" title="Beginner Only" /></div>
-                            <div class="auctiontype_detail_title">Beginner Only</div>
-                          </div>
-
-                          <div class="auctiontype_detail_row" >
-                            <div class="auctiontype_detail_icon"><img src="<?php echo base_url();?>assets/home/images/icon-clickbattle-sml.png" title="Click Battle" /></div>
-                            <div class="auctiontype_detail_title">Click Battle</div>
-                          </div>
-
-						<div class="auctiontype_detail_row" >
-                            <div class="auctiontype_detail_icon"><img src="<?php echo base_url();?>assets/home/images/night_2.png" title="ประมูล 24 ชั่วโมง" /></div>
-                            <div class="auctiontype_detail_title">ประมูล 24 ชั่วโมง</div>
-                          </div>
-
-                      <div class="auctiontype_detail_row" >
-                            <div class="auctiontype_detail_icon">&nbsp;</div>
-                            <div class="auctiontype_detail_title"><span class="more_popup">ดูรายละเอียด<span></div>
-                          </div>
-
-                  <div class="bidpack_detail_rightbg">&nbsp;</div>
-                </div>
-              <div class="bidpack_detail_bottombg">&nbsp;</div>
+     <!-- Middle Header -->
+    <div class="middle-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 logo">
+            <a href="index.html"><img alt="Logo" src="<?php echo base_url();?>assets/home/images/logo-bid.png" class="img-responsive" /></a>
+          </div>
+          <div class="col-sm-8 col-md-6 search-box m-t-2">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Search here..." placeholder="Search here...">
+               <div class="input-group-btn">
+                <button type="button" class="btn btn-default btn-search"><i class="fa fa-search"></i></button>
+              </div>
             </div>
-<!--Auction Type Section End Here-->
-</div>
-
-<div class="banner-bottom-main">
-          <div class="featurebadge">
-
-  <img src="<?php echo base_url();?>assets/home/images/icon-delivery-02.png" border="0" title="#">
-<p>เราแพ็คด้วยใจ จัดส่งถึงมือภายใน 3 วันทำการ*</p>
-        </div>
-            <div class="featurebadge">
-
-  <img src="<?php echo base_url();?>assets/home/images/icon-secure-02.png" border="0">
-<p>ชำระเงินผ่านระบบที่มีความปลอดภัยมาตรฐาน SSL (มาตรฐานเดียวกับสถาบันทางการเงิน) </p>
-        </div>
-            <div class="featurebadge">
-
-  <img src="<?php echo base_url();?>assets/home/images/icon-warranty-02.png" border="0">
-<p>รับประกันสินค้าทุกชิ้น มีปัญหาเปลี่ยนได้ทันทีภายใน 7 วัน</p>
-        </div>
-<div class="featurebadge">
-
-  <img src="<?php echo base_url();?>assets/home/images/icon-support-02.png" border="0">
-  <p>มีทีมงานดูแลตลอด 7 วัน หากมีปัญหา ติดต่อเราทันที</p>
-
-</div>
-
-</div>
-</div>
-
-<div id="banner-sub" class="banner_main_box" style="margin-top: 15px; margin-bottom: 15px; min-height: 0;">
-    	<div class="banner" style="min-height: 0;">
-		      <a href='#'><img src="<?php echo base_url();?>assets/home/images/5-D-points-1040x218-3.png" style="width: 100%;" /></a>
-	    </div>
-	</div>
-
-  <div class="clearfix"></div>
-  <aside id="paymentmethods">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <ul>
-                <li>
-                    <img src="<?php echo base_url();?>assets/home/images/01.png">
-                </li>
-                <li>
-        <!-- <script type="text/javascript">
-        function verifySeal() {
-        var bgHeight = "460";
-        var bgWidth = "593";
-        var url = "https:\/\/seal.godaddy.com\/verifySeal?sealID=CAIyHisel1UfdS00KDh93FjpdMGbag9tBqStk3NetmRvWeDg0w5uC";
-        window.open(url,'SealVerfication','menubar=no,toolbar=no,personalbar=no,location=yes,status=no,resizable=yes,fullscreen=no,scrollbars=no,width=' + bgWidth + ',height=' + bgHeight);
-      }
-        </script>
-        <span id="siteseal"><img style="cursor:pointer;cursor:hand" src="https://seal.godaddy.com/images/3/en/siteseal_gd_3_h_d_m.gif" onclick="verifySeal();" alt="SSL site seal - click to verify"></span></li>
-      </ul> -->
-            <div class="clearfix"></div>
+          </div>
         </div>
       </div>
     </div>
-  </aside>
-<div class="clearfix"></div>
+    <!-- End Middle Header -->
 
-<footer>
-      <div class="container" id="footer-content">
-        <div class="row">
-           <div class="col-md-2" id="footer-quicklinks">
-            <h4>Quick Links </h4>
-            <ul>
-              <li><a href="/register?src=ftr">สมัครเลย!</a></li>
-              <li><a href="/howitworks?src=ftr">BidCups คืออะไร</a></li>
-              <li><a href="/?src=ftr">สินค้าประมูล</a></li>
-              <li><a href="/winners?src=ftr">คำฝากจากผู้ชนะ</a></li>
-              <li><a href="/howtowin?src=ftr">Bid ยังไงให้ชนะ</a></li>
-              <li><a href="/items?aid=3&amp;src=ftr">ประมูลที่ผ่านมา</a></li>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default shadow-navbar" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Home</a></li>
             </ul>
           </div>
-  		       <div class="col-xs-6 col-sm-2" id="footer-about">
-              <h4>About</h4>
-              <ul>
-                <li><a href="/aboutus?src=ftr">เกี่ยวกับเรา</a></li>
-                <li><a href="/news?src=ftr">ข่าวประชาสัมพันธ์</a></li>
-                <li><a href="/privacy?src=ftr">นโยบาย</a></li>
-              </ul>
-            </div>
-            <div class="col-xs-12 col-sm-2" id="footer-support">
-              <h4>Support</h4>
-              <ul>
-                <li><a href="/help?src=ftr">ช่วยเหลือ</a></li>
-                <li><a href="/howitworks?src=ftr">ใช้งานยังไง</a></li>
-                <li><a href="/contact?src=ftr">Customer Support / ติดต่อเรา</a></li>
-                <li><a href="/siterules?src=ftr">กฎทางเว็บไซต์</a></li>
-                <li><a href="/terms?src=ftr">ข้อตกลงและเงื่อนไข</a></li>
+      </div>
+    </nav>
+    <!-- End Navigation Bar -->
 
-              </ul>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-offset-1 col-md-3" id="footer-contact">
-              <h4>มีคำถามค้างอยู่ในหัว?</h4>
-              <ul class="contactchannels">
-                <li class="i-call"><a class="btn btn-border" href="tel:0944040555">โทร 094-1234-1234</a></li>
-                <li class="i-email"><a href="#" class="btn btn-border">เมลมาที่ support@bidcups.com</a></li>
-                <li class="i-fb"><a href="#" class="btn btn-border">แชทผ่าน Facebook Message</a></li>
-                <li class="i-line"><a href="#" class="btn btn-border">คุยผ่าน LINE@ → BidCups</a></li>
-              </ul>
-            </div>
-            <!-- <div class="col-xs-12 col-sm-2" id="mascot"><img src="images/footer-logo-01.png" alt="I'm your friend at Dinoza" class="img-responsive center-block"></div> -->
-            <div class="clearfix"></div>
-          </div>
-      </div> <!-- /container -->
-    </footer>
+    <!-- Full Slider -->
+   <div class="container-fluid">
+     <div class="row">
+       <div class="slider home-slider">
+         <div class="item">
+           <a href="products.html"><img src="http://www.grehon.com/mimity/v2.1/images/demo/slide-3-full.jpg" alt="Slider"></a>
+         </div>
+       </div>
+     </div>
+   </div>
 
-  <div id="copyright" class="small">&copy; 2016 BidCups Online Co., Ltd. All rights reserved.</div>
+        <!-- Main Content -->
+    <div class="container m-t-2">
+      <div class="row">
 
-		<div class="overlay_dinoza" id="overlay_dinoza" style="display:none;"></div>
-
-        <div class="prd_rebat_overlay_dinoza" id="prd_rebat_overlay_dinoza" style="display:none;"></div>
-        <div class="prd_rebat_box_dinoza" id="prd_rebat_box_dinoza">
-            <div class="prd_rebat_box_content">
-            	<div class="prd_rebat_box_row">คุณได้ใช้ bid เท่าราคาสินค้าแล้วครับ สามารถซื้อฟรีได้เลย</div>
-                <div class="prd_rebat_box_row"><br /><button class="prd_rebat_box_button" onclick="prd_rebat_box_close();">ตกลง</button></div>
-            </div>
+        <div class ="col-sm-6">
+            <a href="">
+              <img class="img-responsive" src="<?php echo base_url();?>assets/home/images/banner-howtobid-th-01.png">
+            </a>
         </div>
 
+        <div class ="col-sm-6">
+          <a href="">
+            <img class="img-responsive" src="<?php echo base_url();?>assets/home/images/banner-winners-th-01.png">
+          </a>
+        </div>
 
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/function.js" type="text/javascript"></script>
-<script language="Javascript" src="<?php echo base_url();?>assets/home/js/hesk_javascript.js" type="text/javascript" ></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/allfunction.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery-1.11.3.min.js" type="text/javascript" ></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery-ui.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.bgColor.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/default.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jqModal.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/bootstrap.min.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/owl.carousel.min.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/bootstrap-modalmanager.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/bootstrap-modal.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.countdown.min.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.noty.packaged.min.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/common.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.autocomplete.js" type="text/javascript"></script>
-<script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.color.js" type="text/javascript"></script>
+      <div class="col-md-12">
+        <div class="title"><span>Product Auction</span></div>
+          <!-- Loop Product !-->
+          <div class="col-sm-4 col-md-3 box-product-outer">
+            <div class="box-product">
+              <div class="img-wrapper">
 
- </body>
+                <a href="#">
+                  <img alt="Product" src="http://www.grehon.com/mimity/v2.1/images/demo/polo1.jpg">
+                </a>
+
+                <div class="tags">
+                  <span class="label-tags"><span class="label label-default arrowed">Featured</span></span>
+                </div>
+                <div class="tags tags-left">
+                  <span class="label-tags"><span class="label label-danger arrowed-right">Sale</span></span>
+                </div>
+
+              </div>
+
+              <h4><a href="detail.html">IncultGeo Print Polo T-Shirt</a></h4>
+
+              <div class="price">
+               <div>$15.00</div>
+             </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-sm-4 col-md-3 box-product-outer">
+            <div class="box-product">
+              <div class="img-wrapper">
+
+                <a href="#">
+                  <img alt="Product" src="http://www.grehon.com/mimity/v2.1/images/demo/polo1.jpg">
+                </a>
+
+                <div class="tags">
+                  <span class="label-tags"><span class="label label-default arrowed">Featured</span></span>
+                </div>
+                <div class="tags tags-left">
+                  <span class="label-tags"><span class="label label-danger arrowed-right">Sale</span></span>
+                </div>
+
+              </div>
+
+              <h4><a href="detail.html">IncultGeo Print Polo T-Shirt</a></h4>
+
+              <div class="price">
+               <div>$15.00</div>
+             </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-md-3 box-product-outer">
+            <div class="box-product">
+              <div class="img-wrapper">
+
+                <a href="#">
+                  <img alt="Product" src="http://www.grehon.com/mimity/v2.1/images/demo/polo1.jpg">
+                </a>
+
+                <div class="tags">
+                  <span class="label-tags"><span class="label label-default arrowed">Featured</span></span>
+                </div>
+                <div class="tags tags-left">
+                  <span class="label-tags"><span class="label label-danger arrowed-right">Sale</span></span>
+                </div>
+
+              </div>
+
+              <h4><a href="detail.html">IncultGeo Print Polo T-Shirt</a></h4>
+
+              <div class="price">
+               <div>$15.00</div>
+             </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-md-3 box-product-outer">
+            <div class="box-product">
+              <div class="img-wrapper">
+
+                <a href="#">
+                  <img alt="Product" src="http://www.grehon.com/mimity/v2.1/images/demo/polo1.jpg">
+                </a>
+
+                <div class="tags">
+                  <span class="label-tags"><span class="label label-default arrowed">Featured</span></span>
+                </div>
+                <div class="tags tags-left">
+                  <span class="label-tags"><span class="label label-danger arrowed-right">Sale</span></span>
+                </div>
+
+              </div>
+
+              <h4><a href="detail.html">IncultGeo Print Polo T-Shirt</a></h4>
+
+              <div class="price">
+               <div>$15.00</div>
+             </div>
+            </div>
+          </div>
+          <!-- End Loop Product !-->
+      </div>
+
+        <div class="block col-md-2 col-md-offset-1">
+            <img alt="Product" src="<?php echo base_url();?>assets/home/images/banner-register-th-04.png">
+        </div>
+    </div>
+
+    <div class ="clear"></div>
+      <!-- Brand & Clients -->
+           <div class="col-sm-10">
+             <div class="brand-slider">
+                <div class="brand">
+                  <img src="http://www.grehon.com/mimity/v2.1/images/demo/brand1.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    <!-- Brand !-->
+
+
+  <!-- Footer -->
+      <div class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>About Us</span></div>
+              <ul>
+                <li>
+                  Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et doloremmagna aliqua. Ut enim ad minim... <a href="#">Read More</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>Information</span></div>
+              <ul>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Policy Privacy</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Terms and Conditions</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Shipping Methods</a></li>
+              </ul>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>Categories</span></div>
+              <ul>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Cras justo odio</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Dapibus ac facilisis in</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Morbi leo risus</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Porta ac consectetur ac</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>Newsletter</span></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, soluta, tempora, ipsa voluptatibus porro vel laboriosam</p>
+              <div class="input-group">
+                <input class="form-control" type="text" placeholder="Email Address">
+                <span class="input-group-btn">
+                  <button class="btn btn-default subscribe-button" type="button">Subscribe</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>Our Store</span></div>
+              <ul class="footer-icon">
+                <li><span><i class="fa fa-map-marker"></i></span> 212 Lorem Ipsum. Dolor Sit, Amet</li>
+                <li><span><i class="fa fa-phone"></i></span> +123-456-789</li>
+                <li><span><i class="fa fa-envelope"></i></span> <a href="mailto:cs@domain.tld">cs@domain.tld</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>Follow Us</span></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum</p>
+              <ul class="follow-us">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+              </ul>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>Payment Method</span></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, soluta, tempora, ipsa voluptatibus porro vel laboriosam</p>
+              <img src="images/payment-1.png" alt="Payment-1">
+              <img src="images/payment-2.png" alt="Payment-2">
+              <img src="images/payment-3.png" alt="Payment-3">
+              <img src="images/payment-4.png" alt="Payment-4">
+              <img src="images/payment-5.png" alt="Payment-5">
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="title-footer"><span>My Account</span></div>
+              <ul>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Orders</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Vouchers</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Points</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="text-center copyright">
+          Copyright &copy; 2016 Mimity All right reserved
+        </div>
+      </div>
+      <!-- End Footer -->
+
+
+
+
+  <script src="<?php echo base_url();?>assets/home/js/jquery-1.11.3.min.js"></script>
+  <script src="<?php echo base_url();?>assets/home/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url();?>assets/home/js/owl.carousel.js"></script>
+  <script src="<?php echo base_url();?>assets/home/js/bootstrap-select.js"></script>
+
+
+</body>
 </html>
