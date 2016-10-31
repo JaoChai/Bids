@@ -169,12 +169,11 @@
                  <ul class="nav navbar-nav">
              <li><a href="#">ประมูล</a></li>
              <li><a href="#">Shop</a></li>
-             <li><a href="#">ผู้ชนะประมูล</a></li>
            </ul>
            <ul class="nav navbar-nav navbar-right">
-             <li><a href="#">ครั้งแรกที่ BidCups?</a></li>
-             <li><a href="#">BidCupsคืออะไร</a></li>
-             <li><a href="#">ช่วยเหลือ</a></li>
+						 <?php foreach($menu as $rs): ?>
+						 <li><a href="#"><?php echo $rs->menu_name;?></a></li>
+					 <?php endforeach;?>
            </ul>
 
      </div><!--/.nav-collapse -->

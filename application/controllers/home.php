@@ -2,9 +2,14 @@
 
 class home extends CI_Controller {
 
+	public function __construct() {
+			 parent::__construct();
+			 $this->load->model("menu_model", "menu");
+}
 
 	public function index()
 	{
-		$this->load->view('home');
+		$data['menu'] = $this->menu->getmenufont();
+		$this->load->view('home', $data);
 	}
 }

@@ -211,6 +211,17 @@ class dashboard extends CI_Controller {
     $this->load->view('layout_dashboard/footer');
   }
 
+  public function review()
+  {
+    $this->load->model("review_model", "review");
+    $data['result'] = $this->review->getall();
+    $this->load->view('layout_dashboard/header');
+    $this->load->view('layout_dashboard/navbar');
+    $this->load->view('layout_dashboard/sitebar');
+    $this->load->view('dashboard/review', $data);
+    $this->load->view('layout_dashboard/footer');
+  }
+
   public function _render_page($view, $data=null, $returnhtml=false)//I think this makes more sense
   {
 	   $this->viewdata = (empty($data)) ? $this->data: $data;

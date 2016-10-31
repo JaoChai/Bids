@@ -17,6 +17,18 @@ class menu_model extends CI_Model {
      }
    }
 
+   public function getmenufont()
+   {
+     $this->db->select('menu_name');
+     $this->db->from('menu');
+     //$this->db->where('menu_name', 'ผู้ชนะประมูล');
+     $this->db->limit(1, 2);
+     $query = $this->db->get();
+     if($query->num_rows() > 0)
+     {
+       return $query->result();
+     }
+   }
    public function getmenu($id)
    {
      $this->db->select("*");
