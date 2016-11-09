@@ -142,14 +142,14 @@
         <div class="banner-bottom-main">
           <div class="featurebadge">
 
-            <img src="<?php echo base_url();?>assets/home/images/icon-delivery-02.png"  class="img-responsive" border="0" title="https://www.bidcups.com">
+            <img src="<?php echo base_url();?>assets/home/images/icon-delivery-02.png"  border="0" title="https://www.bidcups.com">
             <p>เราแพ็คด้วยใจ จัดส่งถึงมือ </p> ภายใน 3 วันทำการ
 
           </div>
 
           <div class="featurebadge">
 
-            <img src="<?php echo base_url();?>assets/home/images/icon-secure-02.png"  class="img-responsive" border="0">
+            <img src="<?php echo base_url();?>assets/home/images/icon-secure-02.png"  border="0">
 
             <p>ชำระเงินผ่านระบบที่มีความปลอดภัยมาตรฐาน SSL (มาตรฐานเดียวกับสถาบันทางการเงิน) </p>
 
@@ -157,7 +157,7 @@
 
          <div class="featurebadge">
 
-           <img src="<?php echo base_url();?>assets/home/images/icon-warranty-02.png"  class="img-responsive" border="0">
+           <img src="<?php echo base_url();?>assets/home/images/icon-warranty-02.png"  border="0">
 
            <p>รับประกันสินค้าทุกชิ้น มีปัญหาเปลี่ยนได้ทันทีภายใน 7 วัน</p>
 
@@ -165,7 +165,7 @@
 
         <div class="featurebadge">
 
-          <img src="<?php echo base_url();?>assets/home/images/icon-support-02.png"  class="img-responsive" border="0">
+          <img src="<?php echo base_url();?>assets/home/images/icon-support-02.png"  border="0">
           <p>มีทีมงานดูแลตลอด 7 วัน หากมีปัญหา ติดต่อเราทันที</p>
 
         </div>
