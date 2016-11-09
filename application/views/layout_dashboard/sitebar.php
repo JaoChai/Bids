@@ -125,6 +125,18 @@
 
         <li>
           <a href="#">
+            <i class="fa fa-thumbs-o-up"></i> <span>Review</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo site_url("dashboard/review");?>"><i class="fa fa-circle-o"></i>Add Review</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">
             <i class="fa fa-line-chart"></i> <span>Report</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

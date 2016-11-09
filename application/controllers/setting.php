@@ -10,15 +10,16 @@ class setting extends CI_Controller {
 
    public function update()
    {
+    $conf['upload_path'] = "./uploads/icon/";
+ 		$conf['allowed_types'] = 'gif|jpg|png';
+    $conf['max_size'] = '2048000';
+    $conf['max_width'] = '';
+    $conf['max_height'] = '';
+    $conf['overwrite'] = 'TRUE';
+    $conf['remove_spaces'] = 'TRUE';
+
+     $this->load->library('upload', $conf);
      $config = array(
-        array(
-          "field" => "siteurl",
-          "label" => "Site URL",
-          "rules" =>"required",
-          'errors' => array(
-                        'required' => 'กรุณากรอก %s.',
-                )
-        ),
         array(
           "field" => "site_title",
           "label" => "Site Title",
@@ -122,10 +123,25 @@ class setting extends CI_Controller {
       if($this->form_validation->run() == FALSE){
         $data['result'] = $this->setting->getall();
         //$this->session->set_flashdata('alert', '<div class="alert">' . validation_errors() . '</div>');
+        $this->load->view('layout_dashboard/header');
+        $this->load->view('layout_dashboard/navbar');
+        $this->load->view('layout_dashboard/sitebar');
         $this->load->view('dashboard/setting', $data);
+        $this->load->view('layout_dashboard/footer');
       }else{
+           if(!$this->upload->do_upload()){
+             $data['error'] = $this->upload->display_errors();
+             $data['result'] = $this->setting->getall();
+             $this->load->view('layout_dashboard/header');
+             $this->load->view('layout_dashboard/navbar');
+             $this->load->view('layout_dashboard/sitebar');
+             $this->load->view('dashboard/setting', $data);
+             $this->load->view('layout_dashboard/footer');
+
+           }else{
+          //print_r($_FILES);
         $data = array(
-          "general_siteurl" => $this->input->post("siteurl"),
+          "general_logo" => $_FILES['userfile']['name'],
           "general_site_title" => $this->input->post("site_title"),
           "general_meta_des" => $this->input->post("meta_des"),
           "general_meta_key" => $this->input->post("meta_key"),
@@ -140,7 +156,9 @@ class setting extends CI_Controller {
           "general_google" => $this->input->post("google")
         );
         $this->setting->update($data);
+          }
+
         redirect("dashboard/setting");
-      }
+    }
    }
  }

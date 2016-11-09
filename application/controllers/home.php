@@ -2,9 +2,14 @@
 
 class home extends CI_Controller {
 
+	public function __construct() {
+			 parent::__construct();
+			 $this->load->model("menu_model", "menu");
+}
 
 	public function index()
 	{
+
 		$this->load->view('layout_home/header');
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');

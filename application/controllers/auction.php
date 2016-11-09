@@ -105,7 +105,7 @@ class auction extends CI_Controller {
      if(!$this->upload->do_upload()){
        $error = array('error' => $this->upload->display_errors());
        $this->load->view('dashboard/openpenny', $error);
-       }
+     }else{
      $data = array(
            "auc_cate_id" => $this->input->post('cate'),
            "auc_item_title" => $this->input->post('item_title'),
@@ -119,6 +119,7 @@ class auction extends CI_Controller {
          );
 
          $this->auction->insert($data);
+       }
          redirect('dashboard/openpenny');
        }
    }

@@ -11,7 +11,7 @@
          <!-- Horizontal Form -->
          <div class="box box-info">
            <?php $att = array('class' => 'form-horizontal');
-           echo form_open('setting/update', $att);
+           echo form_open_multipart('setting/update', $att);
            ?>
 
              <div class="box-header with-border">
@@ -20,9 +20,11 @@
              <div class="box-body">
 
                <div class="form-group">
-                 <label for="" class="col-sm-2 control-label">Site Url *</label>
+                 <label for="" class="col-sm-2 control-label">Logo</label>
                  <div class="col-sm-10">
-                   <input type="text" class="form-control" id="siteurl" name="siteurl" value="<?php echo $result->general_siteurl;?>">
+                  <img src="<?php echo base_url('uploads/icon/'. $result->general_logo); ?>" width="81" height="78">
+                  <input type="file" id="logo" name="userfile" value="<?php echo $result->general_logo;?>">
+                  <span class="text-danger"><?php if (isset($error)) { echo $error; } ?></span>
                  </div>
                </div>
 

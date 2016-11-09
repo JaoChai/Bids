@@ -1,6 +1,100 @@
+
 <div class="content_container">
     <div class="category-tab-main">
        <div class="category-tab-fix">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/font-awesome.css">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/owl.carousel.css">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/bootstrap-select.css">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/owl.theme.default.css">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/style.teal.flat.css">
+
+  </head>
+
+  <body>
+
+    <!-- Top Header -->
+     <div class="top-header">
+       <div class="container">
+         <div class="row">
+           <div class="col-xs-12">
+             <ul class="list-inline pull-left">
+               <li class="hidden-xs"><a href="#"><i class="fa fa-phone"></i> +123-456-789</a></li>
+               <li class="hidden-xs"><a href="mailto:cs@domain.tld"><i class="fa fa-envelope"></i> cs@domain.tld</a></li>
+             </ul>
+             <ul class="list-inline pull-right">
+               <li class="hidden-xs"><a href="wishlist.html"><i class="fa fa-heart"></i> Wishlist (3)</a></li>
+               <li class="hidden-xs"><a href="compare.html"><i class="fa fa-align-left"></i> Compare (4)</a></li>
+               <li>
+                 <div class="dropdown">
+                   <button class="btn dropdown-toggle" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                     Login <span class="caret"></span>
+                   </button>
+                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-login" aria-labelledby="dropdownLogin" data-dropdown-in="zoomIn" data-dropdown-out="fadeOut">
+                     <form>
+                       <div class="form-group">
+                         <label for="username">Username</label>
+                         <input type="text" class="form-control" id="username" placeholder="Username">
+                       </div>
+                       <div class="form-group">
+                         <label for="password">Password</label>
+                         <input type="password" class="form-control" id="password" placeholder="Password">
+                       </div>
+                       <div class="checkbox">
+                         <label>
+                           <input type="checkbox"><span> Remember me</span>
+                         </label>
+                       </div>
+                       <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-long-arrow-right"></i> Login</button>
+                       <a class="btn btn-default btn-sm pull-right" href="register.html" role="button">I Want to Register</a>
+                     </form>
+                   </div>
+                 </div>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- End Top Header -->
+
+     <!-- Middle Header -->
+    <div class="middle-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 logo">
+            <a href="index.html"><img alt="Logo" src="<?php echo base_url();?>assets/home/images/logo-bid.png" class="img-responsive" /></a>
+          </div>
+          <div class="col-sm-8 col-md-6 search-box m-t-2">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Search here..." placeholder="Search here...">
+               <div class="input-group-btn">
+                <button type="button" class="btn btn-default btn-search"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Middle Header -->
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default shadow-navbar" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+>>>>>>> origin/master
 
        </div>
     </div>
