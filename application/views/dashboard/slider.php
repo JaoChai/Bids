@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Seting Silder
+      Setting Silder
     </h1>
   </section>
 
@@ -15,7 +15,7 @@
            ?>
 
              <div class="box-header with-border">
-               <h3 class="box-title">Seting Silder</h3>
+               <h3 class="box-title">Setting Silder</h3>
              </div>
              <div class="box-body">
                <center>
@@ -75,3 +75,4 @@
            </div>
           </div>
   </section>
+</div>

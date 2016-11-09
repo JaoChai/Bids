@@ -75,7 +75,7 @@ class review extends CI_Controller {
            $dataimg = $this->upload->data();
            $data = array(
              "review_title" => $this->input->post('review_title'),
-             "review_img" => $_FILES['userfile']['name'],
+             "review_img" => $dataimg['file_name'],
              "review_imgpath" => $dataimg['full_path'],
              "review_name" => $this->input->post('review_name'),
              "review_pbid" => $this->input->post('review_pbid'),
@@ -186,7 +186,7 @@ class review extends CI_Controller {
 
    public function delete()
    {
-     $id = $this->input->post("id");
+    $id = $this->input->post("id");
 		$path = $this->input->post("path");
 
 		$this->review->delete($id, $path);

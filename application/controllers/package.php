@@ -87,7 +87,7 @@ class package extends CI_Controller {
       );
 
       $this->package->update($id, $data);
-      redirect($this->input->post('redirect'));
+      redirect('dashboard/bidpackage');
     }
    }
 
