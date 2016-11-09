@@ -21,4 +21,15 @@ class setting_model extends CI_Model {
    {
      $this->db->where("general_id", 1)->update("general_set", $ar);
    }
+
+   public function delete_admin($id, $path)
+   {
+     $this->db->where("id", $id)->delete("users");
+   if($this->db->affected_rows() >= 1){
+       if(unlink($path))
+       return TRUE;
+     } else {
+       return FALSE;
+     }
+   }
 }

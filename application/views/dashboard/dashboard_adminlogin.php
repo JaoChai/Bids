@@ -22,12 +22,6 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">Admin Please Login</p>
-      <?php if($this->session->userdata('logged_in') !== FALSE){
-        echo 'Variable is set';
-      }else{
-        echo 'Variable is not set';
-
-      } ?>
       <form action="" method="post">
         <div class="form-group has-feedback">
           <input type="username" class="form-control" placeholder="Username" name="identity" id="identity">

@@ -46,8 +46,8 @@ class review_model extends CI_Model {
    if($this->db->affected_rows() >= 1){
        if(unlink($path))
        return TRUE;
-   } else {
+     } else {
        return FALSE;
-   }
+     }
    }
 }

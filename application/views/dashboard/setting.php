@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Seting WebSite
+      Setting WebSite
     </h1>
   </section>
 
@@ -15,7 +15,7 @@
            ?>
 
              <div class="box-header with-border">
-               <h3 class="box-title">Seting WebSite</h3>
+               <h3 class="box-title">Setting WebSite</h3>
              </div>
              <div class="box-body">
 
@@ -128,7 +128,6 @@
              <!-- /.box-footer -->
            <?php echo form_close();?>
 
-           </form>
          </div>
 
   </section>

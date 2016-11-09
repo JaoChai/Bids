@@ -29,21 +29,23 @@ class dashboard extends CI_Controller {
 					// set the flash data error message if there is one
 					$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 					//list the users
-					$this->data['users'] = $this->ion_auth->users()->result();
-
-					foreach ($this->data['users'] as $k => $user)
-					{
+					//$this->data['users'] = $this->ion_auth->users()->row();
+          $user = $this->ion_auth->user()->row();
+          //$user_id = $user;
+					//foreach ($this->data['users'] as $k => $user)
+					//{
 						//$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-
+            //print_r($user);
 						$sess_array = array(
 							'sess_id' => $user->id,
 							'sess_fname' => $user->first_name,
 							'sess_lname' => $user->last_name,
 							'sess_img' => $user->img
 						);
+
 						$this->session->set_userdata('logged_in', $sess_array);
-					}
-					//print_r($sess_array);
+					//}
+
           $this->_render_page('layout_dashboard/header');
           $this->_render_page('layout_dashboard/navbar');
           $this->_render_page('layout_dashboard/sitebar');
@@ -145,14 +147,14 @@ class dashboard extends CI_Controller {
 
   }
 
-  public function admin(){
-    $this->load->view('layout_dashboard/header');
-    $this->load->view('layout_dashboard/navbar');
-    $this->load->view('layout_dashboard/sitebar');
-    $this->load->view('dashboard/admin');
-    $this->load->view('layout_dashboard/footer');
-
-  }
+  // public function admin(){
+  //   $this->load->view('layout_dashboard/header');
+  //   $this->load->view('layout_dashboard/navbar');
+  //   $this->load->view('layout_dashboard/sitebar');
+  //   $this->load->view('dashboard/admin');
+  //   $this->load->view('layout_dashboard/footer');
+  //
+  // }
 
   public function menu()
   {
@@ -221,6 +223,30 @@ class dashboard extends CI_Controller {
     $this->load->view('dashboard/review', $data);
     $this->load->view('layout_dashboard/footer');
   }
+
+  public function _get_csrf_nonce()
+{
+  $this->load->helper('string');
+  $key   = random_string('alnum', 8);
+  $value = random_string('alnum', 20);
+  $this->session->set_flashdata('csrfkey', $key);
+  $this->session->set_flashdata('csrfvalue', $value);
+
+  return array($key => $value);
+}
+
+public function _valid_csrf_nonce()
+{
+  if ($this->input->post($this->session->flashdata('csrfkey')) !== FALSE &&
+    $this->input->post($this->session->flashdata('csrfkey')) == $this->session->flashdata('csrfvalue'))
+  {
+    return TRUE;
+  }
+  else
+  {
+    return FALSE;
+  }
+}
 
   public function _render_page($view, $data=null, $returnhtml=false)//I think this makes more sense
   {
