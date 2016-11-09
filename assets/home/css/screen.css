@@ -1,0 +1,130 @@
+
+
+/* Easy Slider */
+
+	#slider ul, #slider li,
+	#slider3 ul, #slider3 li,
+	#slider2 ul, #slider2 li{
+		margin:0;
+		padding:0;
+		list-style:none;
+		height: 341px;
+		z-index:0;
+		overflow:hidden;
+		}
+	#slider2{ z-index:0; margin-top:0;}
+	#slider3{ z-index:0; margin-top:0;}
+	#slider li, #slider2 li{
+		/*
+			define width and height of list item (slide)
+			entire slider area will adjust according to the parameters provided here
+		*/
+		width:685px;
+		overflow:hidden;
+		z-index:000;
+}
+	#slider li, #slider3 li{
+		/*
+			define width and height of list item (slide)
+			entire slider area will adjust according to the parameters provided here
+		*/
+		width:728px;
+		height:90px;
+		overflow:hidden;
+		}
+	#prevBtn, #nextBtn,
+	#slider1next, #slider1prev{
+		display:block;
+		width:30px;
+		height:77px;
+		position:absolute;
+		left:-30px;
+		top:71px;
+		z-index:1000;
+		}
+	#nextBtn, #slider1next{
+		left:696px;
+		}
+	#prevBtn a, #nextBtn a,
+	#slider1next a, #slider1prev a{
+		display:block;
+		position:relative;
+		width:30px;
+		height:77px;
+		background:url(../images/btn_prev.gif) no-repeat 0 0;
+		}
+	#nextBtn a, #slider1next a{
+		background:url(../images/btn_next.gif) no-repeat 0 0;
+		}
+
+	/* numeric controls */
+
+	ol#controls{
+	    background:url(../images/banner_belt.png) no-repeat;
+		margin-top:0px;
+		text-align:left;
+		position:relative;
+		height:29px;
+		width:345px;
+		padding-left:340px;
+		padding-top:10px;
+		margin:0 0 0 0;
+		text-align:center;
+		}
+	ol#controls li{
+		margin:0 0px 0 0;
+		float:left;
+		list-style:none;
+		height:10px;
+		line-height:28px;
+		text-align:center;
+		}
+	ol#controls li a{
+		float:left;
+		height:12px;
+		width:12px;
+		line-height:10px;
+		color:#555;
+		padding:0 3px;
+		text-decoration:none;
+		background:url(../images/slide.png) no-repeat;
+		}
+	ol#controls li.current a{
+		background:url(../images/slide_select.png) no-repeat;
+		height:12px;
+		width:12px;
+		}
+	ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+/* // Easy Slider */
+
+
+ol#controls_new{
+		margin-top:-20px;
+		width: 886px;
+		float:left;
+		text-align:right;
+		position:relative;
+		/*height:18px; */
+		padding-right:20px;
+		}
+	ol#controls_new li{
+		margin:0 0px 0 0;
+		padding:0;
+		float:right;
+		list-style:none;
+		height:10px;
+		line-height:28px;
+		}
+	ol#controls_new li a{
+		float:left;
+		height:10px;
+		line-height:10px;
+		color:#555;
+		padding:0 8px;
+		text-decoration:none;
+		background:url(../images/dot_deselect.gif) no-repeat;
+		}
+	ol#controls_new li.current a{
+		background:url(../images/dot_select.gif) no-repeat;
+		}
+	ol#controls_new li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
