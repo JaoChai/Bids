@@ -4,10 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<!-- https://www.dinoza.com/ -->
     <title>BidCups - เว็บประมูล เริ่มต้นแค่ 1 บาท ประหยัดถึง 99%!</title>
-    <meta name="description" content="ที่ Bidcups ซื้อของออนไลน์ สินค้าสุด Cool ที่ตอบโจทย์ Lifestyle ลดถึง 50% หรือ ประมูล เริ่มต้น 1 บาท ลุ้นประหยัดถึง 99%! ประหยัดได้จริง มากกว่า 500 คนที่ได้สินค้ากลับบ้านอย่างมีความสุข ไม่ว่าจะเป็นโทรศัพท์มือถือ แท็บเล็ต Power Bank" />
-    <meta property="og:title" content="Bidcups - ประมูล เริ่มต้นแค่ 1 บาท ประหยัดถึง 99%!"/>
+    <meta name="description" content="<?php echo $result->general_meta_des;?>" />
+    <meta property="og:title" content="<?php echo $result->general_site_title;?>"/>
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="ที่ Bidcups ซื้อของออนไลน์ สินค้าสุด Cool ที่ตอบโจทย์ Lifestyle ลดถึง 50% หรือ ประมูล เริ่มต้น 1 บาท ลุ้นประหยัดถึง 99%! ประหยัดได้จริง มากกว่า 500 คนที่ได้สินค้ากลับบ้านอย่างมีความสุข ไม่ว่าจะเป็นโทรศัพท์มือถือ แท็บเล็ต Power Bank" />
+    <meta property="og:description" content="<?php echo $result->general_meta_des;?>" />
     <meta property="og:site_name" content="bidcups.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

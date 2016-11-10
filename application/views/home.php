@@ -57,41 +57,41 @@
                      <div class="bidpack_detail_leftbg">&nbsp;</div>
                      <div class="bidpack_titlerow">
                        <div class="title_bidpack">Bidpack</div>
-                       <div class="title_bidpackprice">ราคา</div>
-                       <div class="title_bidpacksavings">ประหยัด</div>
+                       <!-- <div class="title_bidpackprice">ราคา</div>
+                       <div class="title_bidpacksavings">ประหยัด</div> -->
                      </div>
-
+                     <?php foreach($package as $row): ?>
    				            <div class="bidpack_detail_row_odd">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
-                       <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=9">100&nbsp;Bids</a></div>
-                       <div class="bidpack_detail_price_odd">500฿</div>
+                       <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=9"><?php echo $row->package_bid;?>&nbsp;Bids</a></div>
+                       <div class="bidpack_detail_price_odd"><?php echo $row->package_cost;?>฿</div>
                        <div class="bidpack_detail_price_buy"><a href="buybids?pkg=9">Buy&raquo;</a></div>
                      </div>
+                   <?php endforeach;?>
 
-   				                     <div class="bidpack_detail_row_even">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
+   				                     <!-- <div class="bidpack_detail_row_even">
+
                        <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=10">200&nbsp;Bids</a></div>
                        <div class="bidpack_detail_price_odd">1000฿</div>
                        <div class="bidpack_detail_price_buy"><a href="buybids?pkg=10">Buy&raquo;</a></div>
-                     </div>
+                     </div> -->
 
 
-   				                     <div class="bidpack_detail_row_odd">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
+   				                     <!-- <div class="bidpack_detail_row_odd">
+
                        <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=11">500&nbsp;Bids</a></div>
                        <div class="bidpack_detail_price_odd">2500฿</div>
                        <div class="bidpack_detail_price_buy"><a href="buybids?pkg=11">Buy&raquo;</a></div>
-                     </div>
+                     </div> -->
 
 
-   				                     <div class="bidpack_detail_row_even">
-                       <!--<div class="bidpack_detail_arrow"></div>-->
+   				                     <!-- <div class="bidpack_detail_row_even">
+
                        <div class="bidpack_detail_bids_odd"><a href="buybids?pkg=12">1000&nbsp;Bids</a></div>
                        <div class="bidpack_detail_price_odd">5000฿</div>
                        <div class="bidpack_detail_price_buy"><a href="buybids?pkg=12">Buy&raquo;</a></div>
-                     </div>
+                     </div> -->
 
-   				                                       <div class="bidpack_detail_rightbg">&nbsp;</div>
+   				            <div class="bidpack_detail_rightbg">&nbsp;</div>
                    </div>
                  </div>
                  <!--<div class="bidpack_detail_bottombg">&nbsp;</div>-->

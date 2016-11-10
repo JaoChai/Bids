@@ -15,13 +15,14 @@
              <span class="icon-bar bar-2"></span>
            </button>
                  <ul class="nav navbar-nav">
-             <li><a href="/">ประมูล</a></li>
-             <li><a href="/shop">Shop</a></li>
-             <li><a href="/winners">ผู้ชนะประมูล</a></li>
+             <li><a href="#">ประมูล</a></li>
+             <li><a href="#">Shop</a></li>
+             <li><a href="#">ผู้ชนะประมูล</a></li>
            </ul>
            <ul class="nav navbar-nav navbar-right">
-             <li><a href="#">ครั้งแรกที่ BidCups</a></li>
-             <li><a href="#">BidCups คืออะไร</a></li>
+             <?php foreach($menu as $row): ?>
+               <li><a href="<?php echo site_url('menu/show/'.$row->menu_id );?>"><?php echo $row->menu_name;?></a></li>
+             <?php endforeach;?>
              <!-- <li><a href="/99percentsavings">Is 99% discount possible?</a></li> -->
              <li><a href="#">ช่วยเหลือ</a></li>
            </ul>

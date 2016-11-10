@@ -22,6 +22,7 @@
                <div class="form-group">
                  <label for="" class="col-sm-2 control-label">Logo</label>
                  <div class="col-sm-10">
+                  <input type="hidden" name="img" value="<?php echo $result->general_logo;?>">
                   <img src="<?php echo base_url('uploads/icon/'. $result->general_logo); ?>" width="81" height="78">
                   <input type="file" id="logo" name="userfile" value="<?php echo $result->general_logo;?>">
                   <span class="text-danger"><?php if (isset($error)) { echo $error; } ?></span>
@@ -57,7 +58,7 @@
                   </div>
 
             <div class="box-header with-border">
-              <h3 class="box-title">Seting Address</h3>
+              <h3 class="box-title">Setting Address</h3>
             </div>
                   <div class="form-group">
                        <label for="" class="col-sm-2 control-label">Address *</label>
@@ -88,7 +89,7 @@
                   </div>
 
             <div class="box-header with-border">
-             <h3 class="box-title">Seting Social</h3>
+             <h3 class="box-title">Setting Social</h3>
             </div>
 
             <div class="form-group">

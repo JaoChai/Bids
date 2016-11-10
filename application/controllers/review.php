@@ -103,84 +103,93 @@ class review extends CI_Controller {
    {
      $id = $this->input->post('id');
      $img = $this->input->post('img');
-      $config = array(
-         array(
-           "field" => "review_title",
-           "label" => "Review Title",
-           "rules" =>"required",
-           'errors' => array(
-                         'required' => 'กรุณากรอก %s.',
-                 )
-         ),
-         array(
-           "field" => "review_name",
-           "label" => "Review Name",
-           "rules" =>"required",
-           'errors' => array(
-                         'required' => 'กรุณากรอก %s.',
-                 )
-         ),
-         array(
-           "field" => "review_pbid",
-           "label" => "Pbid",
-           "rules" =>"required",
-           'errors' => array(
-                         'required' => 'กรุณากรอก %s.',
-                 )
-         ),
-         array(
-           "field" => "des",
-           "label" => "Description",
-           "rules" =>"required",
-           'errors' => array(
-                         'required' => 'กรุณากรอก %s.',
-                 )
-         )
-     );
-       $this->form_validation->set_error_delimiters('<div class="alert">', '</div>');
-       $this->form_validation->set_rules($config);
-       if($this->form_validation->run() == FALSE){
-         $data['result'] = $this->review->getall();
-         $this->load->view('layout_dashboard/header');
-         $this->load->view('layout_dashboard/navbar');
-         $this->load->view('layout_dashboard/sitebar');
-         $this->load->view('dashboard/review', $data);
-         $this->load->view('layout_dashboard/footer');
+       $config = array(
+          array(
+            "field" => "review_title",
+            "label" => "Review Title",
+            "rules" =>"required",
+            'errors' => array(
+                          'required' => 'กรุณากรอก %s.',
+                  )
+          ),
+          array(
+            "field" => "review_name",
+            "label" => "Review Name",
+            "rules" =>"required",
+            'errors' => array(
+                          'required' => 'กรุณากรอก %s.',
+                  )
+          ),
+          array(
+            "field" => "review_pbid",
+            "label" => "Pbid",
+            "rules" =>"required",
+            'errors' => array(
+                          'required' => 'กรุณากรอก %s.',
+                  )
+          ),
+          array(
+            "field" => "des",
+            "label" => "Description",
+            "rules" =>"required",
+            'errors' => array(
+                          'required' => 'กรุณากรอก %s.',
+                  )
+          )
+      );
+        $this->form_validation->set_error_delimiters('<div class="alert">', '</div>');
+        $this->form_validation->set_rules($config);
+        if($this->form_validation->run() == FALSE){
+          $data['result'] = $this->review->getall();
+          $this->load->view('layout_dashboard/header');
+          $this->load->view('layout_dashboard/navbar');
+          $this->load->view('layout_dashboard/sitebar');
+          $this->load->view('dashboard/review', $data);
+          $this->load->view('layout_dashboard/footer');
 
-       }else{
-         if(isset($_FILES['userfile']['name']) && !empty($_FILES['userfile']['name'])){
-           if(unlink('uploads/review/'.$img)){
-             $conf['upload_path'] = "./uploads/review/";
-             $conf['allowed_types'] = 'gif|jpg|png';
-             $conf['max_size'] = '2048000';
-             $conf['max_width'] = '';
-             $conf['max_height'] = '';
-             $conf['overwrite'] = 'TRUE';
-             $conf['remove_spaces'] = 'TRUE';
+        }else{
+          if(isset($_FILES['userfile']['name']) && !empty($_FILES['userfile']['name'])){
+            if(unlink('uploads/review/'.$img)){
+              $conf['upload_path'] = "./uploads/review/";
+              $conf['allowed_types'] = 'gif|jpg|png';
+              $conf['max_size'] = '2048000';
+              $conf['max_width'] = '';
+              $conf['max_height'] = '';
+              $conf['overwrite'] = 'TRUE';
+              $conf['remove_spaces'] = 'TRUE';
 
-              $this->load->library('upload', $conf);
-              if(!$this->upload->do_upload()){
-                $data['error'] = $this->upload->display_errors();
-                $this->load->view('crud/editreview', $data);
-              }else{
-                $dataimg = $this->upload->data();
-                $data = array(
-                  "review_title" => $this->input->post('review_title'),
-                  "review_img" => $_FILES['userfile']['name'],
-                  "review_imgpath" => $dataimg['full_path'],
-                  "review_name" => $this->input->post('review_name'),
-                  "review_pbid" => $this->input->post('review_pbid'),
-                  "review_description" => $this->input->post('des')
-                );
-                $this->review->update($id, $data);
-                redirect('dashboard/review');
-              }
-           }
-       }else{
+               $this->load->library('upload', $conf);
+               if(!$this->upload->do_upload()){
+                 $data['error'] = $this->upload->display_errors();
+                 $this->load->view('crud/editreview', $data);
+               }else{
+                 $dataimg = $this->upload->data();
+                 $data = array(
+                   "review_title" => $this->input->post('review_title'),
+                   "review_img" => $_FILES['userfile']['name'],
+                   "review_imgpath" => $dataimg['full_path'],
+                   "review_name" => $this->input->post('review_name'),
+                   "review_pbid" => $this->input->post('review_pbid'),
+                   "review_description" => $this->input->post('des')
+                 );
+                 $this->review->update($id, $data);
+                 redirect('dashboard/review');
+               }
+            }
+        }else{
+          $data = array(
+            "review_title" => $this->input->post('review_title'),
+            "review_name" => $this->input->post('review_name'),
+            "review_pbid" => $this->input->post('review_pbid'),
+            "review_description" => $this->input->post('des')
+          );
+          $this->review->updatetext($id, $data);
+          //print_r($_FILES['userfile']['name']);
          redirect('dashboard/review');
        }
 
-      }
+       }
+
 
    }
 

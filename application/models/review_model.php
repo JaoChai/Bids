@@ -40,6 +40,11 @@ class review_model extends CI_Model {
      $this->db->where('review_id', $id)->update('review', $data);
    }
 
+   public function updatetext($id, $data = array())
+   {
+     $this->db->where('review_id', $id)->update('review', $data);
+   }
+
    public function delete($id, $path)
    {
      $this->db->where("review_id", $id)->delete("review");

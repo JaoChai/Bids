@@ -22,6 +22,11 @@ class setting_model extends CI_Model {
      $this->db->where("general_id", 1)->update("general_set", $ar);
    }
 
+   public function updatetext($data = array())
+   {
+     $this->db->where('general_id', 1)->update('general_set', $data);
+   }
+
    public function delete_admin($id, $path)
    {
      $this->db->where("id", $id)->delete("users");
