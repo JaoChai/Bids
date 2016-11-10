@@ -158,4 +158,10 @@ class menu extends CI_Controller {
      redirect($this->input->post('redirect'));
    }
   }
+
+  public function delete($id)
+  {
+    $this->db->where('menu_id', $id)->delete('menu');
+    redirect('dashboard/menu');
+  }
 }

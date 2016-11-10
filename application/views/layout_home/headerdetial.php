@@ -5,7 +5,9 @@
         <div class="owl-item">
           <div class="item">
              <div class="banner-item">
+               <?php //foreach($slide as $row): ?>
                 <img alt="" src="<?php echo base_url();?>assets/home/images/newbanner-marshall-major-ll.jpg">
+              <?php //endforeach;?>
                 <div class="caption dark-text left">
                    <span class="endat-text"></span><span class="endtime"></span> <span class="btn btn-lg btn-orange os">Bid Now</span>
                 </div>

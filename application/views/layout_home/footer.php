@@ -37,10 +37,10 @@
           <div class="col-xs-12 col-sm-4 col-md-offset-1 col-md-3" id="footer-contact">
             <h4>มีคำถามค้างอยู่ในหัว?</h4>
             <ul class="contactchannels">
-              <li class="i-call"><a class="btn btn-border" href="tel:0944040555">โทร 094-5050-111</a></li>
-              <li class="i-email"><a href="#" class="btn btn-border">เมลมาที่ support@bidcups.com</a></li>
-              <li class="i-fb"><a href="#" class="btn btn-border">แชทผ่าน Facebook Message</a></li>
-              <li class="i-line"><a href="#" class="btn btn-border">คุยผ่าน LINE@ → BidCupsThailand</a></li>
+              <li class="i-call"><a class="btn btn-border" href="tel:0944040555">โทร <?php echo $result->general_tel;?> </a></li>
+              <li class="i-email"><a href="#" class="btn btn-border">เมลมาที่ <?php echo $result->general_email;?> </a></li>
+              <li class="i-fb"><a href="#" class="btn btn-border">แชทผ่าน <?php echo $result->general_facebook;?> </a></li>
+              <li class="i-line"><a href="#" class="btn btn-border">คุยผ่าน LINE@ → <?php echo $result->general_line;?> </a></li>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-2" id="mascot"><img src="<?php echo base_url();?>assets/home/images/footer-logo-01.png" alt="I'm your friend at Dinoza" class="img-responsive center-block"></div>
@@ -48,7 +48,7 @@
         </div>
     </div> <!-- /container -->
   </footer>
-<div id="copyright" class="small">&copy; 2016 BidCups Online Co., Ltd. All rights reserved.</div>
+<div id="copyright" class="small"><?php echo $result->general_footer;?> </div>
 <link href="#" rel="stylesheet" type="text/css" />
 
 </div>
