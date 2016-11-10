@@ -8,8 +8,8 @@ class home extends CI_Controller {
 }
 
 	public function index()
-	{
 
+	{
 		$this->load->view('layout_home/header');
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');
@@ -17,4 +17,14 @@ class home extends CI_Controller {
 		$this->load->view('home');
 		$this->load->view('layout_home/footer');
 	}
+
+	public function register(){
+		$this->load->view('layout_home/header');
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial');
+		$this->load->view('register');
+		$this->load->view('layout_home/footer');
+	}
+
 }
