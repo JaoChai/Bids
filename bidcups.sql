@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2016 at 02:12 PM
+-- Generation Time: Nov 10, 2016 at 06:21 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -46,53 +46,31 @@ INSERT INTO `admin` (`admin_id`, `admin_username`, `admin_password`, `admin_conf
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auction_list`
+-- Table structure for table `auction`
 --
 
-CREATE TABLE `auction_list` (
-  `auclist_id` int(100) NOT NULL,
-  `auclist_buyauc` varchar(100) NOT NULL,
-  `auclist_auto` varchar(100) NOT NULL,
-  `auclist_status` varchar(100) NOT NULL,
-  `auclist_stock` varchar(100) NOT NULL,
-  `auclist_cost` varchar(100) NOT NULL,
-  `auclist_cate` varchar(100) NOT NULL,
-  `auclist_title` varchar(100) NOT NULL,
-  `auclist_perbid` varchar(100) NOT NULL,
-  `auclist_start` varchar(100) NOT NULL,
-  `auclist_retail` varchar(100) NOT NULL,
-  `auclist_shipping` varchar(100) NOT NULL,
-  `auclist_startdate` date NOT NULL,
-  `auclist_enddate` date NOT NULL,
-  `auclist_starttime_h` varchar(10) NOT NULL,
-  `auclist_starttime_m` varchar(10) NOT NULL,
-  `auclist_starttime_s` varchar(10) NOT NULL,
-  `auclist_endtime_h` varchar(10) NOT NULL,
-  `auclist_endtime_m` varchar(10) NOT NULL,
-  `auclist_endtime_s` varchar(10) NOT NULL,
-  `auclist_extends` varchar(100) NOT NULL,
-  `auclist_delivery` varchar(100) NOT NULL,
-  `auclist_des` varchar(200) NOT NULL,
-  `auclist_img1` varchar(200) NOT NULL,
-  `auclist_img2` varchar(200) NOT NULL,
-  `auclist_img3` varchar(200) NOT NULL,
-  `auclist_img4` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `auction` (
+  `auc_id` int(10) NOT NULL,
+  `auc_cate_id` int(10) NOT NULL,
+  `auc_item_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auc_item_des` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auc_price` double NOT NULL,
+  `auc_pic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auc_start` double NOT NULL,
+  `auc_bids_inc` double NOT NULL,
+  `auc_start_date` datetime NOT NULL,
+  `auc_end_date` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auction_list`
+-- Dumping data for table `auction`
 --
 
-INSERT INTO `auction_list` (`auclist_id`, `auclist_buyauc`, `auclist_auto`, `auclist_status`, `auclist_stock`, `auclist_cost`, `auclist_cate`, `auclist_title`, `auclist_perbid`, `auclist_start`, `auclist_retail`, `auclist_shipping`, `auclist_startdate`, `auclist_enddate`, `auclist_starttime_h`, `auclist_starttime_m`, `auclist_starttime_s`, `auclist_endtime_h`, `auclist_endtime_m`, `auclist_endtime_s`, `auclist_extends`, `auclist_delivery`, `auclist_des`, `auclist_img1`, `auclist_img2`, `auclist_img3`, `auclist_img4`) VALUES
-(50, '1', 'on', 'on', '10', '10', '1', 'test', 'test', 'test', 'test', 'test', '2016-10-14', '2016-10-08', '3', '3', '4', '16', '16', '14', '10', 'test', '', 'Hydrangeas.jpg', 'Jellyfish.jpg', 'Tulips.jpg', 'Desert.jpg'),
-(51, '0', 'on', 'on', '', '', 'Choose option', '', '', '', '', '', '0000-00-00', '0000-00-00', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', ''),
-(52, '0', 'on', 'on', '', '', 'Choose option', '', '', '', '', '', '0000-00-00', '0000-00-00', '0', '0', '0', '0', '0', '0', '', '', '', 'Penguins.jpg', 'Jellyfish.jpg', 'Tulips.jpg', 'Chrysanthemum.jpg'),
-(53, '1', 'on', 'on', '10', '10', '1', 'test', 'test', 'test', 'test', 'test', '2016-10-13', '2016-10-22', '16', '14', '11', '30', '12', '14', '10', 'test', '', 'Desert.jpg', 'Jellyfish.jpg', 'Tulips.jpg', 'Koala.jpg'),
-(54, '1', 'on', 'on', '10', '10', '1', 'test', 'test', 'test', 'test', 'test', '2016-10-13', '2016-10-21', '5', '5', '4', '12', '15', '12', '10', 'test', '', 'Jellyfish.jpg', 'Penguins.jpg', 'Tulips.jpg', 'Desert.jpg'),
-(55, '1', 'on', 'on', '10', '10', '1', 'test', 'test', 'test', 'test', 'test', '2016-10-06', '2016-10-22', '4', '4', '3', '3', '5', '6', '10', 'test', '', '', '', '', ''),
-(56, '1', 'on', 'on', '10', '10', '2', 'test', 'test', 'test', 'test', 'test', '2016-10-13', '2016-10-14', '14', '14', '14', '16', '15', '17', '10', 'test', '', 'Koala.jpg', 'Hydrangeas.jpg', 'Jellyfish.jpg', 'Penguins.jpg'),
-(57, '1', 'on', 'on', '10', '10', '1', 'test', 'test', 'test', 'test', 'test', '2016-10-13', '2016-10-15', '0', '0', '0', '0', '0', '0', '10', 'test', '', 'Koala.jpg', 'Tulips.jpg', 'Jellyfish.jpg', 'Hydrangeas.jpg'),
-(58, '1', 'on', 'on', '10', '10', '1', 'test', 'test', 'test', 'test', 'test', '2016-10-13', '2016-10-21', '7', '5', '4', '16', '26', '9', '10', 'test', '', 'Penguins.jpg', 'Jellyfish.jpg', 'Tulips.jpg', 'Desert.jpg');
+INSERT INTO `auction` (`auc_id`, `auc_cate_id`, `auc_item_title`, `auc_item_des`, `auc_price`, `auc_pic`, `auc_start`, `auc_bids_inc`, `auc_start_date`, `auc_end_date`) VALUES
+(10, 1, 'หูฟัง', '<p>หูฟังดีที่สุดใน 3 โลก</p>\r\n', 3500, 'photo_2016-11-10_23-44-20.jpg', 0, 1, '2016-11-10 23:11:20', '2016-11-12 23:11:23'),
+(11, 1, 'หูฟัง2', '<p>หูฟังดีที่สุดใน 3 โลก</p>\r\n', 3500, 'photo_2016-11-10_23-44-20.jpg', 0, 1, '2016-11-10 23:11:20', '2016-11-12 23:11:23'),
+(12, 1, 'หูฟัง3', '<p>หูฟังดีที่สุดใน 3 โลก</p>\r\n', 3500, 'photo_2016-11-10_23-44-20.jpg', 0, 1, '2016-11-10 23:11:20', '2016-11-12 23:11:23'),
+(13, 1, 'หูฟัง4', '<p>หูฟังดีที่สุดใน 3 โลก</p>\r\n', 3500, 'photo_2016-11-10_23-44-20.jpg', 0, 1, '2016-11-10 23:11:20', '2016-11-12 23:11:23');
 
 -- --------------------------------------------------------
 
@@ -111,8 +89,10 @@ CREATE TABLE `bidpackage` (
 --
 
 INSERT INTO `bidpackage` (`package_id`, `package_bid`, `package_cost`) VALUES
-(1, 'Package A', '300฿'),
-(3, 'Package B', '400฿');
+(5, '100', '500'),
+(6, '200', '1000'),
+(7, '500', '2500'),
+(8, '1000', '5000');
 
 -- --------------------------------------------------------
 
@@ -125,16 +105,17 @@ CREATE TABLE `categories` (
   `cate_name` varchar(100) NOT NULL,
   `cate_title` varchar(100) NOT NULL,
   `cate_meta_des` varchar(100) NOT NULL,
-  `cate_meta_key` varchar(100) NOT NULL
+  `cate_meta_key` varchar(100) NOT NULL,
+  `cate_description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`cate_id`, `cate_name`, `cate_title`, `cate_meta_des`, `cate_meta_key`) VALUES
-(1, 'test1', 'test1', '                              test\r\n                                                        ', '                             test\r\n                                                      '),
-(2, 'test2', 'test2', '                              test1\r\n                                                        ', '                             test1\r\n                                                      ');
+INSERT INTO `categories` (`cate_id`, `cate_name`, `cate_title`, `cate_meta_des`, `cate_meta_key`, `cate_description`) VALUES
+(1, 'Electronics', 'Electronics', 'Electronics', 'Electronics', '<p>Electronics</p>\r\n'),
+(2, 'test2', 'test2', 'test1                                       ', 'test1                        ', '<p>grhtn</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -144,27 +125,27 @@ INSERT INTO `categories` (`cate_id`, `cate_name`, `cate_title`, `cate_meta_des`,
 
 CREATE TABLE `general_set` (
   `general_id` int(100) NOT NULL,
-  `general_siteurl` varchar(100) NOT NULL,
-  `general_site_title` varchar(100) NOT NULL,
-  `general_meta_des` varchar(100) NOT NULL,
-  `general_meta_key` varchar(100) NOT NULL,
-  `general_footer` varchar(100) NOT NULL,
-  `general_address` varchar(100) NOT NULL,
-  `general_email` varchar(100) NOT NULL,
-  `general_line` varchar(100) NOT NULL,
+  `general_logo` varchar(255) NOT NULL,
+  `general_site_title` varchar(255) NOT NULL,
+  `general_meta_des` varchar(255) NOT NULL,
+  `general_meta_key` varchar(255) NOT NULL,
+  `general_footer` varchar(255) NOT NULL,
+  `general_address` varchar(255) NOT NULL,
+  `general_email` varchar(205) NOT NULL,
+  `general_line` varchar(255) NOT NULL,
   `general_tel` varchar(20) NOT NULL,
-  `general_facebook` varchar(100) NOT NULL,
-  `general_youtube` varchar(100) NOT NULL,
-  `general_twitter` varchar(100) NOT NULL,
-  `general_google` varchar(100) NOT NULL
+  `general_facebook` varchar(255) NOT NULL,
+  `general_youtube` varchar(255) NOT NULL,
+  `general_twitter` varchar(255) NOT NULL,
+  `general_google` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `general_set`
 --
 
-INSERT INTO `general_set` (`general_id`, `general_siteurl`, `general_site_title`, `general_meta_des`, `general_meta_key`, `general_footer`, `general_address`, `general_email`, `general_line`, `general_tel`, `general_facebook`, `general_youtube`, `general_twitter`, `general_google`) VALUES
-(1, 'www.bidcups.com', 'bidcups บิทคลับ - ประมูล เริ่มต้นแค่ 1 บาท ประหยัดถึง 99', 'ที่ Bidcups ซื้อของออนไลน์ สินค้าสุด Cool ที่ตอบโจทย์ Lifestyle ลดถึง 50% หรือ ประมูล เริ่มต้น 1 บาท', 'บิท,บิทคลับ,bidcups,ซื้อของออนไลน์', '© 2016 BidCups Online Co., Ltd. All rights reserved', '2086 ถนนรามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพมหานคร 10240', 'bidcups_88@gmail.com', '@bidcups', '02-12345678', 'www.facebook.com', 'www.youtube.com', 'www.twitter.com', 'www.plus.google.com');
+INSERT INTO `general_set` (`general_id`, `general_logo`, `general_site_title`, `general_meta_des`, `general_meta_key`, `general_footer`, `general_address`, `general_email`, `general_line`, `general_tel`, `general_facebook`, `general_youtube`, `general_twitter`, `general_google`) VALUES
+(1, 'minions.jpg', 'Bidcups - ประมูล เริ่มต้นแค่ 1 บาท ประหยัดถึง 99%!', 'ที่ Bidcups ซื้อของออนไลน์ สินค้าสุด Cool ที่ตอบโจทย์ Lifestyle ลดถึง 50% หรือ ประมูล เริ่มต้น 1 บาท ลุ้นประหยัดถึง 99%! ประหยัดได้จริง มากกว่า 500 คนที่ได้สินค้ากลับบ้านอย่างมีความสุข ไม่ว่าจะเป็นโทรศัพท์มือถือ แท็บเล็ต Power Bank', 'บิท,บิทคลับ,bidcups,ซื้อของออนไลน์', '© 2016 BidCups Online Co., Ltd. All rights reserved.', '2086 ถนนรามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพมหานคร 10240', 'bidcups_88@gmail.com', '@bidcups', '02-12345678', 'www.facebook.com', 'www.youtube.com', 'www.twitter.com', 'www.plus.google.com');
 
 -- --------------------------------------------------------
 
@@ -184,7 +165,7 @@ CREATE TABLE `groups` (
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
-(2, 'members', 'General User');
+(4, 'members', 'member');
 
 -- --------------------------------------------------------
 
@@ -203,9 +184,9 @@ CREATE TABLE `img_slider` (
 --
 
 INSERT INTO `img_slider` (`img_id`, `img_name`, `img_path`) VALUES
-(4, 'Koala.jpg', 'C:/xampp/htdocs/pa/uploads/Koala.jpg'),
-(5, 'park_shin_hye_s_beauty.jpg', 'C:/xampp/htdocs/pa/uploads/park_shin_hye_s_beauty.jpg'),
-(6, 'E12789826-74.jpg', 'C:/xampp/htdocs/pa/uploads/E12789826-74.jpg');
+(16, 'newbanner-marshall-major-ll.jpg', 'C:/xampp/htdocs/auction/uploads/newbanner-marshall-major-ll.jpg'),
+(17, 'newbanner-marshall-major-ll1.jpg', 'C:/xampp/htdocs/auction/uploads/newbanner-marshall-major-ll1.jpg'),
+(18, 'newbanner-marshall-major-ll2.jpg', 'C:/xampp/htdocs/auction/uploads/newbanner-marshall-major-ll2.jpg');
 
 -- --------------------------------------------------------
 
@@ -240,8 +221,31 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`menu_id`, `menu_name`, `menu_title`, `menu_meta_des`, `menu_meta_key`, `menu_description`) VALUES
-(10, 'ผู้ชนะประมูล', 'gerhtrh', 'rkgmer', 'gtrhryj', '<p>trhrjryjr rgherhethtrs</p>\r\n'),
-(11, 'ช่วยเหลือ', 'erklgmrl', 'rkgmerlghm', 'wrlgmr', '<p>erlkgmklehe</p>\r\n');
+(13, 'ครั้งแรกที่ bidCups', 'ครั้งแรกที่ bidCups', 'ครั้งแรกที่ bidCups', 'ครั้งแรกที่ bidCups', '<p>ครั้งแรกที่ bidCups</p>\r\n'),
+(14, 'bidCups คืออะไร', 'bidCups คืออะไร', 'bidCups คืออะไร', 'bidCups คืออะไร', '<p>bidCups คืออะไร</p>\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `review_id` int(100) NOT NULL,
+  `review_title` varchar(255) NOT NULL,
+  `review_img` varchar(255) NOT NULL,
+  `review_imgpath` varchar(255) NOT NULL,
+  `review_name` varchar(255) NOT NULL,
+  `review_pbid` varchar(255) NOT NULL,
+  `review_description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `review_title`, `review_img`, `review_imgpath`, `review_name`, `review_pbid`, `review_description`) VALUES
+(5, 'test', 'minions.jpg', 'C:/xampp/htdocs/auction/uploads/review/minions.jpg', 'test', 'test1', 'test');
 
 -- --------------------------------------------------------
 
@@ -267,15 +271,18 @@ CREATE TABLE `users` (
   `last_name` varchar(50) DEFAULT NULL,
   `company` varchar(100) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `img` varchar(200) NOT NULL
+  `img` varchar(200) NOT NULL,
+  `img_path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `img`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1477472498, 1, 'Wason', 'Thamasak', 'ADMIN', '0', 'admin.jpg');
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `img`, `img_path`) VALUES
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1478793905, 1, 'Wason', 'Thamasak', 'ADMIN', '0', 'admin.jpg', ''),
+(3, '::1', 'jirachot23@gmail.com', '$2y$08$wIeFjFzu6BVvHJjK/iaIyudvx9UNs04eXoA9X3WijHxsrZo4W2CG2', NULL, 'jirachot23@gmail.com', NULL, NULL, NULL, NULL, 1477889924, 1477997760, 1, 'test1', 'test1', 'test1', '0875696451', 'Tulips.jpg', ''),
+(22, '::1', 'jirachot233@gmail.com', '$2y$08$lUgcbXjUUkSpUehTrkiigu2xxs0mqP3P36j9/fhgYRvN0qcDbyRIa', NULL, 'jirachot233@gmail.com', NULL, NULL, NULL, NULL, 1478104561, NULL, 1, 'test1', 'test1', NULL, NULL, 'minions.jpg', 'C:/xampp/htdocs/auction/uploads/minions.jpg');
 
 -- --------------------------------------------------------
 
@@ -294,8 +301,9 @@ CREATE TABLE `users_groups` (
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(1, 1, 1),
-(2, 1, 2);
+(24, 1, 1),
+(25, 3, 1),
+(30, 22, 1);
 
 --
 -- Indexes for dumped tables
@@ -308,10 +316,10 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `auction_list`
+-- Indexes for table `auction`
 --
-ALTER TABLE `auction_list`
-  ADD PRIMARY KEY (`auclist_id`);
+ALTER TABLE `auction`
+  ADD PRIMARY KEY (`auc_id`);
 
 --
 -- Indexes for table `bidpackage`
@@ -356,6 +364,12 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`menu_id`);
 
 --
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`review_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -380,15 +394,15 @@ ALTER TABLE `users_groups`
 ALTER TABLE `admin`
   MODIFY `admin_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `auction_list`
+-- AUTO_INCREMENT for table `auction`
 --
-ALTER TABLE `auction_list`
-  MODIFY `auclist_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+ALTER TABLE `auction`
+  MODIFY `auc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `bidpackage`
 --
 ALTER TABLE `bidpackage`
-  MODIFY `package_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `package_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -403,12 +417,12 @@ ALTER TABLE `general_set`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `img_slider`
 --
 ALTER TABLE `img_slider`
-  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
@@ -418,17 +432,22 @@ ALTER TABLE `login_attempts`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `menu_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `review_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- Constraints for dumped tables
 --

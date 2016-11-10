@@ -11,18 +11,12 @@ class home extends CI_Controller {
 }
 
 	public function index()
-<<<<<<< HEAD
-
-	{
-		$this->load->view('layout_home/header');
-=======
 	{
 		$data['result'] = $this->setting->getall();
 		$datamenu['menu'] = $this->menu->getall();
 		$datapackage['package'] = $this->package->getall();
 		$dataslide['slide'] = $this->slide->getall();
 		$this->load->view('layout_home/header', $data);
->>>>>>> 5f2072e4654a12dccf50273c29b57326b471519d
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar', $datamenu);
 		$this->load->view('layout_home/headerdetial', $dataslide);
