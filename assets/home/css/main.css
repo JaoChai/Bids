@@ -2462,19 +2462,19 @@ footer #mascot img {
 }
 
 #footer-content ul.contactchannels li.i-call {
-  background-image: url(http://localhost:8888/theme/images/icon-call-01.png);
+  background-image: url(http://localhost:8888/auction/assets/home/images/icon-call-01.png);
 }
 
 #footer-content ul.contactchannels li.i-email {
-  background-image: url(http://localhost:8888/theme/images/icon-email-01.png);
+  background-image: url(http://localhost:8888/auction/assets/home/images/icon-email-01.png);
 }
 
 #footer-content ul.contactchannels li.i-fb {
-  background-image: url(http://localhost:8888/theme/images/icon-fb-01.png);
+  background-image: url(http://localhost:8888/auction/assets/home/images/icon-fb-01.png);
 }
 
 #footer-content ul.contactchannels li.i-line {
-  background-image: url(http://localhost:8888/theme/images/icon-line-01.png);
+  background-image: url(http://localhost:8888/auction/assets/home/images/icon-line-01.png);
 }
 
 #copyright {
