@@ -20,17 +20,12 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar', $datamenu);
 		$this->load->view('layout_home/headerdetial', $dataslide);
-		$this->load->view('home', $datapackage);
+		$this->load->view('home/index', $datapackage);
 		$this->load->view('layout_home/footer', $data);
 	}
 
-	public function register(){
-		$this->load->view('layout_home/header');
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
-		$this->load->view('layout_home/headerdetial');
-		$this->load->view('register');
-		$this->load->view('layout_home/footer');
+	public function regis(){
+		$this->load->view('home/reigster');
 	}
 
 }

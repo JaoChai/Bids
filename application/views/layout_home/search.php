@@ -26,8 +26,9 @@
 	                </form>
 
 						<div id="loginarea2" class="pull-right hidden-xs">
-								<a href="/register" class="btn btn-orange btn-lg">สมัครเลย!</a>
+								<a href="<?php echo site_url('home/regis')?>" class="btn btn-orange btn-lg">สมัครเลย!</a>
 						</div>
+
 						<div id="loginarea" class="pull-right hidden-xs">
 								<a class="login-toggle btn btn-link btn-lg"><i class="fa fa-user"></i> <span class="">Login</span></a>
 						</div>
