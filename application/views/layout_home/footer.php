@@ -56,7 +56,6 @@
 </div>
 
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/function.js" type="text/javascript"></script>
-  <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery-1.11.3.min.js" type="text/javascript" ></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery-ui.js" type="text/javascript"></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.bgColor.js" type="text/javascript"></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/default.js" type="text/javascript"></script>
@@ -65,7 +64,6 @@
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/owl.carousel.min.js" type="text/javascript"></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/bootstrap-modalmanager.js" type="text/javascript"></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/bootstrap-modal.js" type="text/javascript"></script>
-  <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.countdown.min.js" type="text/javascript"></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.noty.packaged.min.js" type="text/javascript"></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/common.js" type="text/javascript"></script>
   <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.autocomplete.js" type="text/javascript"></script>
