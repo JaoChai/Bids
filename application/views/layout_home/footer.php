@@ -1,4 +1,19 @@
 <div class="clearfix"></div>
+<aside id="paymentmethods">
+  <div class="container">
+    <div class="row">
+   <div class="col-md-12">
+       <ul>
+           <li>
+               <img src="<?php echo base_url();?>assets/home/images/01.png"  class="img-responsive">
+           </li>
+           <li>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="clearfix"></div>
 
 <footer>
     <div class="container" id="footer-content">

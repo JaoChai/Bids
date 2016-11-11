@@ -25,7 +25,14 @@ class home extends CI_Controller {
 	}
 
 	public function regis(){
-		$this->load->view('home/reigster');
+		$contents['recaptcha_html'] = $this->recaptcha->render();
+		$data['result'] = $this->setting->getall();
+		$datamenu['menu'] = $this->menu->getall();
+		$this->load->view('layout_home/header',$data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar', $datamenu);
+		$this->load->view('home/register',$contents);
+	  $this->load->view('layout_home/footer', $data);
 	}
 
 }

@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/screen.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/index.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/details.css" rel="stylesheet" type="text/css" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
   </head>
 
