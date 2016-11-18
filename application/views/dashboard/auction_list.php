@@ -33,8 +33,8 @@
             <td><?php echo $num++;?></td>
             <td><?php echo $res->auc_item_title;?></td>
             <td><?php echo $res->auc_item_des;?></td>
-            <td><?php echo date('d-m-Y H:m:s', strtotime($res->auc_start_date));?></td>
-            <td><?php echo date('d-m-Y H:m:s', strtotime($res->auc_end_date));?></td>
+            <td><?php echo date('d-m-Y H:i:s', strtotime($res->auc_start_date));?></td>
+            <td><?php echo date('d-m-Y H:i:s', strtotime($res->auc_end_date));?></td>
             <td><img alt="Your uploaded image" src="<?php echo base_url('uploads/'. $res->auc_pic); ?>" width="150" height="100"></td>
             <td>
               <a class="btn btn-warning" href="<?php echo site_url("auction/update/" .$res->auc_id); ?>">Edit</a>

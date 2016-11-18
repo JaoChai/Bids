@@ -351,10 +351,10 @@ fieldset[disabled] .btn-orange.active {
 
 .btn-bid {
     color: #fff !important;
-    background-color: #FF5910;
-    -moz-box-shadow: 0px 4px 0px #B63717;
+    background-color: #FF1010;
+    /*-moz-box-shadow: 0px 4px 0px #B63717;
     -webkit-box-shadow: 0px 4px 0px #B63717;
-    box-shadow: 0px 4px 0px #B63717;
+    box-shadow: 0px 4px 0px #B63717;*/
     font-family: 'Open Sans' !important;
     font-weight: bold;
     text-transform: uppercase;
@@ -375,7 +375,7 @@ fieldset[disabled] .btn-orange.active {
 .btn-bid.active,
 .open > .dropdown-toggle.btn-bid {
     color: #fff;
-    background-color: #E34F0E;
+    background-color: #Ff1010;
 }
 
 .btn-bid:active,
@@ -430,7 +430,7 @@ fieldset[disabled] .btn-bid.active {
 
 .btn-buy {
     color: #fff !important;
-    background-color: #FF5910;
+    background-color: #FF1010;
     font-family: 'effra_bold' !important;
     font-family: 'Open Sans' !important;
     font-weight: bold;
@@ -449,7 +449,7 @@ fieldset[disabled] .btn-bid.active {
 .btn-buy.active,
 .open > .dropdown-toggle.btn-buy {
     color: #fff;
-    background-color: #E34F0E;
+    background-color: #Ff1010;
 }
 
 .btn-buy:active,
@@ -1590,7 +1590,7 @@ fieldset[disabled] .btn-border.active {
   top: 5px;
   font-size: 13px;
   background: #fff;
-  color: #FF5910;
+  color: #FF1010;
   font-family: 'Open Sans' !important;
   font-weight: bold;
 }

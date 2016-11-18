@@ -176,22 +176,10 @@
 
       <div id="banner-sub" class="banner_main_box" style="margin-top: 15px; margin-bottom: 15px; min-height: 0;">
     	<div class="banner" style="min-height: 0;">
-		      <a href='dpoints?ref=homebnr'><img src="<?php echo base_url();?>assets/home/images/5-D-points-1040x218-3.jpg" style="width: 100%;" /></a>
+		      <a href='dpoints?ref=homebnr'><img src="<?php echo base_url();?>assets/home/images/5-D-points-1040x218-3.png" style="width: 100%;" /></a>
 	    </div>
 	   </div>
 
-    <div class="clearfix"></div>
-    <aside id="paymentmethods">
-      <div class="container">
-        <div class="row">
-       <div class="col-md-12">
-           <ul>
-               <li>
-                   <img src="<?php echo base_url();?>assets/home/images/01.png"  class="img-responsive">
-               </li>
-               <li>
-          </div>
-        </div>
-      </div>
+
 
    </div>

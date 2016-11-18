@@ -507,11 +507,11 @@ product_details_inner_auction_top_box .top_left_det_auction_corner
 }
 
 .th .product_details_register-now a#signupintro {
-	background-image: url(http://localhost/theme/images/signupintro.png);
+	background-image: url(http://localhost:8888/auction/assets/home/images/signupintro.png);
 }
 
 .en .product_details_register-now a#signupintro {
-	background-image: url(http://localhost/theme/images/signupintro.png);
+	background-image: url(http://localhost:8888/auction/assets/home/images/signupintro.png);
 }
 
 .product_details_register-now-top
@@ -1947,7 +1947,7 @@ a.bidtitallink:hover
 .product_detail_amount_info_heading_main {
 	float:left;
 	width:307px;
-	background:#0baa94;
+	background:#FF1010;
 	height:22px;
 	color:#ffffff;
 	padding:3px;

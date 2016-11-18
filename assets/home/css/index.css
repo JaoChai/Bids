@@ -818,7 +818,7 @@ padding-top:9px;
 
 }
 .main_bidnow_product_image img{
-	width: 225px;
+	width: 220px;
 
 	height:177px;
 	border-top-right-radius:3px;
@@ -856,7 +856,7 @@ left: -5px;
 .timeleft_title{
 color: #888888;
 float: left;
-
+margin-top: 30px;
 padding: 0;
 text-align: center;
 width: 225px;

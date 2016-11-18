@@ -114,13 +114,26 @@ class auction extends CI_Controller {
            "auc_pic" => $_FILES['userfile']['name'],
            "auc_start" => $this->input->post('auc_start'),
            "auc_bids_inc" => $this->input->post('bids_inc'),
-           "auc_start_date" => date('Y-m-d H:m:s', strtotime($start_date)),
-           "auc_end_date" => date('Y-m-d H:m:s', strtotime($end_date))
+           "auc_start_date" => date('Y-m-d H:i:s', strtotime($start_date)),
+           "auc_end_date" => date('Y-m-d H:i:s', strtotime($end_date))
          );
 
          $this->auction->insert($data);
+         $max_aucid = $this->auction->getidauc();
+         $data2 = array(
+           'auc_id' => $max_aucid,
+           'final_time' => date('Y-m-d H:i:s', strtotime($start_date))
+         );
+         $this->auction->insert_final($data2);
+
        }
          redirect('dashboard/openpenny');
        }
+   }
+
+   public function delete($id)
+   {
+     $this->db->where("auc_id", $id)->delete("auction");
+     redirect('dashboard/auction_list');
    }
 }

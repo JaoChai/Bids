@@ -4276,7 +4276,7 @@ a.loginbox_titlelink {
 .register-form h4 {
     margin: 0;
     padding: 0;
-    background: #00caa9;
+    background: #ff1010;
     /*background: url(../images/footer_middlebg.png) repeat-x;*/
     border-left: 1px solid #FFFFFF;
     /*background: url(../images/footer_middlebg.png) repeat-x;*/
@@ -7654,7 +7654,6 @@ a.bidtooltip span {
 
 .marketprice_linethrough {
     color: #999999;
-    text-decoration: line-through;
 }
 .marketprice_linethrough span {
     color:#666;
@@ -7745,9 +7744,10 @@ a.bidtooltip span {
 }
 
 .auction_disount_belt_main {
+    margin-top: 5px;
     float:left;
-    width:205px;
-    background:#0baa94;
+    width:220px;
+    background:#ff1010;
     height:24px;
     color:#ffffff;
     padding:0px 10px;

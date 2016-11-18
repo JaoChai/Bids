@@ -2,19 +2,22 @@
   <div class="row">
     <div class="col-sm-8">
       <div id="heroslide" class="dz-theme">
-        <div class="owl-item">
-          <div class="item">
-             <div class="banner-item">
-               <?php //foreach($slide as $row): ?>
-                <img alt="" src="<?php echo base_url();?>assets/home/images/newbanner-marshall-major-ll.jpg">
-              <?php //endforeach;?>
-                <div class="caption dark-text left">
-                   <span class="endat-text"></span><span class="endtime"></span> <span class="btn btn-lg btn-orange os">Bid Now</span>
-                </div>
-                <a href="#" class="coverlink"></a>
-                <div class="clear"></div>
-             </div>
-          </div>
+        <div class="owl-item" id="owl-example">
+
+          <script>
+          $(document).ready(function() {
+            $("#owl-example").owlCarousel({
+              autoPlay: 3000,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem:true
+            });
+          });
+          </script>
+                <?php foreach($slide as $row): ?>
+                <img alt="" src="<?php echo base_url('uploads/'. $row->img_name); ?>">
+              <?php endforeach;?>
+
         </div>
       </div>
     </div>
@@ -128,6 +131,7 @@
 				  </div>
       </div>
    </div>
+</div>
 
    <div class="container">
 					<div class="row">

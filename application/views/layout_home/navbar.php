@@ -50,11 +50,12 @@
      		 	 	 <!--<a onclick="gp_login();" class="btn btn-gg"><i class="fa fa-google"></i> Google</a>!-->
      			 </div>
      			<p class="text-center or-separator"><span>or</span></p>
+          <?php $attr = array('class'=>'form', 'id'=> 'login-form');
+          echo form_open('home/login', $attr);?>
 
-     			<form name="f1" method="post" action="password" accept-charset="UTF-8" class="form" role="form"  id="login-form">
                <div class="form-group">
                   <label class="sr-only" for="username">Email address</label>
-                  <input class="form-control" type="text" name="username" id="username1" placeholder="Email" required>
+                  <input class="form-control" type="text" name="email" id="username1" placeholder="Email" required>
                </div>
                <div class="form-group">
                   <label class="sr-only" for="password">Password</label>
@@ -69,7 +70,7 @@
      		<hr>
      		 <div id="new-user">
      			<p class="pull-left">Don't have an account?</p>
-     			<a type="submit" href="/register" class="btn btn-yellow btn-block btn-lg pull-right">Sign Up Now</a>
+     			<a type="submit" href="<?php echo site_url('home/regis');?>" class="btn btn-yellow btn-block btn-lg pull-right">Sign Up Now</a>
      		 </div>
 
       	</div>

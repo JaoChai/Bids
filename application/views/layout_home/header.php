@@ -27,14 +27,30 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/screen.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/index.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/home/css/details.css" rel="stylesheet" type="text/css" />
+
     <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery-1.11.3.min.js" type="text/javascript" ></script>
     <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.plugin.min.js" type="text/javascript"></script>
     <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.countdown.min.js" type="text/javascript"></script>
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
   </head>
 
   <body id="page-home" onload="OnloadPage();" class="th loggedout">
-
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/5826f4d14172980c5e7e59a6/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+<!--End of Tawk.to Script-->
     <div class="outer">
   <div class="wraper">
       <div class="header">
