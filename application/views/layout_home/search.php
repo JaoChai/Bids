@@ -29,9 +29,21 @@
 						//$name = $session_data['sess_fname']; ?>
 
 						<?php if($this->session->userdata('logged_in')){ ?>
-							<div id="loginarea2" class="pull-right hidden-xs">
-								<?php echo $username;?>
-								<a href="<?php echo site_url('home/logout');?>" class="btn btn-orange btn-lg">Log Out!</a>
+							 <div class="welcome_box pull-right hidden-xs">
+								 <ul class="pull-right">
+									 <li class="tipper hidden-xs">
+					         <a id="userid" href="<?php echo site_url('home/myaccount');?>" class="welcomeuserlink"><span class="bidusericon iA">A</span>
+										 <span class="icontxt hidden-sm"><?php echo $username;?></span></a><span class="tip">ไปที่ My BidCups</span>
+					        </li>
+									<li class="tipper" id="bids_count_wrap">
+									 <a href="#" id="bids_count" class="low">0</a><a href="#" id="minibuybtn" class="hidden-sm ">ซื้อ Bids</a><span class="tip">คลิกซื้อ Bid</span>
+									 </li>
+									 <li class="tipper hidden-xs">
+					          <a href="<?php echo site_url('home/logout');?>" class="userlogout">Log Out</a>
+					        </li>
+								</ul>
+								<span class="icontxt hidden-sm"></span>
+
 							</div>
 						<?php }else{ ?>
 							<div id="loginarea2" class="pull-right hidden-xs">
