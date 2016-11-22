@@ -52,7 +52,7 @@ foreach($query->result() as $row): ?>
               </button>
               <?php } ?>
             <?php }else{ ?>
-              <button type="button" class="btn btn-bid btn-sml" onmouseover="$(this).find('span').text('Login')" onmouseout="$(this).find('span').text('Bid')" onclick="window.location.href='<?php echo site_url('home/regis');?>'">
+              <button type="button" class="btn btn-bid btn-sml" onmouseover="$(this).find('span').text('Login')" onmouseout="$(this).find('span').text('Bid')" onclick="window.location.href='<?php echo site_url('home/viewlogin');?>'">
                 <span>Bid </span>
               </button>
               <?php }?>
