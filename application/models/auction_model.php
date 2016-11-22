@@ -28,24 +28,42 @@ class auction_model extends CI_Model {
      }
    }
 
+   public function getone($id)
+   {
+     $this->db->select('*');
+     $this->db->from('auction');
+     $this->db->where('auc_id', $id);
+     $query = $this->db->get();
+
+     if($query->num_rows() > 0){
+       return $query->row();
+     }
+   }
+
    public function insert($ar = array())
    {
      $this->db->insert("auction", $ar);
    }
 
-   public function getidauc(){
-     $this->db->select_max('auc_id');
-		$res1 = $this->db->get("auction");
-		if($res1->num_rows()> 0){
-
-			$res2 = $res1->result_array();
-			$result = $res2[0]['auc_id'];
-		}
-
-		return $result;
+   public function update($id, $data = array())
+   {
+     $this->db->where('auc_id', $id)->update('auction', $data);
    }
 
-   public function insert_final($data = array()){
-     $this->db->insert("final", $data);
+   public function updatetext($id, $data = array())
+   {
+     $this->db->where('auc_id', $id)->update('auction', $data);
    }
+
+   public function delete($id, $path)
+   {
+     $this->db->where("auc_id", $id)->delete("auction");
+   if($this->db->affected_rows() >= 1){
+       if(unlink($path))
+       return TRUE;
+     } else {
+       return FALSE;
+     }
+   }
+
 }

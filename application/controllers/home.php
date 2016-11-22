@@ -37,21 +37,33 @@ class home extends CI_Controller {
 
 	public function updatebid()
 	{
+		$this->load->helper('date');
 		$this->load->model("bidding_model", "bidding");
 		$id = $this->input->post('id');
 		$date = $this->input->post('date');
 		$start = $this->input->post('start');
 		$bid_inc = $this->input->post('bid_inc');
 		$total = $start + $bid_inc;
+		$mem_id = $this->input->post('mem_id');
+		date_default_timezone_set('Asia/Bangkok');
 
 		$data = array(
 			'auc_id' => $id,
 			'auc_end_date' => $date,
 			'auc_start' => $total,
-			'auc_status' => 1
+			'auc_status' => 1,
+			'mem_id' => $mem_id
+		);
+
+		$data_his = array(
+			'mem_id' => $mem_id,
+			'auc_id' => $id,
+			'his_date' => Date('Y-m-d H:i:s'),
+			'his_price' => $total
 		);
 
 		$this->bidding->updatebid($id, $data);
+		$this->bidding->insert_his($data_his);
 		//$this->bidding->updatestatus($id);
 	}
 
@@ -135,11 +147,13 @@ class home extends CI_Controller {
 			);
 
 			$result = $this->login_db->login($data);
+			//login Successfully
 			if($result == TRUE){
 				$email = $this->input->post('email');
 				$result = $this->login_db->get_data($email);
 				if($result != FALSE){
 					$session_data = array(
+						'id' => $result[0]->mem_id,
 						'username' => $result[0]->mem_username,
 						'email' => $result[0]->mem_email
 					);
@@ -163,8 +177,16 @@ class home extends CI_Controller {
 			'email' => ''
 		);
 		$this->session->unset_userdata('logged_in', $sess_array);
-		$data['message_display'] = 'Successfully Logout';
-		$this->load->view('home/index', $data);
+		$data['result'] = $this->setting->getall();
+		$datamenu['menu'] = $this->menu->getall();
+		$datapackage['package'] = $this->package->getall();
+		$dataslide['slide'] = $this->slide->getall();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar', $datamenu);
+		$this->load->view('layout_home/headerdetial', $dataslide);
+		$this->load->view('home/index', $datapackage);
+		$this->load->view('layout_home/footer', $data);
 	}
 
 }

@@ -144,7 +144,7 @@ class review extends CI_Controller {
           $this->load->view('layout_dashboard/header');
           $this->load->view('layout_dashboard/navbar');
           $this->load->view('layout_dashboard/sitebar');
-          $this->load->view('dashboard/review', $data);
+          $this->load->view('dashboard/editreview', $data);
           $this->load->view('layout_dashboard/footer');
 
         }else{

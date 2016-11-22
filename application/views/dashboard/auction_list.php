@@ -38,7 +38,11 @@
             <td><img alt="Your uploaded image" src="<?php echo base_url('uploads/'. $res->auc_pic); ?>" width="150" height="100"></td>
             <td>
               <a class="btn btn-warning" href="<?php echo site_url("auction/update/" .$res->auc_id); ?>">Edit</a>
-              <a class="btn btn-danger" href="<?php echo site_url("auction/delete/" .$res->auc_id); ?>">Delete</a>
+              <?php echo form_open("auction/delete");?>
+                      <input type="hidden" name="id" value="<?php echo $res->auc_id;?>">
+                      <input type="hidden" name="path" value="<?php echo $res->auc_path;?>">
+                      <input type="submit" class="btn btn-danger" value="Delete">
+                      <?php echo form_close();?>
             </td>
           </tr>
         <?php endforeach; ?>

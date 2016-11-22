@@ -24,14 +24,25 @@
 	                  </div>
 	                  <div class="clearfix"></div>
 	                </form>
+						<?php $session_data = $this->session->userdata('logged_in');
+						$username = $session_data['username'];
+						//$name = $session_data['sess_fname']; ?>
 
-						<div id="loginarea2" class="pull-right hidden-xs">
+						<?php if($this->session->userdata('logged_in')){ ?>
+							<div id="loginarea2" class="pull-right hidden-xs">
+								<?php echo $username;?>
+								<a href="<?php echo site_url('home/logout');?>" class="btn btn-orange btn-lg">Log Out!</a>
+							</div>
+						<?php }else{ ?>
+							<div id="loginarea2" class="pull-right hidden-xs">
 								<a href="<?php echo site_url('home/regis');?>" class="btn btn-orange btn-lg">สมัครเลย!</a>
-						</div>
-
-						<div id="loginarea" class="pull-right hidden-xs">
+							</div>
+							<div id="loginarea" class="pull-right hidden-xs">
 								<a class="login-toggle btn btn-link btn-lg"><i class="fa fa-user"></i> <span class="">Login</span></a>
-						</div>
+							</div>
+
+						<?php }?>
+
 					</div>
 				</div>
 			</div>

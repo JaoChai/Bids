@@ -1,6 +1,12 @@
-<?php $sql = "SELECT * FROM auction";
+<?php $sql = "SELECT * FROM auction LEFT JOIN members ON auction.mem_id = members.mem_id";
 $query = $this->db->query($sql);
+// $sql_his = "SELECT * FROM history INNER JOIN members ON history.mem_id = members.mem_id";
+// $query_his = $this->db->query($sql_his);
+// $data = $query_his->last_row();
 $num = 1;
+$session_data = $this->session->userdata('logged_in');
+$mem_id = $session_data['id'];
+$username = $session_data['username'];
 if($query->num_rows() > 0){
 foreach($query->result() as $row): ?>
 
@@ -20,19 +26,36 @@ foreach($query->result() as $row): ?>
               <div>
                 <span class="days"></span>D
                 <span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span>
+                <div id="demo<?php echo $num;?>"></div>
               </div>
             </div>
           </div>
 
           <div class="main_bidnow_bidder"><span id="product_bidder_4483">฿ <?php echo $row->auc_start;?></span></div>
-
-          <div class="main_bidnow_bidder"><span id="product_bidder_4483">Bidcups</span></div>
-
+          <?php if($row->mem_id == 0 ){ ?>
+          <div class="main_bidnow_bidder"><span id="product_bidder_4483">Hello</span></div>
+          <?php }else{ ?>
+          <div class="main_bidnow_bidder"><span id="product_bidder_4483"><?php echo $row->mem_username;?></span></div>
+          <?php } ?>
          <input type="hidden" name="id" id="id<?php echo $num;?>" value="<?php echo $row->auc_id;?>">
          <input type="hidden" name="bid_inc" id="bid_inc<?php echo $num;?>" value="<?php echo $row->auc_bids_inc;?>">
 
           <div class="main_bidnow_button">
-            <button type="button" id="btn_bid<?php echo $num++;?>" class="btn btn-bid btn-sml">Bid </button></center>
+            <?php if($this->session->userdata('logged_in')){?>
+              <?php if($mem_id != $row->mem_id){ ?>
+            <button type="button" id="btn_bid<?php echo $num;?>" class="btn btn-bid btn-sml">
+              <span>Bid </span>
+            </button>
+            <?php }else{ ?>
+              <button type="button" class="btn btn-bid btn-sml">
+                <span>Bid </span>
+              </button>
+              <?php } ?>
+            <?php }else{ ?>
+              <button type="button" class="btn btn-bid btn-sml" onmouseover="$(this).find('span').text('Login')" onmouseout="$(this).find('span').text('Bid')" onclick="window.location.href='<?php echo site_url('home/regis');?>'">
+                <span>Bid </span>
+              </button>
+              <?php }?>
            </div>
 
            <div class="main_buynow_area">
@@ -47,29 +70,12 @@ foreach($query->result() as $row): ?>
      </div>
   </div>
 </div>
-
+<?php $num++;?>
 <script type="text/javascript">
 var num = 1;
-// $(function(){
-//   var shortly = new Date('<?php echo $row->auc_end_date;?>');
-//
-//     var opt={
-//     labels: ['Years', 'Months', 'Weeks', 'Days ', ':', ':', ''],
-//     labels1: ['Years', 'Months', 'Weeks', 'Days ', ':', ':', ''],
-//     whichLabels: null,
-//     padZeroes: true,
-//     timeSeparator: ':',
-//     format: 'DHMS',
-// }
-//
-// $("#item"+num).countdown($.extend(opt,{
-//    until: shortly,
-// }));
-//
-// $('#btn_bid'+num).click({id : $("#id"+num).val(), date : shortly},cool_function);
-// num++;
-//   });
+
 $(function(){
+
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
@@ -106,14 +112,16 @@ function initializeClock(id, endtime) {
     var id = '<?php echo $row->auc_id;?>';
     var start = '<?php echo $row->auc_start;?>';
     var bid_inc = '<?php echo $row->auc_bids_inc;?>';
+    var mem_id = '<?php echo $mem_id;?>';
     if(t.total < 10000){
-      $('#btn_bid'+num).click({id : id, date : deadline, start : start, bid_inc : bid_inc, status : 'notnull'},cool_function);
+      $('#btn_bid'+num).click({id : id, date : deadline, start : start, bid_inc : bid_inc, status : 'notnull', mem_id : mem_id},cool_function);
     }else{
-      $('#btn_bid'+num).click({id : id, date : deadline, start : start, bid_inc : bid_inc, status : status},cool_function);
+      $('#btn_bid'+num).click({id : id, date : deadline, start : start, bid_inc : bid_inc, status : status, mem_id : mem_id},cool_function);
     }
 
     if (t.total <= 0) {
       clearInterval(timeinterval);
+      document.getElementById("demo"+num).innerHTML = "WINNER !!!";
     }
   }
 
@@ -156,7 +164,7 @@ if(event.data.status == 'null'){
   $.ajax({
     url: "<?php echo site_url('home/updatebid');?>",
     type: "POST",
-    data: {"id" : event.data.id, "date" : result, "start" : event.data.start, "bid_inc" : event.data.bid_inc},
+    data: {"id" : event.data.id, "date" : result, "start" : event.data.start, "bid_inc" : event.data.bid_inc, "mem_id" : event.data.mem_id},
     success: function(data) {
         location.reload();
     }
@@ -197,7 +205,7 @@ if(event.data.status == 'null'){
     $.ajax({
       url: "<?php echo site_url('home/updatebid');?>",
       type: "POST",
-      data: {"id" : event.data.id, "date" : result, "start" : event.data.start, "bid_inc" : event.data.bid_inc},
+      data: {"id" : event.data.id, "date" : result, "start" : event.data.start, "bid_inc" : event.data.bid_inc, "mem_id" : event.data.mem_id},
       success: function(data) {
           location.reload();
       }

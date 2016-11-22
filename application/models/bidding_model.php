@@ -11,10 +11,9 @@ class bidding_model extends CI_Model {
       $this->db->where("auc_id", $id)->update("auction", $data);
   }
 
-  public function updatestatus($id){
-    $data = array(
-      'auc_status' => 1
-    );
-    $this->db->where("auc_id", $id)->update("auction", $data);
-  }
+
+	public function insert_his($data = array())
+	{
+		$this->db->insert('history', $data);
+	}
 }
