@@ -26,9 +26,9 @@ foreach($query->result() as $row): ?>
               <div>
                 <span class="days"></span>D
                 <span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span>
-                <div id="demo<?php echo $num;?>"></div>
               </div>
             </div>
+            <div id="demo<?php echo $num;?>"></div>
           </div>
 
           <div class="main_bidnow_bidder"><span id="product_bidder_4483">฿ <?php echo $row->auc_start;?></span></div>
