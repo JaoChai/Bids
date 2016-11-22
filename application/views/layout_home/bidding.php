@@ -121,7 +121,9 @@ function initializeClock(id, endtime) {
 
     if (t.total <= 0) {
       clearInterval(timeinterval);
-      document.getElementById("demo"+num).innerHTML = "WINNER !!!";
+      $('#clockdiv'+num).remove();
+      //document.getElementById("demo"+num).innerHTML = "WINNER !!!";
+      $('#demo'+num).html("Winner");
     }
   }
 

@@ -11,24 +11,26 @@
             <div class="login_content_inner" style="width:977px;">
             	<div style="width:930px; float:left; padding-left:1px;">
                     <div class="login_box">
-                    <form name="f1" method="post" action="password.php" >
+											<?php $attr = array('class'=>'form', 'id'=> 'login-form');
+						          echo form_open('home/login', $attr);?>
                         <div class="login_bottom_login_box_inner">
 
                                                         <div class="login_bottom_login_title">ได้ลงทะเบียนหรือยังครับ</div>
                             <div class="login_bottom_login_inner_content">กรอกข้อมูลเพื่อเริ่มสนุกกับ BidCups ตรงนี้เลยครับ</div>
                                                         <div class="login_bottom_login_inner_box">
                                 <div>Username&nbsp;/&nbsp;อีเมล์:</div>
-                                <div class="login_username_box_content"><input type="text" name="username" id="username1" class="logintextboxclas" autofocus /></div>
+                                <div class="login_username_box_content"><input type="text" name="email" id="username1" class="logintextboxclas" autofocus /></div>
+																<?php echo $this->session->flashdata('error_mess');?>
                                 <div class="login_password_box_title">รหัสผ่าน:</div>
                                 <div class="login_password_box_content"><input type="password" name="password" id="password1" class="logintextboxclas" maxlength="16" /></div>
                                 <div class="login_bottom_login_button">
-                                    <button type="submit" class="btn btn-bid btn-sml">เข้าสู่ระบบ</button>
+                                <button type="submit" class="btn btn-bid btn-sml">เข้าสู่ระบบ</button>
                                 </div>
                                 <!--<div class="login_bottom_forgot_password"><a href='forgotpassword'>ลืม username หรือ รหัสผ่าน?</a></div>!-->
                                 </div>
                         </div>
                         <input type="hidden" value="" name="wonauctions" />
-                    </form>
+                    <?php echo form_close(); ?>
                     </div>
                 	<div id="register_box" style="background: url(https://www.dinoza.com/images/thai/login_voucher.gif) no-repeat;">
 						<div class="login_bottom_register_box_inner">
