@@ -32,7 +32,7 @@
 
                       <div class="photo">
 					              <img class="lazyOwl img-responsive" alt="Apple iPhone 6s Plus (16GB)" src="<?php echo base_url();?>assets/home/images/1466767257_4554 (Mobile).jpg">
-					              <div class="message">"Iphone 6s Plus 16 GB ทั้งลุ้นทั้งตื่นเต้นขอบคุณมากครับที่ได้สินค้าคุณภาพและสุดคุ้มกับ Dinoza"</div>
+					              <div class="message">"Iphone 6s Plus 16 GB ทั้งลุ้นทั้งตื่นเต้นขอบคุณมากครับที่ได้สินค้าคุณภาพและสุดคุ้มกับ BidCups"</div>
 					              <div class="clearfix"></div>
 				              </div>
 

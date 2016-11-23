@@ -16,7 +16,7 @@
 
         <div id="registration_input_form" style="display:block;">
                <div class="registration_header">
-       <p align="left" class="registration_note">โปรดกรอกรายละเอียดดังต่อไปนี้ <br><font color="#999999">(1 ท่าน/ 1 user เท่านั้น) </font>:</p>
+       <p align="left" class="registration_note">โปรดกรอกรายละเอียดดังต่อไปนี้</p>
 
                 <!-- <div class="registration_social">
 
@@ -192,7 +192,10 @@
 
                                   <!--<div class="registration_chkbox"><strong><font color="#FF0000">ใช้ Hotmail กรุณาเช็คเมลยืนยันที่ 'อีเมลขยะ' และคลิกคำว่า 'ช้าก่อน ข้อความนี้ปลอดภัย!' (smartphone ต้องเช็คเมลจาก browser >> อีเมลขยะ เท่านั้น)'</font></strong><br></div>-->
 
-								  <div class="registration_chkbox"><input class="checkbox" type="checkbox" checked="checked" id="rule" name="terms" value="1"  />ฉันเข้าใจยอมรับ <a href='siterules' target='_blank'>กฎกติกาของเว็บไซต์ </a> และจะ<span class='important'>ไม่สร้างบัญชีมากกว่าหนึ่งบัญชีต่อ 1 คน ต่อ 1 บ้าน และใช้ ชื่อ-นามสกุลจริงในการสมัคร</span> หากฝ่าฝืนทางเว็บไซต์สามารถดำนินการได้ตามเงื่อนไขและนโยบายการใช้บริการ</div>
+								  <div class="registration_chkbox"><input class="checkbox" type="checkbox" checked="checked" id="rule" name="terms" value="1"  />
+                    ฉันเข้าใจยอมรับ
+                  <a href='siterules' target='_blank'>กฎกติกาของเว็บไซต์ </a>
+                  </div>
                                   <div class="registration_chkbox"><input class="checkbox" type="checkbox" style="display:none" name="privacy" value="1" hidden checked="checked" /></div>
                                   <div></div>
                               </div>
@@ -200,7 +203,7 @@
                                   <div class="registration_submitbox">
                                     	 <input type="submit" class="btn btn-orange btn-lg" id="btn_submit" value="สมัครเลย!">
                                     <!-- <input type="image" src="images/thai/register1.png" onmouseover="this.src='images/thai/register1_hover.png'" onmouseout="this.src='images/thai/register1.png'" name="register"  onclick="return Checkregister();" /> -->
-                                    <div class="registration_divclear_height1" style="margin-top:10px"><span style="font-size:16px;">เมื่อคุณได้กดปุ่ม "ลงทะเบียน" แล้วถือว่าคุณยอมรับ ข้อตกลงและเงื่อนไข และเลือกรับข่าวสารจากเราเพื่อรับฟรีคูปองส่วนลด 100 บาท</span></div>
+                                    <div class="registration_divclear_height1" style="margin-top:10px"><span style="font-size:16px;">เมื่อคุณได้กดปุ่ม "ลงทะเบียน" แล้วถือว่าคุณยอมรับ ข้อตกลงและเงื่อนไข</span></div>
                                  </div>
                              </div>
                         <?php echo form_close();?>
