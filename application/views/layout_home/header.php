@@ -30,7 +30,7 @@
 
     <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery-1.11.3.min.js" type="text/javascript" ></script>
     <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.plugin.min.js" type="text/javascript"></script>
-    <script language="javascript" src="<?php echo base_url();?>assets/home/js/jquery.countdown.min.js" type="text/javascript"></script>
+    <script language="javascript" src="<?php echo base_url();?>assets/home/js/moment.min.js" type="text/javascript"></script>
 
     <script src='https://www.google.com/recaptcha/api.js'></script>
 

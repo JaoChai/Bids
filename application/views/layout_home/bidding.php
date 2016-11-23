@@ -26,6 +26,9 @@ foreach($query->result() as $row): ?>
               <div>
                 <span class="days"></span>D
                 <span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span>
+                <span class="t"></span>
+                <span class="t1"></span>
+                <?php //echo Date($row->auc_end_date); ?>
               </div>
             </div>
             <div id="demo<?php echo $num;?>"></div>
@@ -77,13 +80,20 @@ var num = 1;
 $(function(){
 
 function getTimeRemaining(endtime) {
-  var t = Date.parse(endtime) - Date.parse(new Date());
+
+   //var tt = endtime;
+   //var test = tt.toISOString();
+  //alert(endtime);
+  var t = Date.parse("Nov 24, 2016 09:15:54") - Date.parse(new Date());
+  //var t = Math.floor((new Date("Dec 01, 2016 00:00:00") - new Date().getTime())/1000);
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
   var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  //alert(t1);
   return {
     'total': t,
+  //  'ttt' : t1,
     'days': days,
     'hours': hours,
     'minutes': minutes,
@@ -98,7 +108,8 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-
+  //var t = clock.querySelector('.t');
+  //var t1 = clock.querySelector('.t1');
   function updateClock() {
     var t = getTimeRemaining(endtime);
 
@@ -106,6 +117,8 @@ function initializeClock(id, endtime) {
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+  //  t.innerHTML = t.total;
+  //  t1.innerHTML = t.ttt;
 
     var status = 'null';
     var deadline = new Date('<?php echo $row->auc_end_date;?>');
@@ -123,17 +136,42 @@ function initializeClock(id, endtime) {
       clearInterval(timeinterval);
       $('#clockdiv'+num).remove();
       //document.getElementById("demo"+num).innerHTML = "WINNER !!!";
-      $('#demo'+num).html("Winner");
+      $('#demo'+num).text("Winner");
     }
   }
 
   updateClock();
   var timeinterval = setInterval(updateClock, 1000);
 }
+var date = new Date('<?php echo $row->auc_end_date;?>');
+        year = date.getFullYear();
+        month = date.getMonth();
+        months = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+        d = date.getDate();
+        day = date.getDay();
+        //days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+        h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+        result = ''+months[month]+' '+d+', '+year+' '+h+':'+m+':'+s;
+// var t = result.split(/[- :]/);
+// var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
 
-var deadline = new Date('<?php echo $row->auc_end_date;?>');
-
-initializeClock('clockdiv'+num, deadline);
+//var deadline = new Date(result);
+//alert(result);
+initializeClock('clockdiv'+num, result);
 
 //$(function(){
 function cool_function(event){

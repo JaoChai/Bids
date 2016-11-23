@@ -16,7 +16,7 @@
      </a>
 
      <div class="navbar-custom-menu">
-       <?php $session_data = $this->session->userdata('logged_in'); ?>
+       <?php $session_data = $this->session->userdata('logged_admin'); ?>
          <ul class="nav navbar-nav">
          <li class="dropdown user user-menu">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">

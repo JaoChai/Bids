@@ -43,7 +43,7 @@ class dashboard extends CI_Controller {
 							'sess_img' => $user->img
 						);
 
-						$this->session->set_userdata('logged_in', $sess_array);
+						$this->session->set_userdata('logged_admin', $sess_array);
 					//}
 
           $this->_render_page('layout_dashboard/header');

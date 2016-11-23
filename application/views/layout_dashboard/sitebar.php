@@ -1,7 +1,7 @@
 <aside class="main-sidebar">
     <section class="sidebar">
       <div class="user-panel">
-        <?php $session_data = $this->session->userdata('logged_in'); ?>
+        <?php $session_data = $this->session->userdata('logged_admin'); ?>
         <div class="pull-left image">
           <img src="<?php echo base_url('uploads/'. $session_data['sess_img']); ?>" class="img-circle" alt="User Image">
         </div>
