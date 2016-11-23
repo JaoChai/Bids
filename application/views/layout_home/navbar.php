@@ -20,11 +20,12 @@
              <li><a href="#">ผู้ชนะประมูล</a></li>
            </ul>
            <ul class="nav navbar-nav navbar-right">
-             <?php foreach($menu as $row): ?>
-               <li><a href="<?php echo site_url('menu/show/'.$row->menu_id );?>"><?php echo $row->menu_name;?></a></li>
-             <?php endforeach;?>
+
+               <li><a href="#">ครั้งแรกที่ bidCups</a></li>
+               <li><a href="#">bidCups คืออะไร</a></li>
+
              <!-- <li><a href="/99percentsavings">Is 99% discount possible?</a></li> -->
-             <li><a href="#">ช่วยเหลือ</a></li>
+             <!-- <li><a href="#">ช่วยเหลือ</a></li> -->
            </ul>
            <ul class="nav navbar-nav visible-xs">
              <li>

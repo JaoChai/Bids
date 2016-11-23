@@ -36,9 +36,9 @@ foreach($query->result() as $row): ?>
 
           <div class="main_bidnow_bidder"><span id="product_bidder_4483">฿ <?php echo $row->auc_start;?></span></div>
           <?php if($row->mem_id == 0 ){ ?>
-          <div class="main_bidnow_bidder"><span id="product_bidder_4483">Hello</span></div>
+          <div class="main_bidnow_bidder"><span id="product_bidder_4483">----</span></div>
           <?php }else{ ?>
-          <div class="main_bidnow_user"><span id="product_bidder_4483"><?php echo $row->mem_username;?></span></div>
+          <div class="main_bidnow_bidder"><span id="product_bidder_4483"><?php echo $row->mem_username;?></span></div>
           <?php } ?>
          <input type="hidden" name="id" id="id<?php echo $num;?>" value="<?php echo $row->auc_id;?>">
          <input type="hidden" name="bid_inc" id="bid_inc<?php echo $num;?>" value="<?php echo $row->auc_bids_inc;?>">
@@ -46,11 +46,11 @@ foreach($query->result() as $row): ?>
           <div class="main_bidnow_button">
             <?php if($this->session->userdata('logged_in')){?>
               <?php if($mem_id != $row->mem_id){ ?>
-            <button type="button" id="btn_bid<?php echo $num;?>" class="btn btn-bid btn-sml">
+            <button type="button" id="btn_bid<?php echo $num;?>" class="btn btn-bid btn-sml btn_bid<?php echo $num;?>">
               <span>Bid </span>
             </button>
             <?php }else{ ?>
-              <button type="button" class="btn btn-bid btn-sml">
+              <button type="button" class="btn btn-bid btn-sml btn_bid<?php echo $num;?>">
                 <span>Bid </span>
               </button>
               <?php } ?>
@@ -129,8 +129,8 @@ function initializeClock(id, endtime) {
       clearInterval(timeinterval);
       $('#clockdiv'+num).remove();
       //$('#area'+num).remove();
-      $('.main_bidnow_user').remove();
-      document.getElementById("demo"+num).innerHTML = "WINNER <?php echo $row->mem_username;?>!!!";
+      $('.btn_bid'+num).remove();
+      document.getElementById("demo"+num).innerHTML = "WINNER!!!";
       //$('#demo'+num).text("Winner");
     }
   }

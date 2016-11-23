@@ -207,13 +207,16 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/footer', $data);
 	}
 
-	public function viewcontent(){
+	public function viewcontent($title){
 		$data['result'] = $this->setting->getall();
-		$datamenu['menu'] = $this->menu->getall();
+		$data['about'] = $this->menu->getabout();
+		$data['support'] = $this->menu->getsupport();
+		$data['bid'] = $this->menu->getmenubid();
+		$data['detail_content'] = $this->menu->getcontent($title);
 		$this->load->view('layout_home/header', $data);
 		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar', $datamenu);
-		$this->load->view('home/content');
+		$this->load->view('layout_home/navbar');
+		$this->load->view('home/content', $data);
 		$this->load->view('layout_home/footer', $data);
 	}
 

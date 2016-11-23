@@ -6,14 +6,49 @@ class menu_model extends CI_Model {
        parent::__construct();
    }
 
-   public function getall()
+   public function getabout()
    {
      $this->db->select('*');
      $this->db->from('menu');
+     $this->db->limit(2, 0);
      $query = $this->db->get();
      if($query->num_rows() > 0)
      {
        return $query->result();
+     }
+   }
+
+   public function getsupport()
+   {
+     $this->db->select('*');
+     $this->db->from('menu');
+     $this->db->limit(2, 3);
+     $query = $this->db->get();
+     if($query->num_rows() > 0)
+     {
+       return $query->result();
+     }
+   }
+
+   public function getcontent($title)
+   {
+     $this->db->select('*');
+     $this->db->from('menu');
+     $this->db->where('menu_title', $title);
+     $query = $this->db->get();
+     if($query->num_rows() > 0){
+       return $query->row();
+     }
+   }
+
+   public function getmenubid()
+   {
+     $this->db->select('*');
+     $this->db->from('menu');
+     $this->db->where('menu_id', 16);
+     $query = $this->db->get();
+     if($query->num_rows() > 0){
+       return $query->row();
      }
    }
 

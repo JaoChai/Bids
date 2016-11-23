@@ -24,20 +24,24 @@
             <li><a href="<?php echo site_url('home/regis');?>">สมัครเลย!</a></li>
             <li><a href="/howitworks?src=">BidCups คืออะไร</a></li>
             <li><a href="/?src=ftr">สินค้าประมูล</a></li>
-            <li><a href="/howtowin?src=ftr">Bid ยังไงให้ชนะ</a></li>
+            <li><a href="<?php echo site_url('home/viewcontent/'. $bid->menu_title);?>"><?php echo $bid->menu_name;?></a></li>
             <li><a href="/items?aid=3&amp;src=ftr">ประมูลที่ผ่านมา</a></li>
           </ul>
         </div>
                   <div class="col-xs-6 col-sm-2" id="footer-about">
             <h4>About</h4>
             <ul>
-
+              <?php foreach($about as $rs): ?>
+              <li><a href="<?php echo site_url('home/viewcontent/'. $rs->menu_title);?>"><?php echo $rs->menu_name;?></a></li>
+            <?php endforeach; ?>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-2" id="footer-support">
             <h4>Support</h4>
             <ul>
-
+              <?php foreach($support as $rs): ?>
+              <li><a href="<?php echo site_url('home/viewcontent/'. $rs->menu_title);?>"><?php echo $rs->menu_name;?></a></li>
+            <?php endforeach; ?>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-offset-1 col-md-3" id="footer-contact">
