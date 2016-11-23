@@ -215,5 +215,24 @@ class home extends CI_Controller {
 		$this->load->view('home/productdetail');
 		$this->load->view('layout_home/footer', $data);
 	}
+	public function myaccount(){
+		$data['result'] = $this->setting->getall();
+		$datamenu['menu'] = $this->menu->getall();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar', $datamenu);
+		$this->load->view('home/myaccount');
+		$this->load->view('layout_home/footer', $data);
+	}
+
+	public function viewmydetail(){
+		$data['result'] = $this->setting->getall();
+		$datamenu['menu'] = $this->menu->getall();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar', $datamenu);
+		$this->load->view('home/mydetail');
+		$this->load->view('layout_home/footer', $data);
+	}
 
 }
