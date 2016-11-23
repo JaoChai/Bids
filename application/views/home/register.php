@@ -130,7 +130,7 @@
                                 <div class="registration_statebox">
                                    <div class="box">
                                     <div class="row_texttitle"><strong>โทรศัพท์มือถือ</strong></div>
-                                    <div class="oldrow"><input type="number" placeholder="ตัวอย่าง: 0801234567" class="input" name="tel" maxlength="100" value="" />&nbsp;<font class="textnote_red-text-12-b">*</font></div>
+                                    <div class="oldrow"><input type="text" placeholder="ตัวอย่าง: 0801234567" class="input" name="tel" maxlength="100" value="" />&nbsp;<font class="textnote_red-text-12-b">*</font></div>
                                 </div>
                                 </div>
                              </div>
