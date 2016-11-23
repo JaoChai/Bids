@@ -45,11 +45,11 @@
      				 <span class="icon-bar bar-2"></span>
      			 </button>
      			 <h4><i class="fa fa-user"></i> Login</h4>
-     			 <div id="social-login">
+     			 <!-- <div id="social-login">
      				 <a onclick="OnLogin2();" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a> &nbsp;
-     		 	 	 <!--<a onclick="gp_login();" class="btn btn-gg"><i class="fa fa-google"></i> Google</a>!-->
-     			 </div>
-     			<p class="text-center or-separator"><span>or</span></p>
+     		 	 	 <a onclick="gp_login();" class="btn btn-gg"><i class="fa fa-google"></i> Google</a>
+     			 </div> -->
+     			<!-- <p class="text-center or-separator"><span>or</span></p> -->
           <?php $attr = array('class'=>'form', 'id'=> 'login-form');
           echo form_open('home/login', $attr);?>
 
@@ -64,12 +64,12 @@
                <div class="form-group text-center">
                   <button type="submit" class="btn btn-teal btn-block btn-lg">Log in</button>
                </div>
-               <div class="help-block text-center"><a href='forgotpassword'>ลืม username หรือ รหัสผ่าน?</a></div>
+               <!-- <div class="help-block text-center"><a href='forgotpassword'>ลืม username หรือ รหัสผ่าน?</a></div> -->
             </form>
 
      		<hr>
      		 <div id="new-user">
-     			<p class="pull-left">Don't have an account?</p>
+     			<p class="pull-left">คุณยังไม่เคยลงทะเบียนใช่ไหม ?</p>
      			<a type="submit" href="<?php echo site_url('home/regis');?>" class="btn btn-yellow btn-block btn-lg pull-right">Sign Up Now</a>
      		 </div>
 
