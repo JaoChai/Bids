@@ -682,7 +682,7 @@ line-height:40px !important;
 	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2), 0 0px 0px rgba(0, 0, 0, 0) inset;
 }
 .main_bidnow_middle, .main_bidnow_middle-winner{
-	min-height:615px;
+	min-height:200px;
 	max-height:615px;
 
 }

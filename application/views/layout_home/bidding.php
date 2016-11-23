@@ -58,14 +58,14 @@ foreach($query->result() as $row): ?>
               <?php }?>
            </div>
 
-           <div class="main_buynow_area">
+           <!-- <div class="main_buynow_area">
              <div class="auction_disount_belt_main">หรือซื้อได้ทันที</div>
 
              <div class="auction-boxes-row" style="padding-top: 20px">
                   <span class="btn btn-buy btn-sml" onclick="window.location.href='login.php'">Buy Now</span>
               </div>
 
-           </div>
+           </div> -->
 
      </div>
   </div>
