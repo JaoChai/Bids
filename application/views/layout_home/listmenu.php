@@ -103,30 +103,31 @@
                     </div>
                 <div class="myaccount_left_menu_inner_rightbg">&nbsp;</div>
             </div>
+
       <div class="myaccount_left_menu_inner_sec_box">
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
-                <div class="myaccount_left_menu_inner_sec_text"><a href="wonauctions">สินค้าที่ชนะ</a></div>
+                <div class="myaccount_left_menu_inner_sec_text"><a href="<?php echo site_url('home/wonauctions');?>">สินค้าที่ชนะ</a></div>
       </div>
 
       <div class="myaccount_left_menu_inner_sec_box">
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
-                <div class="myaccount_left_menu_inner_sec_text"><a href="buybids">ซื้อ Bid</a></div>
+                <div class="myaccount_left_menu_inner_sec_text"><a href="<?php echo site_url('home/buybids');?>">ซื้อ Bid</a></div>
             </div>
         </div>
 
       <div class="myaccount_left_menu_inner_sec_box">
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
-                <div class="myaccount_left_menu_inner_sec_text"><a href="mydetails">รายละเอียดแอคเคาน์</a></div>
+                <div class="myaccount_left_menu_inner_sec_text"><a href="<?php echo site_url('home/viewmydetail');?>">รายละเอียดแอคเคาน์</a></div>
       </div>
 
     <div class="myaccount_left_menu_inner_sec_box">
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
-                <div class="myaccount_left_menu_inner_sec_text"><a href="addresses">ที่อยู่จัดส่ง/ออกบิล</a></div>
+                <div class="myaccount_left_menu_inner_sec_text"><a href="<?php echo site_url('home/addresses');?>">ที่อยู่จัดส่ง/ออกบิล</a></div>
     </div>
 
   <div class="myaccount_left_menu_inner_sec_box">
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
-                <div class="myaccount_left_menu_inner_sec_text"><a href="editpassword">เปลี่ยนรหัสผ่าน</a> </div>
+                <div class="myaccount_left_menu_inner_sec_text"><a href="#">เปลี่ยนรหัสผ่าน</a> </div>
   </div>
 
   <!-- <div class="myaccount_left_menu_inner_sec_box">
@@ -138,7 +139,6 @@
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
                 <div class="myaccount_left_menu_inner_sec_text"><a href="newsletter">จดหมายแจ้งข่าว</a></div>
   </div> -->
-
 
         </div>
     </div>
