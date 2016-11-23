@@ -11,7 +11,7 @@ if($query->num_rows() > 0){
 foreach($query->result() as $row): ?>
 
 <div class="main_bidnow_box" id="" >
-  <div class="main_bidnow_middle">
+  <div class="main_bidnow_middle" id="area<?php echo $num;?>">
      <div class="main_bidnow_area">
          <div class="main_bidnow_product_image_box">
             <div class="main_bidnow_product_image"><a href="#"><img src="<?php echo base_url('uploads/'. $row->auc_pic); ?>"  border="0" alt="You uploads"/></a></div>
@@ -38,7 +38,7 @@ foreach($query->result() as $row): ?>
           <?php if($row->mem_id == 0 ){ ?>
           <div class="main_bidnow_bidder"><span id="product_bidder_4483">Hello</span></div>
           <?php }else{ ?>
-          <div class="main_bidnow_bidder"><span id="product_bidder_4483"><?php echo $row->mem_username;?></span></div>
+          <div class="main_bidnow_user"><span id="product_bidder_4483"><?php echo $row->mem_username;?></span></div>
           <?php } ?>
          <input type="hidden" name="id" id="id<?php echo $num;?>" value="<?php echo $row->auc_id;?>">
          <input type="hidden" name="bid_inc" id="bid_inc<?php echo $num;?>" value="<?php echo $row->auc_bids_inc;?>">
@@ -81,19 +81,15 @@ $(function(){
 
 function getTimeRemaining(endtime) {
 
-   //var tt = endtime;
-   //var test = tt.toISOString();
-  //alert(endtime);
-  var t = Date.parse("Nov 24, 2016 09:15:54") - Date.parse(new Date());
+  var t = Date.parse(endtime) - Date.parse(new Date());
   //var t = Math.floor((new Date("Dec 01, 2016 00:00:00") - new Date().getTime())/1000);
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
   var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  //alert(t1);
+
   return {
     'total': t,
-  //  'ttt' : t1,
     'days': days,
     'hours': hours,
     'minutes': minutes,
@@ -108,8 +104,7 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  //var t = clock.querySelector('.t');
-  //var t1 = clock.querySelector('.t1');
+
   function updateClock() {
     var t = getTimeRemaining(endtime);
 
@@ -117,8 +112,6 @@ function initializeClock(id, endtime) {
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-  //  t.innerHTML = t.total;
-  //  t1.innerHTML = t.ttt;
 
     var status = 'null';
     var deadline = new Date('<?php echo $row->auc_end_date;?>');
@@ -135,43 +128,24 @@ function initializeClock(id, endtime) {
     if (t.total <= 0) {
       clearInterval(timeinterval);
       $('#clockdiv'+num).remove();
-      //document.getElementById("demo"+num).innerHTML = "WINNER !!!";
-      $('#demo'+num).text("Winner");
+      //$('#area'+num).remove();
+      $('.main_bidnow_user').remove();
+      document.getElementById("demo"+num).innerHTML = "WINNER <?php echo $row->mem_username;?>!!!";
+      //$('#demo'+num).text("Winner");
     }
   }
 
   updateClock();
   var timeinterval = setInterval(updateClock, 1000);
 }
-var date = new Date('<?php echo $row->auc_end_date;?>');
-        year = date.getFullYear();
-        month = date.getMonth();
-        months = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-        d = date.getDate();
-        day = date.getDay();
-        //days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-        h = date.getHours();
-        if(h<10)
-        {
-                h = "0"+h;
-        }
-        m = date.getMinutes();
-        if(m<10)
-        {
-                m = "0"+m;
-        }
-        s = date.getSeconds();
-        if(s<10)
-        {
-                s = "0"+s;
-        }
-        result = ''+months[month]+' '+d+', '+year+' '+h+':'+m+':'+s;
-// var t = result.split(/[- :]/);
-// var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
+
+var date = '<?php echo $row->auc_end_date;?>';
+ var a = date.split(/[^0-9]/);
+ var d = new Date (a[0],a[1]-1,a[2],a[3],a[4],a[5]);
 
 //var deadline = new Date(result);
-//alert(result);
-initializeClock('clockdiv'+num, result);
+//alert(d);
+initializeClock('clockdiv'+num, d);
 
 //$(function(){
 function cool_function(event){
