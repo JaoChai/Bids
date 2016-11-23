@@ -206,6 +206,17 @@ class home extends CI_Controller {
 		$this->load->view('home/index', $datapackage);
 		$this->load->view('layout_home/footer', $data);
 	}
+
+	public function viewcontent(){
+		$data['result'] = $this->setting->getall();
+		$datamenu['menu'] = $this->menu->getall();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar', $datamenu);
+		$this->load->view('home/content');
+		$this->load->view('layout_home/footer', $data);
+	}
+
 	public function viewproduct(){
 		$data['result'] = $this->setting->getall();
 		$datamenu['menu'] = $this->menu->getall();
@@ -232,6 +243,16 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar', $datamenu);
 		$this->load->view('home/mydetails');
+		$this->load->view('layout_home/footer', $data);
+	}
+
+	public function viewwinner(){
+		$data['result'] = $this->setting->getall();
+		$datamenu['menu'] = $this->menu->getall();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar', $datamenu);
+		$this->load->view('home/winner');
 		$this->load->view('layout_home/footer', $data);
 	}
 
