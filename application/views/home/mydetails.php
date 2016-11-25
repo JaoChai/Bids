@@ -44,10 +44,10 @@
                                             <div class="mydetails_inner_right">anugooltippon@gmail.com</div>
                                         </div>
                                         <!--<div class="clear">&nbsp;</div>-->
-                                        <div class="mydetails_inner_row">
+                                        <!-- <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_even">ประเทศ :</div>
                                             <div class="mydetails_inner_right"></div>
-                                        </div>
+                                        </div> -->
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_odd">โทรศัพท์มือถือ</div>
@@ -73,9 +73,8 @@
                                         <div class="clear">&nbsp;</div>
                                         <div class="mydetails_inner_row">
                                         	<div class="mydetails_inner_left mydetails_last_submit">&nbsp;</div>
-                                            <div><button type="button" class="btn btn-bid btn-sml">Update</button></div>
+                                            <div> <a href="<?php echo site_url('home/vieweditmydetail');?>" class="btn btn-bid btn-sml">แก้ไข</a></div>
                                         </div>
-                                        <input type="hidden" value="submit" name="submit" />
                                     </div>
                                 </div>
                             </form>

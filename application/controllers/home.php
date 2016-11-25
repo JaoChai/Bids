@@ -230,6 +230,22 @@ class home extends CI_Controller {
 		$this->load->view('home/productdetail');
 		$this->load->view('layout_home/footer', $data);
 	}
+
+	public function viewwinner(){
+		$data['result'] = $this->setting->getall();
+		$data['about'] = $this->menu->getabout();
+		$data['support'] = $this->menu->getsupport();
+		$data['bid'] = $this->menu->getmenubid();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar');
+		$this->load->view('home/winner');
+		$this->load->view('layout_home/footer', $data);
+	}
+
+
+  /********** View Account ************/
+
 	public function myaccount(){
 		$data['result'] = $this->setting->getall();
 		$data['about'] = $this->menu->getabout();
@@ -241,6 +257,31 @@ class home extends CI_Controller {
 		$this->load->view('home/myaccount');
 		$this->load->view('layout_home/footer', $data);
 	}
+
+	public function viewaddresses(){
+		$data['result'] = $this->setting->getall();
+		$data['about'] = $this->menu->getabout();
+		$data['support'] = $this->menu->getsupport();
+		$data['bid'] = $this->menu->getmenubid();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar');
+		$this->load->view('home/addresses');
+		$this->load->view('layout_home/footer', $data);
+	}
+
+	public function vieweditaddresses(){
+		$data['result'] = $this->setting->getall();
+		$data['about'] = $this->menu->getabout();
+		$data['support'] = $this->menu->getsupport();
+		$data['bid'] = $this->menu->getmenubid();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/search');
+		$this->load->view('layout_home/navbar');
+		$this->load->view('crudhome/editaddresses');
+		$this->load->view('layout_home/footer', $data);
+	}
+
 
 	public function viewmydetail(){
 		$data['result'] = $this->setting->getall();
@@ -254,7 +295,7 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/footer', $data);
 	}
 
-	public function viewwinner(){
+	public function vieweditmydetail(){
 		$data['result'] = $this->setting->getall();
 		$data['about'] = $this->menu->getabout();
 		$data['support'] = $this->menu->getsupport();
@@ -262,8 +303,11 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/header', $data);
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');
-		$this->load->view('home/winner');
+		$this->load->view('crudhome/editmydetails');
 		$this->load->view('layout_home/footer', $data);
 	}
+
+	  /********** End View Account ************/
+
 
 }

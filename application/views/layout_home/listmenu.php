@@ -109,7 +109,7 @@
             </div>
             <div class="myaccount_left_menu_inner_sec_box">
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
-                <div class="myaccount_left_menu_inner_sec_text"><a href="#">ที่อยู่จัดส่ง/ออกบิล</a></div>
+                <div class="myaccount_left_menu_inner_sec_text"><a href="<?php echo site_url('home/viewaddresses');?>">ที่อยู่จัดส่ง/ออกบิล</a></div>
             </div>
             <div class="myaccount_left_menu_inner_sec_box">
                 <div class="myaccount_left_menu_arrow">&nbsp;</div>
