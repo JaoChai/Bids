@@ -20,7 +20,7 @@
              <div class="box-body">
 
                <input type="hidden" name="id" value="<?php echo $res->review_id;?>">
-               <input type="hidden" name="img" value="<?php echo $res->review_img;?>">
+               <input type="hidden" name="img" value="<?php echo $res->review_newimg;?>">
                <div class="form-group">
                  <label for="" class="col-sm-2 control-label">Review Title *</label>
                  <div class="col-sm-10">

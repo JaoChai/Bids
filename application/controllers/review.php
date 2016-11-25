@@ -17,6 +17,9 @@ class review extends CI_Controller {
      $conf['max_height'] = '';
      $conf['overwrite'] = 'TRUE';
      $conf['remove_spaces'] = 'TRUE';
+     $conf['encrypt_name'] = 'TRUE';
+     $new_name = time().$_FILES["userfile"]['name'];
+     $conf['file_name'] = $new_name;
 
       $this->load->library('upload', $conf);
       $config = array(
@@ -75,7 +78,8 @@ class review extends CI_Controller {
            $dataimg = $this->upload->data();
            $data = array(
              "review_title" => $this->input->post('review_title'),
-             "review_img" => $dataimg['file_name'],
+             "review_newimg" => $dataimg['file_name'],
+             "review_img" => $_FILES['userfile']['name'],
              "review_imgpath" => $dataimg['full_path'],
              "review_name" => $this->input->post('review_name'),
              "review_pbid" => $this->input->post('review_pbid'),
@@ -157,6 +161,9 @@ class review extends CI_Controller {
               $conf['max_height'] = '';
               $conf['overwrite'] = 'TRUE';
               $conf['remove_spaces'] = 'TRUE';
+              $conf['encrypt_name'] = 'TRUE';
+              $new_name = time().$_FILES["userfile"]['name'];
+              $conf['file_name'] = $new_name;
 
                $this->load->library('upload', $conf);
                if(!$this->upload->do_upload()){
@@ -166,6 +173,7 @@ class review extends CI_Controller {
                  $dataimg = $this->upload->data();
                  $data = array(
                    "review_title" => $this->input->post('review_title'),
+                   "review_newimg" => $dataimg['file_name'],
                    "review_img" => $_FILES['userfile']['name'],
                    "review_imgpath" => $dataimg['full_path'],
                    "review_name" => $this->input->post('review_name'),

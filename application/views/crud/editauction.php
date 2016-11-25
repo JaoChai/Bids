@@ -21,7 +21,7 @@
 
             <!-- Insert Here!-->
             <input type="hidden" name="id" value="<?php echo $data->auc_id;?>">
-            <input type="hidden" name="img" value="<?php echo $data->auc_pic;?>">
+            <input type="hidden" name="img" value="<?php echo $data->auc_newpic;?>">
              <div class="form-group">
                <label for="" class="col-sm-2 control-label">Category :</label>
                <div class="col-sm-10">

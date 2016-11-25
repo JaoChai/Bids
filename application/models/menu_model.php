@@ -18,6 +18,17 @@ class menu_model extends CI_Model {
      }
    }
 
+   public function getall()
+   {
+     $this->db->select('*');
+     $this->db->from('menu');
+     $query = $this->db->get();
+     if($query->num_rows() > 0)
+     {
+       return $query->result();
+     }
+   }
+
    public function getsupport()
    {
      $this->db->select('*');

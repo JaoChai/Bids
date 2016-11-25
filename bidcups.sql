@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2016 at 04:29 PM
+-- Generation Time: Nov 25, 2016 at 05:01 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -55,6 +55,7 @@ CREATE TABLE `auction` (
   `auc_item_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auc_item_des` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auc_price` double NOT NULL,
+  `auc_newpic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auc_pic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auc_path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auc_start` double NOT NULL,
@@ -69,13 +70,10 @@ CREATE TABLE `auction` (
 -- Dumping data for table `auction`
 --
 
-INSERT INTO `auction` (`auc_id`, `auc_cate_id`, `auc_item_title`, `auc_item_des`, `auc_price`, `auc_pic`, `auc_path`, `auc_start`, `auc_bids_inc`, `auc_start_date`, `auc_end_date`, `auc_status`, `mem_id`) VALUES
-(25, 1, 'oppo n1', '<p>oppo n1</p>\r\n', 6500, 'photo_2016-11-10_23-44-20.jpg', '', 15.5, 0.5, '2016-11-21 18:35:45', '2016-11-22 18:35:46', 1, 4),
-(26, 1, 'oppo n1', '<p>oppo n1</p>\r\n', 6500, 'photo_2016-11-10_23-44-20.jpg', '', 2, 0.5, '2016-11-21 18:35:45', '2016-11-22 18:35:46', 1, 3),
-(27, 1, 'Asus zenfone 5', '<p>Asus zenfone 5</p>\r\n', 4500, 'photo_2016-11-10_23-44-20.jpg', '', 2.5, 0.5, '2016-11-23 09:15:52', '2016-11-24 09:15:54', 1, 3),
-(28, 1, 'lenovo ideapad y470', '<p>lenovo ideapad y470</p>\r\n', 22000, 'photo_2016-11-10_23-44-20.jpg', '', 0, 0.5, '2016-11-23 14:41:23', '2016-11-24 14:41:25', 0, 0),
-(29, 1, 'lenovo ideapad y470', '<p>lenovo ideapad y470</p>\r\n', 22000, 'photo_2016-11-10_23-44-20.jpg', '', 0, 0.5, '2016-11-23 14:41:23', '2016-11-24 14:41:25', 0, 0),
-(30, 1, 'lenovo ideapad y470', '<p>lenovo ideapad y470</p>\r\n', 22000, 'newbanner-marshall-major-ll3.jpg', 'C:/xampp/htdocs/auction/uploads/newbanner-marshall-major-ll3.jpg', 0, 0.5, '2016-11-23 14:41:23', '2016-11-24 14:41:25', 0, 0);
+INSERT INTO `auction` (`auc_id`, `auc_cate_id`, `auc_item_title`, `auc_item_des`, `auc_price`, `auc_newpic`, `auc_pic`, `auc_path`, `auc_start`, `auc_bids_inc`, `auc_start_date`, `auc_end_date`, `auc_status`, `mem_id`) VALUES
+(32, 1, 'oppo n1', '<p>oppo n1</p>\r\n', 6500, '1479959375photo_2016-11-10_23-44-20.jpg', 'photo_2016-11-10_23-44-20.jpg', 'C:/xampp/htdocs/auction/uploads/1479959375photo_2016-11-10_23-44-20.jpg', 0, 0.5, '2016-11-24 10:49:32', '2016-11-25 10:49:33', 0, 0),
+(33, 1, 'Remax', '<p>&nbsp;Sport Magnet Bluetooth Headset 4</p>\r\n', 3500, '1479959467newbanner-marshall-major-ll3.jpg', 'newbanner-marshall-major-ll3.jpg', 'C:/xampp/htdocs/auction/uploads/1479959467newbanner-marshall-major-ll3.jpg', 0, 0.5, '2016-11-24 10:51:04', '2016-11-26 10:51:05', 0, 0),
+(34, 1, 'Asus zenfone 5', '<p>Asus zenfone 5</p>\r\n', 4500, '1479959676E12789826-74.jpg', 'E12789826-74.jpg', 'C:/xampp/htdocs/auction/uploads/1479959676E12789826-74.jpg', 0, 0.5, '2016-11-24 10:53:31', '2016-11-26 10:53:32', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -256,6 +254,7 @@ INSERT INTO `history` (`his_id`, `mem_id`, `auc_id`, `his_date`, `his_price`) VA
 
 CREATE TABLE `img_slider` (
   `img_id` int(100) NOT NULL,
+  `img_newname` varchar(255) NOT NULL,
   `img_name` varchar(100) NOT NULL,
   `img_path` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -264,10 +263,10 @@ CREATE TABLE `img_slider` (
 -- Dumping data for table `img_slider`
 --
 
-INSERT INTO `img_slider` (`img_id`, `img_name`, `img_path`) VALUES
-(16, 'newbanner-marshall-major-ll.jpg', 'C:/xampp/htdocs/auction/uploads/newbanner-marshall-major-ll.jpg'),
-(17, 'newbanner-marshall-major-ll1.jpg', 'C:/xampp/htdocs/auction/uploads/newbanner-marshall-major-ll1.jpg'),
-(18, 'newbanner-marshall-major-ll2.jpg', 'C:/xampp/htdocs/auction/uploads/newbanner-marshall-major-ll2.jpg');
+INSERT INTO `img_slider` (`img_id`, `img_newname`, `img_name`, `img_path`) VALUES
+(19, '1479960127newbanner-marshall-major-ll.jpg', 'newbanner-marshall-major-ll.jpg', 'C:/xampp/htdocs/auction/uploads/1479960127newbanner-marshall-major-ll.jpg'),
+(20, '1479960142newbanner-marshall-major-ll1.jpg', 'newbanner-marshall-major-ll1.jpg', 'C:/xampp/htdocs/auction/uploads/1479960142newbanner-marshall-major-ll1.jpg'),
+(21, '1479960147newbanner-marshall-major-ll2.jpg', 'newbanner-marshall-major-ll2.jpg', 'C:/xampp/htdocs/auction/uploads/1479960147newbanner-marshall-major-ll2.jpg');
 
 -- --------------------------------------------------------
 
@@ -344,6 +343,7 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `menu_title`, `menu_meta_des`, `menu
 CREATE TABLE `review` (
   `review_id` int(100) NOT NULL,
   `review_title` varchar(255) NOT NULL,
+  `review_newimg` varchar(255) NOT NULL,
   `review_img` varchar(255) NOT NULL,
   `review_imgpath` varchar(255) NOT NULL,
   `review_name` varchar(255) NOT NULL,
@@ -355,8 +355,9 @@ CREATE TABLE `review` (
 -- Dumping data for table `review`
 --
 
-INSERT INTO `review` (`review_id`, `review_title`, `review_img`, `review_imgpath`, `review_name`, `review_pbid`, `review_description`) VALUES
-(5, 'test1', 'E12789826-74.jpg', 'C:/xampp/htdocs/auction/uploads/review/E12789826-74.jpg', 'test', 'test1', 'test');
+INSERT INTO `review` (`review_id`, `review_title`, `review_newimg`, `review_img`, `review_imgpath`, `review_name`, `review_pbid`, `review_description`) VALUES
+(6, 'test', '1479960453E12789826-74.jpg', 'E12789826-74.jpg', 'C:/xampp/htdocs/auction/uploads/review/1479960453E12789826-74.jpg', 'test', 'test', 'test'),
+(7, 'test1', '1479960582minions.jpg', 'minions.jpg', 'C:/xampp/htdocs/auction/uploads/review/1479960582minions.jpg', 'test1', 'test1', 'test1');
 
 -- --------------------------------------------------------
 
@@ -391,7 +392,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `img`, `img_path`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1479912065, 1, 'Wason', 'Thamasak', 'ADMIN', '0', 'admin.jpg', ''),
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1479975782, 1, 'Wason', 'Thamasak', 'ADMIN', '0', 'admin.jpg', ''),
 (3, '::1', 'jirachot23@gmail.com', '$2y$08$wIeFjFzu6BVvHJjK/iaIyudvx9UNs04eXoA9X3WijHxsrZo4W2CG2', NULL, 'jirachot23@gmail.com', NULL, NULL, NULL, NULL, 1477889924, 1477997760, 1, 'test1', 'test1', 'test1', '0875696451', 'Tulips.jpg', ''),
 (22, '::1', 'jirachot233@gmail.com', '$2y$08$lUgcbXjUUkSpUehTrkiigu2xxs0mqP3P36j9/fhgYRvN0qcDbyRIa', NULL, 'jirachot233@gmail.com', NULL, NULL, NULL, NULL, 1478104561, NULL, 1, 'test1', 'test1', NULL, NULL, 'minions.jpg', 'C:/xampp/htdocs/auction/uploads/minions.jpg');
 
@@ -526,7 +527,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `auc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `auc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `bidpackage`
 --
@@ -561,7 +562,7 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `img_slider`
 --
 ALTER TABLE `img_slider`
-  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
@@ -581,7 +582,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `review_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `users`
 --

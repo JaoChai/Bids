@@ -17,6 +17,9 @@ class auction extends CI_Controller {
     $conf['max_height'] = '';
     $conf['overwrite'] = 'TRUE';
     $conf['remove_spaces'] = 'TRUE';
+    $conf['encrypt_name'] = 'TRUE';
+    $new_name = time().$_FILES["userfile"]['name'];
+    $conf['file_name'] = $new_name;
 
     $this->load->library('upload', $conf);
     $start_date = $this->input->post('start_date');
@@ -106,12 +109,17 @@ class auction extends CI_Controller {
        $error = array('error' => $this->upload->display_errors());
        $this->load->view('dashboard/openpenny', $error);
      }else{
-     $data = array(
+       $dataimg = $this->upload->data();
+
+       //print_r($_FILES);
+       $data = array(
            "auc_cate_id" => $this->input->post('cate'),
            "auc_item_title" => $this->input->post('item_title'),
            "auc_item_des" => $this->input->post('item_des'),
            "auc_price" => $this->input->post('price'),
+           "auc_newpic" => $dataimg['file_name'],
            "auc_pic" => $_FILES['userfile']['name'],
+           "auc_path" => $dataimg['full_path'],
            "auc_start" => $this->input->post('auc_start'),
            "auc_bids_inc" => $this->input->post('bids_inc'),
            "auc_start_date" => date('Y-m-d H:i:s', strtotime($start_date)),
@@ -216,6 +224,9 @@ class auction extends CI_Controller {
               $conf['max_height'] = '';
               $conf['overwrite'] = 'TRUE';
               $conf['remove_spaces'] = 'TRUE';
+              $conf['encrypt_name'] = 'TRUE';
+              $new_name = time().$_FILES["userfile"]['name'];
+              $conf['file_name'] = $new_name;
 
                $this->load->library('upload', $conf);
                if(!$this->upload->do_upload()){
@@ -228,6 +239,7 @@ class auction extends CI_Controller {
                    "auc_item_title" => $this->input->post('item_title'),
                    "auc_item_des" => $this->input->post('item_des'),
                    "auc_price" => $this->input->post('price'),
+                   "auc_newpic" => $dataimg['file_name'],
                    "auc_pic" => $_FILES['userfile']['name'],
                    "auc_path" => $dataimg['full_path'],
                    "auc_start" => $this->input->post('auc_start'),

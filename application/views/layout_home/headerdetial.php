@@ -15,7 +15,7 @@
           });
           </script>
                 <?php foreach($slide as $row): ?>
-                <img alt="" src="<?php echo base_url('uploads/'. $row->img_name); ?>">
+                <img alt="" src="<?php echo base_url('uploads/'. $row->img_newname); ?>">
               <?php endforeach;?>
 
         </div>

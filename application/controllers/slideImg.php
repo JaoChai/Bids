@@ -16,19 +16,23 @@ class slideImg extends CI_Controller {
     $config['max_height'] = '';
     $config['overwrite'] = 'TRUE';
     $config['remove_spaces'] = 'TRUE';
+    $config['encrypt_name'] = 'TRUE';
+    $new_name = time().$_FILES["userfile"]['name'];
+    $config['file_name'] = $new_name;
 
     $this->load->library('upload', $config);
 
     if($this->upload->do_upload())
     {
-      $this->slide->insert($this->upload->data());
+      $img = $_FILES['userfile']['name'];
+      $this->slide->insert($this->upload->data(), $img);
       redirect('dashboard/slider');
     }else
     {
       $error = array('error' => $this->upload->display_errors());
 			$data['result'] = $this->slide->getall();
 			$this->load->vars($data);
-      
+
       $this->load->view('layout_dashboard/header');
       $this->load->view('layout_dashboard/navbar');
       $this->load->view('layout_dashboard/sitebar');

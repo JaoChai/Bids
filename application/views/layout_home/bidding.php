@@ -14,7 +14,7 @@ foreach($query->result() as $row): ?>
   <div class="main_bidnow_middle" id="area<?php echo $num;?>">
      <div class="main_bidnow_area">
          <div class="main_bidnow_product_image_box">
-            <div class="main_bidnow_product_image"><a href="#"><img src="<?php echo base_url('uploads/'. $row->auc_pic); ?>"  border="0" alt="You uploads"/></a></div>
+            <div class="main_bidnow_product_image"><a href="#"><img src="<?php echo base_url('uploads/'. $row->auc_newpic); ?>"  border="0" alt="You uploads"/></a></div>
          </div>
 
           <div class="main_bidnow_title"><a href="#"><?php echo $row->auc_item_title;?></a></div>

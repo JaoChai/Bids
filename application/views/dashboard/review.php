@@ -90,7 +90,7 @@
                 <tr>
                   <td><?php echo $num++;?></td>
                   <td><?php echo $res->review_title;?></td>
-                  <td><img src="<?php echo base_url('uploads/review/'. $res->review_img); ?>" width="81" height="78"></td>
+                  <td><img src="<?php echo base_url('uploads/review/'. $res->review_newimg); ?>" width="81" height="78"></td>
                   <td><?php echo $res->review_name;?></td>
                   <td><?php echo $res->review_pbid;?></td>
                   <td>

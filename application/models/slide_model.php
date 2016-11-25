@@ -8,7 +8,7 @@ class slide_model extends CI_Model {
 
    public function getall()
    {
-     $this->db->select("img_name, img_id, img_path");
+     $this->db->select("*");
 		$this->db->from("img_slider");
 		$query = $this->db->get();
 		if($query->num_rows() > 0){
@@ -16,10 +16,11 @@ class slide_model extends CI_Model {
       }
    }
 
-   public function insert($img_data = array())
+   public function insert($img_data = array(), $origin_name)
    {
      $data = array(
-       'img_name' => $img_data['file_name'],
+       'img_newname' => $img_data['file_name'],
+       'img_name' => $origin_name,
        'img_path' => $img_data['full_path']
      );
      $this->db->insert('img_slider', $data);
