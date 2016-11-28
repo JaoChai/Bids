@@ -19,7 +19,7 @@ foreach($query->result() as $row): ?>
 
           <div class="main_bidnow_title"><a href="#"><?php echo $row->auc_item_title;?></a></div>
 
-          <div class="timeleft_title">สินค้าราคา <span class="marketprice_linethrough"><span><?php echo $row->auc_price;?></span></span></div>
+          <div class="timeleft_title">สินค้าราคา <span class="marketprice_linethrough"><span><?php echo number_format($row->auc_price);?></span></span></div>
 
           <div class="main_bidnow_price_inner" align="center">
             <div id="clockdiv<?php echo $num;?>">

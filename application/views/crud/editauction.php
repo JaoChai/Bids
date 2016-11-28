@@ -90,6 +90,18 @@
                </div>
              </div>
 
+             <div class="form-group">
+               <label for="" class="col-sm-2 control-label">Start Bid :</label>
+               <div class="col-sm-10">
+                 <div class='input-group date' id='start_date'>
+                    <input type='text' class="form-control" name="start_date" value="<?php echo date('d-m-Y H:i:s', strtotime($data->auc_end_date));?>" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+               </div>
+             </div>
+
            </div>
 
            <div class="box-footer">
@@ -97,7 +109,14 @@
            </div>
            <!-- /.box-footer -->
          <?php echo form_close();?>
+         <script type="text/javascript">
+        $(function(){
 
+          $("#start_date").datetimepicker({
+            format: 'DD-MM-YYYY HH:mm:ss'
+          });
+      });
+        </script>
        </div>
 
   </section>

@@ -31,59 +31,39 @@ class auction extends CI_Controller {
        "field" => "cate",
        "label" => "Category",
        "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
      ),
      array(
        "field" => "item_title",
        "label" => "Item Title",
        "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
      ),
      array(
        "field" => "item_des",
        "label" => "Description",
        "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
      ),
      array(
        "field" => "price",
        "label" => "Price",
        "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
      ),
      array(
        "field" => "auc_start",
        "label" => "Auction Start",
        "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
      ),
      array(
        "field" => "bids_inc",
        "label" => "Bids Increment",
        "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
      ),
      array(
        "field" => "end_date",
        "label" => "End Date",
        "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
      )
    );
+   $this->form_validation->set_message('required', 'กรุณากรอก %s');
    $this->form_validation->set_error_delimiters('<div class="alert">', '</div>');
    $this->form_validation->set_rules($config);
    if($this->form_validation->run() == FALSE)
@@ -141,6 +121,8 @@ class auction extends CI_Controller {
 
    public function do_update()
    {
+     date_default_timezone_set('Asia/Bangkok');
+     $end_date = $this->input->post('start_date');
      $id = $this->input->post('id');
      $img = $this->input->post('img');
      $config = array(
@@ -148,51 +130,39 @@ class auction extends CI_Controller {
         "field" => "cate",
         "label" => "Category",
         "rules" =>"required",
-        'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
       ),
       array(
         "field" => "item_title",
         "label" => "Item Title",
         "rules" =>"required",
-        'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
       ),
       array(
         "field" => "item_des",
         "label" => "Description",
         "rules" =>"required",
-        'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
       ),
       array(
         "field" => "price",
         "label" => "Price",
         "rules" =>"required",
-        'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
       ),
       array(
         "field" => "auc_start",
         "label" => "Auction Start",
         "rules" =>"required",
-        'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
       ),
       array(
         "field" => "bids_inc",
         "label" => "Bids Increment",
         "rules" =>"required",
-        'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+      ),
+      array(
+        "field" => "start_date",
+        "label" => "Start Date",
+        "rules" =>"required",
       )
     );
+        $this->form_validation->set_message('required', 'กรุณากรอก %s');
         $this->form_validation->set_error_delimiters('<div class="alert">', '</div>');
         $this->form_validation->set_rules($config);
         if($this->form_validation->run() == FALSE){
@@ -232,7 +202,8 @@ class auction extends CI_Controller {
                    "auc_pic" => $_FILES['userfile']['name'],
                    "auc_path" => $dataimg['full_path'],
                    "auc_start" => $this->input->post('auc_start'),
-                   "auc_bids_inc" => $this->input->post('bids_inc')
+                   "auc_bids_inc" => $this->input->post('bids_inc'),
+                   "auc_end_date" => date('Y-m-d H:i:s', strtotime($end_date))
                  );
                  $this->auction->update($id, $data);
                  redirect('dashboard/auction_list');
@@ -245,7 +216,8 @@ class auction extends CI_Controller {
             "auc_item_des" => $this->input->post('item_des'),
             "auc_price" => $this->input->post('price'),
             "auc_start" => $this->input->post('auc_start'),
-            "auc_bids_inc" => $this->input->post('bids_inc')
+            "auc_bids_inc" => $this->input->post('bids_inc'),
+            "auc_end_date" => date('Y-m-d H:i:s', strtotime($end_date))
           );
           $this->auction->updatetext($id, $data);
           //print_r($_FILES['userfile']['name']);
