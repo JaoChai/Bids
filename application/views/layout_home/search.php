@@ -3,7 +3,11 @@
 	          <div class="container">
 	            <div class="row">
 	              <div class="col-sm-12">
-	                <div id="logo" class="pull-left"><a href="/"><img src="<?php echo base_url();?>assets/home/images/logo_whitetest.png" border="0" alt=""></a></div>
+									<?php $sql = "SELECT general_logo FROM general_set";
+									$query = $this->db->query($sql);
+									$logo = $query->row();
+									?>
+	                <div id="logo" class="pull-left"><a href="/"><img src="<?php echo base_url('uploads/icon/'. $logo->general_logo); ?>" border="0" alt=""></a></div>
 	                <div id="mobile-toggles" class="pull-right hidden-sm hidden-md hidden-lg text-right">
 	                  <span id="search-toggle"><i class="fa fa-search"></i></span>
 	                </div>

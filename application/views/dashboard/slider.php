@@ -11,7 +11,7 @@
          <!-- Horizontal Form -->
          <div class="box box-info">
            <?php $att = array('class' => 'form-horizontal');
-           echo form_open_multipart('slideimg/do_upload', $att);
+           echo form_open_multipart('slideImg/do_upload', $att);
            ?>
 
              <div class="box-header with-border">
@@ -59,9 +59,9 @@
                   <tr>
                     <td><?php echo $num++;?></td>
                     <td><?php echo $res->img_name;?></td>
-                    <td><img alt="Your uploaded image" src="<?php echo base_url('uploads/'. $res->img_name); ?>" width="150" height="100"></td>
+                    <td><img alt="Your uploaded image" src="<?php echo base_url('uploads/'. $res->img_newname); ?>" width="150" height="100"></td>
                     <td>
-                      <?php echo form_open("slideimg/delete");?>
+                      <?php echo form_open("slideImg/delete");?>
                         <input type="hidden" name="id" value="<?php echo $res->img_id;?>">
                         <input type="hidden" name="path" value="<?php echo $res->img_path;?>">
                         <input type="submit" class="btn btn-danger" value="Delete">

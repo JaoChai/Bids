@@ -64,6 +64,12 @@
              </div>
 
              <div class="form-group">
+               <div class="col-sm-10 col-sm-offset-2">
+                 <img alt="Your uploaded image" src="<?php echo base_url('uploads/'. $data->auc_newpic); ?>" width="150" height="100">
+               </div>
+             </div>
+
+             <div class="form-group">
                <label for="" class="col-sm-2 control-label">Picture Upload :</label>
                <div class="col-sm-10">
                  <input type="file" class="form-control" id="pic" name="userfile">

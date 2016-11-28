@@ -16,32 +16,42 @@
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_even">Username :</div>
-                                            <div class="mydetails_inner_right">Anugool</div>
+                                            <div class="mydetails_inner_right"><?php echo $mem_detail->mem_username;?></div>
                                         </div>
                                         <!--<div class="clear">&nbsp;</div>-->
+                                        <?php $gender = $mem_detail->mem_gender;
+                                          switch ($gender) {
+                                            case 'Male':
+                                              $gender = "ชาย";
+                                              break;
+                                            case 'Female':
+                                              $gender = "หญิง";
+                                              break;
+                                          }
+                                        ?>
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_odd">เพศ :</div>
-                                            <div class="mydetails_inner_right">ชาย</div>
+                                            <div class="mydetails_inner_right"><?php echo $gender;?></div>
                                         </div>
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_even">ชื่อ :</div>
-                                            <div class="mydetails_inner_right">อนุกูล</div>
+                                            <div class="mydetails_inner_right"><?php echo $mem_detail->mem_fname;?></div>
                                         </div>
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_odd">นามสกุล :</div>
-                                            <div class="mydetails_inner_right">ทิพย์ผล</div>
+                                            <div class="mydetails_inner_right"><?php echo $mem_detail->mem_lname;?></div>
                                         </div>
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_even">วันเกิด :</div>
-                                            <div class="mydetails_inner_right">18-06-1991</div>
+                                            <div class="mydetails_inner_right"><?php echo $mem_detail->mem_birth_day. "-" .$mem_detail->mem_birth_month. "-" .$mem_detail->mem_birth_year;?></div>
                                         </div>
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_odd">อีเมล :</div>
-                                            <div class="mydetails_inner_right">anugooltippon@gmail.com</div>
+                                            <div class="mydetails_inner_right"><?php echo $mem_detail->mem_email;?></div>
                                         </div>
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <!-- <div class="mydetails_inner_row">
@@ -51,7 +61,7 @@
                                         <!--<div class="clear">&nbsp;</div>-->
                                         <div class="mydetails_inner_row">
                                             <div class="mydetails_inner_left mydetails_odd">โทรศัพท์มือถือ</div>
-                                            <div class="mydetails_inner_right">0848647564</div>
+                                            <div class="mydetails_inner_right"><?php echo $mem_detail->mem_tel;?></div>
                                             <!--<div class="mydetails_inner_right mydetails_last_right"><strong>+</strong>&nbsp;<input type="text" name="mobileno" value="" class="logintextboxclas" style="width: 120px;" /></div>-->
                                         </div>
                                         <div class="mydetails_inner_row">

@@ -34,6 +34,8 @@
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
             <li><a href="<?php echo site_url("admin/create_user"); ?>"><i class="fa fa-circle-o"></i>Setting Admin</a></li>
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Setting Bank</a></li>
+            <li class="active"><i class="fa fa-circle-o"></i></a></li>
           </ul>
         </li>
 

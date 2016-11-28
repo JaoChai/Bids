@@ -21,28 +21,25 @@
                                        </div>
                                            <div class="clear">&nbsp;</div>
                                            <div class="addresses_inner_row">
-                                               <div class="addresses_inner_left_billing address_even">ที่อยู่บรรทัดที่ 1 : </div>
-                                               <div class="addresses_inner_right_billing">test</div>
+                                               <div class="addresses_inner_left_billing address_even">ที่อยู่: </div>
+                                               <div class="addresses_inner_right_billing"><?php echo $mem_address->mem_address;?></div>
                                            </div>
                                            <div class="clear"></div>
-                                           <div class="addresses_inner_row">
-                                               <div class="addresses_inner_left_billing address_odd">ที่อยู่บรรทัดที่ 2 : </div>
-                                               <div class="addresses_inner_right_billing">test</div>
-                                           </div>
+
                                            <div class="clear"></div>
                                            <div class="addresses_inner_row">
-                                               <div class="addresses_inner_left_billing address_even">อำเภอ / จังหวัด : </div>
-                                               <div class="addresses_inner_right_billing"> test</div>
+                                               <div class="addresses_inner_left_billing address_even">จังหวัด : </div>
+                                               <div class="addresses_inner_right_billing"> <?php echo $mem_address->mem_district;?></div>
                                            </div>
                                            <div class="clear"></div>
                                            <div class="addresses_inner_row">
                                                <div class="addresses_inner_left_billing address_odd">รหัสไปรษณีย์ / Zip : </div>
-                                               <div class="addresses_inner_right_billing">test</div>
+                                               <div class="addresses_inner_right_billing"><?php echo $mem_address->mem_postcode;?></div>
                                            </div>
                                            <div class="clear"></div>
                                            <div class="addresses_inner_row">
                                                <div class="addresses_inner_left_billing address_even address_inner_last">โทรศัพท์มือถือ : </div>
-                                               <div class="addresses_inner_right_billing address_inner_last">0848647564</div>
+                                               <div class="addresses_inner_right_billing address_inner_last"><?php echo $mem_address->mem_tel;?></div>
                                            </div>
 
                                            <div class="clear">&nbsp;</div>

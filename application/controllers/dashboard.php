@@ -4,6 +4,25 @@ class dashboard extends CI_Controller {
 
   function __construct() {
        parent::__construct();
+       if ( ! $this->session->userdata('logged_admin'))
+     {
+         // Allow some methods?
+         $allowed = array(
+             'maindashboard',
+             'setting',
+             'slider',
+             'menu',
+             'category',
+             'bidpackage',
+             'openpenny',
+             'auction_list',
+             'review',
+         );
+         if ( in_array($this->router->fetch_method(), $allowed))
+         {
+             redirect('dashboard/index');
+         }
+     }
       $this->load->library(array('ion_auth','form_validation'));
 			$this->load->helper(array('url','language'));
 
@@ -108,7 +127,13 @@ class dashboard extends CI_Controller {
 
 	// log the user out
 	$logout = $this->ion_auth->logout();
-
+  $sess_array = array(
+    'sess_id' => '',
+    'sess_fname' => '',
+    'sess_lname' => '',
+    'sess_img' => ''
+  );
+  $this->session->unset_userdata('logged_in', $sess_array);
 	// redirect them to the login page
 	$this->session->set_flashdata('message', $this->ion_auth->messages());
 	redirect('dashboard/login', 'refresh');

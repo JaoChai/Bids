@@ -80,19 +80,7 @@
              </div>
 
              <div class="form-group">
-               <label for="" class="col-sm-2 control-label">Start Date :</label>
-               <div class="col-sm-10">
-                 <div class='input-group date' id='start_date'>
-                    <input type='text' class="form-control" name="start_date" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-               </div>
-             </div>
-
-             <div class="form-group">
-               <label for="" class="col-sm-2 control-label">End Date :</label>
+               <label for="" class="col-sm-2 control-label">Start Bid :</label>
                <div class="col-sm-10">
                  <div class='input-group date' id='end_date'>
                     <input type='text' class="form-control" name="end_date" />
@@ -112,9 +100,6 @@
          <?php echo form_close();?>
          <script type="text/javascript">
         $(function(){
-          $("#start_date").datetimepicker({
-            format: 'DD-MM-YYYY HH:mm:ss'
-          });
 
           $("#end_date").datetimepicker({
             format: 'DD-MM-YYYY HH:mm:ss'

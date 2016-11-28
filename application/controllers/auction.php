@@ -22,7 +22,8 @@ class auction extends CI_Controller {
     $conf['file_name'] = $new_name;
 
     $this->load->library('upload', $conf);
-    $start_date = $this->input->post('start_date');
+    //$start_date = new Date();
+    date_default_timezone_set('Asia/Bangkok');
     $end_date = $this->input->post('end_date');
 
     $config = array(
@@ -75,14 +76,6 @@ class auction extends CI_Controller {
              )
      ),
      array(
-       "field" => "start_date",
-       "label" => "Start Date",
-       "rules" =>"required",
-       'errors' => array(
-                     'required' => 'กรุณากรอก %s.',
-             )
-     ),
-     array(
        "field" => "end_date",
        "label" => "End Date",
        "rules" =>"required",
@@ -122,17 +115,13 @@ class auction extends CI_Controller {
            "auc_path" => $dataimg['full_path'],
            "auc_start" => $this->input->post('auc_start'),
            "auc_bids_inc" => $this->input->post('bids_inc'),
-           "auc_start_date" => date('Y-m-d H:i:s', strtotime($start_date)),
+           "auc_start_date" => date('Y-m-d H:i:s'),
            "auc_end_date" => date('Y-m-d H:i:s', strtotime($end_date))
          );
 
          $this->auction->insert($data);
-        //  $max_aucid = $this->auction->getidauc();
-        //  $data2 = array(
-        //    'auc_id' => $max_aucid,
-        //    'final_time' => date('Y-m-d H:i:s', strtotime($start_date))
-        //  );
-        //  $this->auction->insert_final($data2);
+         print_r($data);
+
 
        }
          redirect('dashboard/openpenny');

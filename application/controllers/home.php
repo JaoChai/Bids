@@ -4,10 +4,25 @@ class home extends CI_Controller {
 
 	public function __construct() {
 			 parent::__construct();
+			 if ( ! $this->session->userdata('logged_in'))
+    {
+        // Allow some methods?
+        $allowed = array(
+            'viewmydetail',
+            'myaccount',
+						'viewaddresses',
+						'vieweditmydetail',
+        );
+        if ( in_array($this->router->fetch_method(), $allowed))
+        {
+            redirect('home/viewlogin');
+        }
+    }
 			 $this->load->model('setting_model', 'setting');
 			 $this->load->model('menu_model', 'menu');
 			 $this->load->model('bidpackage_model', 'package');
 			 $this->load->model('slide_model', 'slide');
+			 $this->load->model("register_model", "regis");
 }
 
 	public function index()
@@ -89,7 +104,6 @@ class home extends CI_Controller {
 
 	public function register()
 	{
-		$this->load->model("register_model", "regis");
 
 	if($this->input->post()){
 	$this->form_validation->set_rules('fname', '<b>ชื่อ</b>', 'required');
@@ -97,7 +111,11 @@ class home extends CI_Controller {
 	$this->form_validation->set_rules('day', '<b>วัน</b>', 'required');
 	$this->form_validation->set_rules('month', '<b>เดือน</b>', 'required');
 	$this->form_validation->set_rules('year', '<b>ปี</b>', 'required');
+	$this->form_validation->set_rules('gender', '<b>เพศ</b>', 'required');
 	$this->form_validation->set_rules('tel', '<b>เบอร์โทร</b>', 'required');
+	$this->form_validation->set_rules('address', '<b>เบอร์โทร</b>', 'required');
+	$this->form_validation->set_rules('district', '<b>เบอร์โทร</b>', 'required');
+	$this->form_validation->set_rules('post_code', '<b>เบอร์โทร</b>', 'required');
 	$this->form_validation->set_rules('username', '<b>Username</b>', 'required|min_length[6]');
 	$this->form_validation->set_rules('password', '<b>รหัสผ่าน</b>', 'required|min_length[6]');
 	$this->form_validation->set_rules('cnfpassword', '<b>ยืนยันรหัสผ่าน</b>', 'required|matches[password]|min_length[6]');
@@ -119,7 +137,11 @@ class home extends CI_Controller {
 			 'mem_birth_day' => $this->input->post('day'),
 			 'mem_birth_month' => $this->input->post('month'),
 			 'mem_birth_year' => $this->input->post('year'),
+			 'mem_gender' => $this->input->post('gender'),
 			 'mem_tel' => $this->input->post('tel'),
+			 'mem_address' => $this->input->post('address'),
+			 'mem_district' => $this->input->post('district'),
+			 'mem_postcode' => $this->input->post('post_code'),
 			 'mem_username' => $this->input->post('username'),
 			 'mem_pass' => md5($this->input->post('password')),
 			 'mem_email' => $this->input->post('email')
@@ -199,6 +221,8 @@ class home extends CI_Controller {
 	{
 		//Removing session data
 		$sess_array = array(
+			'id' => '',
+			'username' => '',
 			'email' => ''
 		);
 		$this->session->unset_userdata('logged_in', $sess_array);
@@ -259,6 +283,9 @@ class home extends CI_Controller {
 	}
 
 	public function viewaddresses(){
+		$session_data = $this->session->userdata('logged_in');
+		$mem_id = $session_data['id'];
+		$data_mem['mem_address'] = $this->regis->getmembers($mem_id);
 		$data['result'] = $this->setting->getall();
 		$data['about'] = $this->menu->getabout();
 		$data['support'] = $this->menu->getsupport();
@@ -266,11 +293,15 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/header', $data);
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');
-		$this->load->view('home/addresses');
+		$this->load->view('home/addresses', $data_mem);
 		$this->load->view('layout_home/footer', $data);
 	}
 
 	public function vieweditaddresses(){
+		$session_data = $this->session->userdata('logged_in');
+		$mem_id = $session_data['id'];
+		$data_mem['mem_address'] = $this->regis->getmembers($mem_id);
+		$data_mem['id'] = $mem_id;
 		$data['result'] = $this->setting->getall();
 		$data['about'] = $this->menu->getabout();
 		$data['support'] = $this->menu->getsupport();
@@ -278,12 +309,17 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/header', $data);
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');
-		$this->load->view('crudhome/editaddresses');
+		$this->load->view('crudhome/editaddresses', $data_mem);
 		$this->load->view('layout_home/footer', $data);
 	}
 
 
 	public function viewmydetail(){
+
+	//	if($this->session->userdata('logged_in')){
+		$session_data = $this->session->userdata('logged_in');
+		$mem_id = $session_data['id'];
+		$data_mem['mem_detail'] = $this->regis->getmembers($mem_id);
 		$data['result'] = $this->setting->getall();
 		$data['about'] = $this->menu->getabout();
 		$data['support'] = $this->menu->getsupport();
@@ -291,11 +327,18 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/header', $data);
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');
-		$this->load->view('home/mydetails');
+		$this->load->view('home/mydetails', $data_mem);
 		$this->load->view('layout_home/footer', $data);
+	// 	}else{
+	// 		redirect('home/viewlogin');
+	// }
 	}
 
 	public function vieweditmydetail(){
+		$session_data = $this->session->userdata('logged_in');
+		$mem_id = $session_data['id'];
+		$data_mem['mem_detail'] = $this->regis->getmembers($mem_id);
+		$data_mem['id'] = $mem_id;
 		$data['result'] = $this->setting->getall();
 		$data['about'] = $this->menu->getabout();
 		$data['support'] = $this->menu->getsupport();
@@ -303,9 +346,76 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/header', $data);
 		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');
-		$this->load->view('crudhome/editmydetails');
+		$this->load->view('crudhome/editmydetails', $data_mem);
 		$this->load->view('layout_home/footer', $data);
 	}
+
+	public function updatemembers(){
+		$id = $this->input->post('id');
+
+		$this->form_validation->set_rules('fname', '<b>ชื่อ</b>', 'required');
+		$this->form_validation->set_rules('lname', '<b>นามสกุล</b>', 'required');
+		$this->form_validation->set_rules('day', '<b>วัน</b>', 'required');
+		$this->form_validation->set_rules('month', '<b>เดือน</b>', 'required');
+		$this->form_validation->set_rules('year', '<b>ปี</b>', 'required');
+		$this->form_validation->set_rules('gender', '<b>เพศ</b>', 'required');
+		$this->form_validation->set_rules('phone', '<b>เบอร์โทร</b>', 'required|max_length[10]');
+		$this->form_validation->set_rules('username', '<b>Username</b>', 'required|min_length[6]');
+		$this->form_validation->set_rules('email', '<b>อีเมล</b>', 'required');
+		$this->form_validation->set_message('required', 'กรุณากรอก %s');
+		$this->form_validation->set_message('max_length', '%s เกิน 10 ตัว');
+
+		if($this->form_validation->run() == FALSE){
+		 //$contents['recaptcha_html'] = $this->recaptcha->render();
+		 $this->session->set_flashdata('alert', '<div class="alert alert-danger">' . validation_errors() . '</div>');
+		 redirect('home/vieweditmydetail');
+
+		}else{
+			$data = array(
+				'mem_fname' => $this->input->post('fname'),
+				'mem_lname' => $this->input->post('lname'),
+				'mem_birth_day' => $this->input->post('day'),
+				'mem_birth_month' => $this->input->post('month'),
+				'mem_birth_year' => $this->input->post('year'),
+				'mem_gender' => $this->input->post('gender'),
+				'mem_tel' => $this->input->post('phone'),
+				'mem_username' => $this->input->post('username'),
+				'mem_email' => $this->input->post('email')
+			);
+
+			$this->regis->update($id, $data);
+			redirect('home/viewmydetail');
+		}
+	}
+
+	public function updateaddress()
+{
+	$id = $this->input->post('id');
+
+	$this->form_validation->set_rules('address', '<b>ที่อยู่</b>', 'required');
+	$this->form_validation->set_rules('district', '<b>จังหวัด</b>', 'required');
+	$this->form_validation->set_rules('postcode', '<b>รหัสไปรษณีย์</b>', 'required');
+	$this->form_validation->set_rules('phone', '<b>เบอร์โทร</b>', 'required|max_length[10]');
+	$this->form_validation->set_message('required', 'กรุณากรอก %s');
+	$this->form_validation->set_message('max_length', '%s เกิน 10 ตัว');
+
+	if($this->form_validation->run() == FALSE){
+	 //$contents['recaptcha_html'] = $this->recaptcha->render();
+	 $this->session->set_flashdata('alert', '<div class="alert alert-danger">' . validation_errors() . '</div>');
+	 redirect('home/vieweditaddresses');
+
+	}else{
+		$data = array(
+			'mem_address' => $this->input->post('address'),
+			'mem_district' => $this->input->post('district'),
+			'mem_postcode' => $this->input->post('postcode'),
+			'mem_tel' => $this->input->post('phone')
+		);
+
+		$this->regis->update_address($id, $data);
+		redirect('home/viewaddresses');
+	}
+}
 
 	  /********** End View Account ************/
 
