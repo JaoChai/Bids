@@ -3,53 +3,53 @@
 class category extends CI_Controller {
 
   function __construct() {
-       parent::__construct();
-       $this->load->model("category_model", "cate");
-       $this->load->library("form_validation");
-   }
+    parent::__construct();
+    $this->load->model("category_model", "cate");
+    $this->load->library("form_validation");
+  }
 
-   public function insert()
-   {
-     $config = array(
+  public function insert()
+  {
+    $config = array(
       array(
         "field" => "namecate",
         "label" => "Name Menu",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
       array(
         "field" => "cate_title",
         "label" => "Page Site Title",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
       array(
         "field" => "cate_meta_des",
         "label" => "Page Meta Tag(Description)",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
       array(
         "field" => "cate_meta_key",
         "label" => "Page Meta Tag(Keyword)",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
-			array(
+      array(
         "field" => "cke_editor1",
         "label" => "Description & Content",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       )
     );
     $this->form_validation->set_error_delimiters('<div class="alert">', '</div>');
@@ -74,50 +74,50 @@ class category extends CI_Controller {
       $this->cate->insert($data);
       redirect('dashboard/category');
     }
-   }
+  }
 
-   public function update($id)
-   {
-     $config = array(
+  public function update($id)
+  {
+    $config = array(
       array(
         "field" => "namecate",
         "label" => "Name Menu",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
       array(
         "field" => "cate_title",
         "label" => "Page Site Title",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
       array(
         "field" => "cate_meta_des",
         "label" => "Page Meta Tag(Description)",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
       array(
         "field" => "cate_meta_key",
         "label" => "Page Meta Tag(Keyword)",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       ),
-			array(
+      array(
         "field" => "cke_editor1",
         "label" => "Description & Content",
         "rules" =>"required",
         'errors' => array(
-                      'required' => 'กรุณากรอก %s.',
-              )
+          'required' => 'กรุณากรอก %s.',
+        )
       )
     );
     $this->form_validation->set_error_delimiters('<div class="alert">', '</div>');
@@ -143,11 +143,11 @@ class category extends CI_Controller {
       $this->cate->update($id, $data);
       redirect($this->input->post('redirect'));
     }
-   }
+  }
 
-   public function delete($id)
-   {
-     $this->db->where("cate_id", $id)->delete("categories");
-			redirect("dashboard/category");
-   }
- }
+  public function delete($id)
+  {
+    $this->db->where("cate_id", $id)->delete("categories");
+    redirect("dashboard/category");
+  }
+}

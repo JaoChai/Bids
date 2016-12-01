@@ -1,145 +1,88 @@
-<div class="container" id"homeheroarea">
-  <div class="row">
-    <div class="col-sm-8">
-      <div id="heroslide" class="dz-theme">
-        <div class="owl-item" id="owl-example">
-
-          <script>
-          $(document).ready(function() {
-            $("#owl-example").owlCarousel({
-              autoPlay: 3000,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem:true
-            });
-          });
-          </script>
-                <?php foreach($slide as $row): ?>
-                <img alt="" src="<?php echo base_url('uploads/'. $row->img_newname); ?>">
-              <?php endforeach;?>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-       <div id="winnerbox-wrap">
-          <h3><i class="fa fa-trophy"></i> ผู้ชนะประมูล</h3>
-          <div id="winnerbox-base">
-             <div id="winnerbox" class="dz-theme">
-                <div class="owl-item">
-                    <div class="item">
-
-                      <div class="photo">
-					              <img class="lazyOwl img-responsive" alt="Apple iPhone 6s Plus (16GB)" src="<?php echo base_url();?>assets/home/images/1466767257_4554 (Mobile).jpg">
-					              <div class="message">"Iphone 6s Plus 16 GB ทั้งลุ้นทั้งตื่นเต้นขอบคุณมากครับที่ได้สินค้าคุณภาพและสุดคุ้มกับ BidCups"</div>
-					              <div class="clearfix"></div>
-				              </div>
-
-                      <div class="caption">
-                        <div class="caption-content">
-                          <hr>
-                          <div class="winner">
-							               <span class="bidusericon bidusericon-xl iT">T</span>Techokrub
-							                      <div class="location">
-								                              กทม
-							                      </div>
-						              </div>
-                        </div>
-
-                        <div class="wondate"><i class="fa fa-clock-o"></i> 13 มิ.ย. 2016</div>
-						            <div class="clearfix"></div>
-
-                        <div class="desc">
-							          <div class="product-title">Apple iPhone 6s Plus (16GB)</div>
-							              ชนะประมูลด้วยราคา<br>
-							          <span class="price">493.10 บาท</span><br><br>
-						            </div>
-
-                        <div class="savings-badge">
-							          <span class="savings-label">ประหยัด</span>
-							          <div class="savings-no">79<span>%</span></div>
-						            </div>
-
-                      </div>
-                    </div>
-
-                    <a class="coverlink" href="#"></a>
-				            <div class="clearfix"></div>
-
-                </div>
-             </div>
-          </div>
-       </div>
+<div id="loader-wrapper">
+  <div class="cube-wrapper">
+    <div class="cube-folding">
+      <span class="leaf1"></span>
+      <span class="leaf2"></span>
+      <span class="leaf3"></span>
+      <span class="leaf4"></span>
     </div>
   </div>
 </div>
+<!-- /Loader -->
 
-<!-- Service !-->
-<div id="brandfeatures">
-   <div class="container">
-      <div class="row nopadding">
+<div id="wrapper">
 
-        <div class="col-md-3 col-xs-6">
-            <div class="media">
-              <span class="pull-left">
-               <img class="media-object" src="<?php echo base_url();?>assets/home/images/icon-fair-sml.png">
-              </span>
+  <div class="page-wrapper">
 
-              <div class="media-body">
-				          <h4 class="media-heading">100% Fair Auctions</h4>การันตีความโปร่งใส
-				       </div>
+    <header class="page-header fullboxed variant-1 sticky  always">
+      <div class="navbar">
+        <div class="container">
+          <div class="menu-toggle"><a href="#" class="mobilemenu-toggle"><i class="icon icon-menu"></i></a></div>
+          <div class="header-link dropdown-link header-cart variant-2">
 
+          </div>
+
+          <div class="header-links">
+
+            <div class="header-link header-select dropdown-link header-language">
+              <!-- <a href="#"><img src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/usa.png?18321598552377106331" alt /></a> -->
+              <ul class="dropdown-container">
+                <li><a href="/"><img src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/usa.png?18321598552377106331" alt />English</a></li>
+                <li><a href="/"><img src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/de.png?18321598552377106331" alt />German</a></li>
+                <li><a href="/"><img src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/fr.png?18321598552377106331" alt />French</a></li>
+              </ul>
             </div>
-        </div>
 
-        <div class="col-md-3 col-xs-6">
-            <div class="media">
-              <span class="pull-left">
-               <img class="media-object" src="<?php echo base_url();?>assets/home/images/icon-delivery-sml.png">
-              </span>
 
-              <div class="media-body">
-                <h4 class="media-heading">3 Days Delivery*</h4>จัดส่งทั่วประเทศไทย
-				       </div>
+            <!-- /Header Currency -->
 
+            <!-- Header Account -->
+            <div class="header-link dropdown-link header-account">
+
+              <a><i class="icon icon-user"></i></a>
+              <div class="dropdown-container right">
+                <form method="post" action="https://seikostore-default.myshopify.com/account/login" id="customer_login" accept-charset="UTF-8"><input type="hidden" value="customer_login" name="form_type" /><input type="hidden" name="utf8" value="✓" />
+                  <div class="title">Registered</div>
+                  <div class="top-text">If you have an account with us, please log in.</div>
+                  <!-- form -->
+                  <input type="email" class="form-control" name="customer[email]" placeholder="Email*">
+                  <input type="password" class="form-control" name="customer[password]" placeholder="Password*">
+                  <button type="submit" class="btn">Sign In</button>
+                  <!-- /form -->
+                  <div class="title">OR</div>
+                  <div class="bottom-text"><a href="#" id="customer_register_link">Create account</a></div>
+                </form>
+              </div>
             </div>
+            <!-- /Header Account -->
+          </div>
+          <!-- /Header Links -->
+
+          <div class="header-link header-search header-search">
+            <div class="exp-search">
+              <form  action="/search">
+                <input name="q" class="exp-search-input " placeholder="Search here ..." type="text" value="">
+                <input class="exp-search-submit" type="submit" value="">
+                <span class="exp-icon-search"><i class="icon icon-magnify"></i></span>
+                <span class="exp-search-close"><i class="icon icon-close"></i></span>
+              </form>
+            </div>
+          </div>
+
+          <!-- Logo -->
+
+          <div class="header-logo">
+            <img alt="BidCups" src="<?php echo base_url('uploads/icon/'. $result->general_logo); ?>">
+          </div>
+
+
+            <!-- /Logo -->
+            <?php $this->load->view('layout_home/mobilemenu'); ?>
+
+            <?php $this->load->view('layout_home/listmenu'); ?>
+
+          </div>
         </div>
+      </header>
 
-        <div class="col-md-3 col-xs-6">
-				            <div class="media">
-				               <span class="pull-left">
-				                  <img class="media-object" src="<?php echo base_url();?>assets/home/images/icon-warranty-sml.png">
-				               </span>
-				               <div class="media-body">
-				                  <h4 class="media-heading">Product Warranty</h4>
-				                  รับประกันสินค้าทุกชิ้น
-				               </div>
-				            </div>
-				</div>
-
-        <div class="col-md-3 col-xs-6">
-				            <div class="media">
-				               <span class="pull-left">
-				                  <img class="media-object" src="<?php echo base_url();?>assets/home/images/icon-support-sml.png">
-				               </span>
-				               <div class="media-body">
-				                  <h4 class="media-heading">7 Days Customer Support</h4>
-				                  ติดต่อเราได้เมื่อมีปัญหา
-				               </div>
-				            </div>
-				  </div>
-      </div>
-   </div>
-</div>
-
-   <div class="container">
-					<div class="row">
-						<div class="col-sm-6">
-							<a href="#"><img class="img-responsive" src="<?php echo base_url();?>assets/home/images/test1.png"></a>
-						</div>
-						<div class="col-sm-6">
-							<a href="#"><img class="img-responsive" src="<?php echo base_url();?>assets/home/images/test2.png"></a>
-						</div>
-					</div>
-	</div>
+      <main class="page-main">

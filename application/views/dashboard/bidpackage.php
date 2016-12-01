@@ -5,43 +5,43 @@
     </h1>
   </section>
 
-   <section class="content">
+  <section class="content">
 
-     <section class="content">
+    <section class="content">
 
-       <div class="col-md-12">
-         <?php $att = array('class' => 'form-horizontal');
-         echo form_open('package/insert', $att);
-         ?>
-           <div class="box box-info">
-               <div class="box-body">
-                 <div class="col-md-6">
-                   <div class="form-group">
-                     <label>Bid:</label>
-                      <input type="text" class="form-control" id="bid_package" name="bid_package">
-                   </div>
-                 </div>
+      <div class="col-md-12">
+        <?php $att = array('class' => 'form-horizontal');
+        echo form_open('package/insert', $att);
+        ?>
+        <div class="box box-info">
+          <div class="box-body">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Bid:</label>
+                <input type="text" class="form-control" id="bid_package" name="bid_package">
+              </div>
+            </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Cost:</label>
-                          <input type="text" class="form-control" id="package_cost" name="package_cost">
-                    </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Cost:</label>
+                <input type="text" class="form-control" id="package_cost" name="package_cost">
+              </div>
 
-               </div>
+            </div>
 
-               <div class="box-footer">
-                 <button type="submit" class="btn btn-info pull-right">Submit</button>
-               </div>
+            <div class="box-footer">
+              <button type="submit" class="btn btn-info pull-right">Submit</button>
+            </div>
 
-               <br/>
+            <br/>
 
-               <div class="col-md-12">
+            <div class="col-md-12">
 
-                 <div class="box">
+              <div class="box">
 
-                   <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
                     <thead>
                       <tr>
                         <th>No</th>
@@ -63,16 +63,16 @@
                         </td>
                       </tr>
                     <?php endforeach; ?>
-                    </tbody>
-                    </table>
-                  </div>
-                 </div>
-                </div>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
 
 
-           </div>
+        </div>
 
-  </section>
+      </section>
 
-</div>
+    </div>

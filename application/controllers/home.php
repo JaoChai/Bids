@@ -34,9 +34,8 @@ class home extends CI_Controller {
 		$datapackage['package'] = $this->package->getall();
 		$dataslide['slide'] = $this->slide->getall();
 		$this->load->view('layout_home/header', $data);
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
-		$this->load->view('layout_home/headerdetial', $dataslide);
+		$this->load->view('layout_home/headerdetial', $data);
+		$this->load->view('layout_home/mainslide', $dataslide);
 		$this->load->view('home/index', $datapackage);
 		$this->load->view('layout_home/footer', $data);
 	}
@@ -49,7 +48,6 @@ class home extends CI_Controller {
 		$data['bid'] = $this->menu->getmenubid();
 		$data['result'] = $this->setting->getall();
 		$this->load->view('layout_home/header',$data);
-		$this->load->view('layout_home/search');
 		$this->load->view('layout_home/navbar');
 		$this->load->view('home/register',$contents);
 	  $this->load->view('layout_home/footer', $data);
