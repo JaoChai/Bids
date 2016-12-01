@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+session_start();
 class dashboard extends CI_Controller {
 
   function __construct() {
@@ -8,8 +8,10 @@ class dashboard extends CI_Controller {
      {
          // Allow some methods?
          $allowed = array(
+             'index',
              'maindashboard',
              'setting',
+             'admin_index',
              'slider',
              'menu',
              'category',
@@ -20,122 +22,96 @@ class dashboard extends CI_Controller {
          );
          if ( in_array($this->router->fetch_method(), $allowed))
          {
-             redirect('dashboard/index');
+             redirect('dashboard/login');
          }
      }
-      $this->load->library(array('ion_auth','form_validation'));
-			$this->load->helper(array('url','language'));
-
-      $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
-      $this->lang->load('auth');
+      // $this->load->library(array('ion_auth','form_validation'));
+			// $this->load->helper(array('url','language'));
+      //
+      // $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+      // $this->lang->load('auth');
    }
 
 	public function index()
 	{
-
-    if (!$this->ion_auth->logged_in())
-				{
-					// redirect them to the login page
-					redirect('dashboard/login', 'refresh');
-				}
-				elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
-				{
-					// redirect them to the home page because they must be an administrator to view this
-					return show_error('You must be an administrator to view this page.');
-				}
-				else
-				{
-					// set the flash data error message if there is one
-					$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-					//list the users
-					//$this->data['users'] = $this->ion_auth->users()->row();
-          $user = $this->ion_auth->user()->row();
-          //$user_id = $user;
-					//foreach ($this->data['users'] as $k => $user)
-					//{
-						//$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-            //print_r($user);
-						$sess_array = array(
-							'sess_id' => $user->id,
-							'sess_fname' => $user->first_name,
-							'sess_lname' => $user->last_name,
-							'sess_img' => $user->img
-						);
-
-						$this->session->set_userdata('logged_admin', $sess_array);
-					//}
-
-          $this->_render_page('layout_dashboard/header');
-          $this->_render_page('layout_dashboard/navbar');
-          $this->_render_page('layout_dashboard/sitebar');
-					$this->_render_page('dashboard/dashboard', $this->data);
-          $this->_render_page('layout_dashboard/footer');
-				}
+    $this->load->view('layout_dashboard/header');
+    $this->load->view('layout_dashboard/navbar');
+    $this->load->view('layout_dashboard/sitebar');
+    $this->load->view('dashboard/dashboard');
+    $this->load->view('layout_dashboard/footer');
 	}
 
   public function login()
   {
-		$this->data['title'] = $this->lang->line('login_heading');
-
-		//validate form input
-		$this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
-		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
-
-		if ($this->form_validation->run() == true)
-		{
-			// check to see if the user is logging in
-			// check for "remember me"
-
-
-			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password')))
-			{
-				//if the login is successful
-				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('dashboard/index', 'refresh');
-			}
-			else
-			{
-				// if the login was un-successful
-				// redirect them back to the login page
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect('dashboard/login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
-			}
-		}
-		else
-		{
-			// the user is not logging in so display the login page
-			// set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-			$this->data['identity'] = array('name' => 'identity',
-				'id'    => 'identity',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('identity'),
-			);
-			$this->data['password'] = array('name' => 'password',
-				'id'   => 'password',
-				'type' => 'password',
-			);
-
-			$this->_render_page('dashboard/dashboard_adminlogin', $this->data);
-		}
+    $this->load->view('dashboard/dashboard_adminlogin');
 	}
 
-  public function logout(){
-		$this->data['title'] = "Logout";
+  public function ck_login()
+  {
+    $this->load->model("login_model", "login_db");
 
+		$this->form_validation->set_rules('email', 'Email', 'required|trim');
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+    //$this->form_validation->set_message('required', '%s Is required');
+		if($this->form_validation->run() == FALSE){
+			if(isset($this->session->userdata['logged_in'])){
+				redirect('dashboard/index');
+			}else{
+        $this->session->set_flashdata('message', '<p class="text-danger"> Email or Password is required </p>');
+				redirect('dashboard/login');
+			}
+		}else{
+			$data = array(
+				'email' => $this->input->post('email'),
+				'password' => md5($this->input->post('password'))
+			);
+
+			$result = $this->login_db->login_admin($data);
+			//login Successfully
+			if($result == TRUE){
+				$email = $this->input->post('email');
+				$result = $this->login_db->get_dataadmin($email);
+				if($result != FALSE){
+					$session_data = array(
+						'id' => $result[0]->admin_id,
+						'email' => $result[0]->admin_email,
+            'fname' => $result[0]->admin_fname,
+            'lname' => $result[0]->admin_lname,
+            'img' => $result[0]->admin_newpic
+					);
+					//Add user data in session
+					$this->session->set_userdata('logged_admin', $session_data);
+					redirect('dashboard/index');
+				}
+			}else{
+				$this->session->set_flashdata('message', '<p class="text-danger"> Invalid Email or Password. </p>');
+				$data = array(
+					'error_mess' => 'Invalid Email or Password'
+				);
+				// $data['result'] = $this->setting->getall();
+				// $datamenu['menu'] = $this->menu->getall();
+				// $this->load->view('layout_home/header', $data);
+				// $this->load->view('layout_home/search');
+				// $this->load->view('layout_home/navbar', $datamenu);
+				// $this->load->view('home/login', $data);
+				// $this->load->view('layout_home/footer', $data);
+				redirect('dashboard/login');
+			}
+		}
+  }
+
+  public function logout(){
 	// log the user out
-	$logout = $this->ion_auth->logout();
   $sess_array = array(
-    'sess_id' => '',
-    'sess_fname' => '',
-    'sess_lname' => '',
-    'sess_img' => ''
+    'id' => '',
+    'fname' => '',
+    'lname' => '',
+    'img' => ''
   );
-  $this->session->unset_userdata('logged_in', $sess_array);
+  $this->session->set_flashdata('message', "Logout Successfully");
+  $this->session->unset_userdata('logged_admin', $sess_array);
 	// redirect them to the login page
-	$this->session->set_flashdata('message', $this->ion_auth->messages());
+
 	redirect('dashboard/login', 'refresh');
 	}
   public function maindashboard()
@@ -157,6 +133,17 @@ class dashboard extends CI_Controller {
     $this->load->view('dashboard/setting', $data);
     $this->load->view('layout_dashboard/footer');
 
+  }
+
+  public function admin_index()
+  {
+    $this->load->model("admin_model", "admin");
+   $data['result'] = $this->admin->getall();
+   $this->load->view('layout_dashboard/header');
+   $this->load->view('layout_dashboard/navbar');
+   $this->load->view('layout_dashboard/sitebar');
+   $this->load->view('dashboard/admin', $data);
+   $this->load->view('layout_dashboard/footer');
   }
 
   public function slider()

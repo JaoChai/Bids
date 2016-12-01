@@ -22,9 +22,9 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">Admin Please Login</p>
-      <form action="" method="post">
+      <?php echo form_open('dashboard/ck_login');?>
         <div class="form-group has-feedback">
-          <input type="username" class="form-control" placeholder="Username" name="identity" id="identity">
+          <input type="username" class="form-control" placeholder="Email" name="email" id="identity">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
@@ -33,7 +33,7 @@
         </div>
         <div class="row">
           <div class="col-xs-8">
-            <div id="infoMessage"><?php echo $message;?></div>
+            <?php echo $this->session->flashdata('message');?>
           </div>
           <!-- /.col -->
           <div class="col-xs-4">
@@ -41,7 +41,7 @@
           </div>
           <!-- /.col -->
         </div>
-      </form>
+      <?php echo form_close();?>
 
     </div>
     <!-- /.login-box-body -->

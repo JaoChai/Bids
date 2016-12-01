@@ -100,8 +100,6 @@ class auction extends CI_Controller {
          );
 
          $this->auction->insert($data);
-         print_r($data);
-
 
        }
          redirect('dashboard/openpenny');
@@ -166,11 +164,12 @@ class auction extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="alert">', '</div>');
         $this->form_validation->set_rules($config);
         if($this->form_validation->run() == FALSE){
-          $data['result'] = $this->auction->getall();
+          $result['data'] = $this->auction->getone($id);
+          $result['getcate'] = $this->auction->getcate();
           $this->load->view('layout_dashboard/header');
           $this->load->view('layout_dashboard/navbar');
           $this->load->view('layout_dashboard/sitebar');
-          $this->load->view('dashboard/editauction', $data);
+          $this->load->view('crud/editauction', $result);
           $this->load->view('layout_dashboard/footer');
 
         }else{

@@ -33,7 +33,7 @@
                   <div class="col-sm-10">
                     <input type="file" class="form-control" name="userfile">
                     <span class="text-danger"><?php if (isset($error)) { echo $error; } ?></span>
-                    <img src="<?php echo base_url('uploads/review/'. $res->review_img); ?>" width="81" height="78">
+                    <img src="<?php echo base_url('uploads/review/'. $res->review_newimg); ?>" width="81" height="78">
                   </div>
                 </div>
 

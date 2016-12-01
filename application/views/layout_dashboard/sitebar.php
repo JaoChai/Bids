@@ -3,10 +3,10 @@
       <div class="user-panel">
         <?php $session_data = $this->session->userdata('logged_admin'); ?>
         <div class="pull-left image">
-          <img src="<?php echo base_url('uploads/'. $session_data['sess_img']); ?>" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url('uploads/'. $session_data['img']); ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $session_data['sess_fname'] . " " . $session_data['sess_lname'];?></p>
+          <p><?php echo $session_data['fname'] . " " . $session_data['lname'];?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -32,7 +32,7 @@
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
             <li><a href="<?php echo site_url("dashboard/slider"); ?>"><i class="fa fa-circle-o"></i>Setting Silder</a></li>
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
-            <li><a href="<?php echo site_url("admin/create_user"); ?>"><i class="fa fa-circle-o"></i>Setting Admin</a></li>
+            <li><a href="<?php echo site_url("dashboard/admin_index"); ?>"><i class="fa fa-circle-o"></i>Setting Admin</a></li>
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>Setting Bank</a></li>
             <li class="active"><i class="fa fa-circle-o"></i></a></li>

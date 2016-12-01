@@ -163,9 +163,9 @@ class home extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
 		if($this->form_validation->run() == FALSE){
 			if(isset($this->session->userdata['logged_in'])){
-				$this->load->view('home/index');
+				redirect('home/index');
 			}else{
-				$this->load->view('home/index');
+				redirect('home/index');
 			}
 		}else{
 			$data = array(
