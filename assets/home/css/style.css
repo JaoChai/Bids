@@ -1142,7 +1142,7 @@ body.touch #wrapper {
     width: 100%;
   }
   .page-header.variant-1 .navbar {
-    margin: 22px 0 0 0;
+    margin: 0 0 0 0;
   }
   .header-logo {
     float: left;
@@ -1184,7 +1184,7 @@ body.touch #wrapper {
     transition: margin 0.3s ease;
   }
   .page-header.variant-1.sticky.is-sticky {
-    margin-top: -22px;
+    margin-top: 0px;
   }
   .page-header.sticky.is-sticky .navbar {
     position: relative;
@@ -2695,8 +2695,8 @@ body:not(.open-panel) .sidebar-wrapper {
   padding-top: 17px;
   background-color: #ffffff;
   border: 0;
-  border-top: 2px solid #f82e56;
-  color: #f82e56;
+  border-top: 2px solid #ff1010;
+  color: #ff1010;
 }
 .tab-content {
   position: relative;
@@ -9962,7 +9962,7 @@ header.is-sticky .search-results {
   line-height: 1em;
   font-weight: 700;
   text-transform: uppercase;
-  color: #f82e56;
+  color: #ff1010;
 }
 .boxed .countdown-circle .countdown-text .text1,
 .fullboxed .countdown-circle .countdown-text .text1 {
@@ -9977,19 +9977,19 @@ header.is-sticky .search-results {
   font-size: 1em;
   line-height: 1.4em;
   text-transform: uppercase;
-  color: #333745;
+  color: #ff1010;
 }
 .countdown-circle .countdown > span {
   position: relative;
   width: 72px;
   height: 72px;
-  border: 1px solid #f82e56;
+  border: 1px solid #ff1010;
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
   padding: 21px 0 0 0;
   margin: 0 28px 0 0;
-  color: #f82e56;
+  color: #ff1010;
   font-size: 13px;
   line-height: 1em;
   text-transform: uppercase;
@@ -10077,7 +10077,7 @@ header.is-sticky .search-results {
   vertical-align: middle;
   padding: 21px 0 0 0;
   margin: 0 28px 0 0;
-  color: #f82e56;
+  color: #ff1010;
   font-size: 23px;
   line-height: 1em;
   font-weight: 700;
@@ -13180,7 +13180,7 @@ h2.blog-title a:hover {
   font-size: 19px;
   line-height: 22px;
   font-weight: 700;
-  color: #f82e56;
+  color: #ff1010;
   -webkit-transition: color 0.2s ease;
   -o-transition: color 0.2s ease;
   transition: color 0.2s ease;
@@ -13258,7 +13258,7 @@ h2.blog-title a:hover {
 }
 .total-price .total {
   font-size: 20px;
-  color: #f82e56;
+  color: #ff1010;
 }
 .cart-action {
   text-align: right;
@@ -14814,9 +14814,20 @@ body.layout-advanced .sidebar-block.collapsed .toggle-arrow {
   font-size: 34px;
   line-height: 1.2em;
   font-weight: 700;
-  text-align: right;
-  color: #f82e56;
+  text-align: center;
+  color: #ff1010;
 }
+
+.product-info-block .mem {
+  margin-bottom: 10px;
+  font-size: 34px;
+  line-height: 1.2em;
+  font-weight: 700;
+  text-align: center;
+  color: #000;
+}
+
+
 @media screen and (max-width: 991px) {
   .product-info-block .price {
     font-size: 28px;
@@ -14848,7 +14859,7 @@ body.layout-advanced .sidebar-block.collapsed .toggle-arrow {
   padding-bottom: 15px;
 }
 .product-info-block .product-options {
-  margin-bottom: 15px;
+  margin-bottom: 15px;swatches
 }
 .product-info-block .product-options > div {
   display: inline-block;
@@ -14969,9 +14980,7 @@ body.layout-advanced .sidebar-block.collapsed .toggle-arrow {
   margin-bottom: 0;
 }
 .product-info-block.classic .countdown-circle {
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #e8e8e8;
+  text-align:center;
 }
 .product-info-block.classic .product-meta {
   margin-bottom: 3px;

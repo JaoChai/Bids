@@ -36,7 +36,7 @@ class home extends CI_Controller {
 		$this->load->view('layout_home/header', $data);
 		$this->load->view('layout_home/headerdetial', $data);
 		$this->load->view('layout_home/mainslide', $dataslide);
-		$this->load->view('home/index', $datapackage);
+		$this->load->view('home/index');
 		$this->load->view('layout_home/footer', $data);
 	}
 
@@ -48,7 +48,7 @@ class home extends CI_Controller {
 		$data['bid'] = $this->menu->getmenubid();
 		$data['result'] = $this->setting->getall();
 		$this->load->view('layout_home/header',$data);
-		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial', $data);
 		$this->load->view('home/register',$contents);
 	  $this->load->view('layout_home/footer', $data);
 	}
@@ -111,9 +111,9 @@ class home extends CI_Controller {
 	$this->form_validation->set_rules('year', '<b>ปี</b>', 'required');
 	$this->form_validation->set_rules('gender', '<b>เพศ</b>', 'required');
 	$this->form_validation->set_rules('tel', '<b>เบอร์โทร</b>', 'required');
-	$this->form_validation->set_rules('address', '<b>เบอร์โทร</b>', 'required');
-	$this->form_validation->set_rules('district', '<b>เบอร์โทร</b>', 'required');
-	$this->form_validation->set_rules('post_code', '<b>เบอร์โทร</b>', 'required');
+	$this->form_validation->set_rules('address', '<b>ที่อยู่</b>', 'required');
+	$this->form_validation->set_rules('province', '<b>จังหวัด</b>', 'required');
+	$this->form_validation->set_rules('postcode', '<b>รหัสไปรษณีย์</b>', 'required');
 	$this->form_validation->set_rules('username', '<b>Username</b>', 'required|min_length[6]');
 	$this->form_validation->set_rules('password', '<b>รหัสผ่าน</b>', 'required|min_length[6]');
 	$this->form_validation->set_rules('cnfpassword', '<b>ยืนยันรหัสผ่าน</b>', 'required|matches[password]|min_length[6]');
@@ -138,8 +138,8 @@ class home extends CI_Controller {
 			 'mem_gender' => $this->input->post('gender'),
 			 'mem_tel' => $this->input->post('tel'),
 			 'mem_address' => $this->input->post('address'),
-			 'mem_district' => $this->input->post('district'),
-			 'mem_postcode' => $this->input->post('post_code'),
+			 'mem_province' => $this->input->post('province'),
+			 'mem_postcode' => $this->input->post('postcode'),
 			 'mem_username' => $this->input->post('username'),
 			 'mem_pass' => md5($this->input->post('password')),
 			 'mem_email' => $this->input->post('email')
@@ -163,7 +163,8 @@ class home extends CI_Controller {
 			if(isset($this->session->userdata['logged_in'])){
 				redirect('home/index');
 			}else{
-				redirect('home/index');
+				$this->session->set_flashdata('error_mess', '<p class="text-danger"> Email or Password is Required. </p>');
+				redirect('home/viewlogin');
 			}
 		}else{
 			$data = array(
@@ -187,10 +188,7 @@ class home extends CI_Controller {
 					redirect('home/index');
 				}
 			}else{
-				$this->session->set_flashdata('error_mess', '<p class="text-danger"> Invalid Email or Password. </p>');
-				$data = array(
-					'error_mess' => 'Invalid Email or Password'
-				);
+				$this->session->set_flashdata('error_mess',  'Invalid login credentials.');
 				// $data['result'] = $this->setting->getall();
 				// $datamenu['menu'] = $this->menu->getall();
 				// $this->load->view('layout_home/header', $data);
@@ -209,8 +207,7 @@ class home extends CI_Controller {
 		$data['support'] = $this->menu->getsupport();
 		$data['bid'] = $this->menu->getmenubid();
 		$this->load->view('layout_home/header', $data);
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial', $data);
 		$this->load->view('home/login');
 		$this->load->view('layout_home/footer', $data);
 	}
@@ -233,10 +230,8 @@ class home extends CI_Controller {
 		$data['support'] = $this->menu->getsupport();
 		$data['bid'] = $this->menu->getmenubid();
 		$data['detail_content'] = $this->menu->getcontent($title);
-
 		$this->load->view('layout_home/header', $data);
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial');
 		$this->load->view('home/content', $data);
 		$this->load->view('layout_home/footer', $data);
 	}
@@ -247,8 +242,7 @@ class home extends CI_Controller {
 		$data['support'] = $this->menu->getsupport();
 		$data['bid'] = $this->menu->getmenubid();
 		$this->load->view('layout_home/header', $data);
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial');
 		$this->load->view('home/productdetail');
 		$this->load->view('layout_home/footer', $data);
 	}
@@ -274,9 +268,20 @@ class home extends CI_Controller {
 		$data['support'] = $this->menu->getsupport();
 		$data['bid'] = $this->menu->getmenubid();
 		$this->load->view('layout_home/header', $data);
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial');
 		$this->load->view('home/myaccount');
+		$this->load->view('layout_home/footer', $data);
+	}
+
+	public function viewauctionbuy(){
+		$data['result'] = $this->setting->getall();
+		$data['about'] = $this->menu->getabout();
+		$data['support'] = $this->menu->getsupport();
+		$data['bid'] = $this->menu->getmenubid();
+		$data['package'] = $this->package->getall();
+		$this->load->view('layout_home/header', $data);
+		$this->load->view('layout_home/headerdetial');
+		$this->load->view('home/auctionbuy', $data);
 		$this->load->view('layout_home/footer', $data);
 	}
 
@@ -289,8 +294,7 @@ class home extends CI_Controller {
 		$data['support'] = $this->menu->getsupport();
 		$data['bid'] = $this->menu->getmenubid();
 		$this->load->view('layout_home/header', $data);
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial');
 		$this->load->view('home/addresses', $data_mem);
 		$this->load->view('layout_home/footer', $data);
 	}
@@ -323,8 +327,7 @@ class home extends CI_Controller {
 		$data['support'] = $this->menu->getsupport();
 		$data['bid'] = $this->menu->getmenubid();
 		$this->load->view('layout_home/header', $data);
-		$this->load->view('layout_home/search');
-		$this->load->view('layout_home/navbar');
+		$this->load->view('layout_home/headerdetial');
 		$this->load->view('home/mydetails', $data_mem);
 		$this->load->view('layout_home/footer', $data);
 	// 	}else{
@@ -413,6 +416,36 @@ class home extends CI_Controller {
 		$this->regis->update_address($id, $data);
 		redirect('home/viewaddresses');
 	}
+}
+
+public function viewdeleteaccount()
+{
+	$session_data = $this->session->userdata('logged_in');
+	$mem_id = $session_data['id'];
+	$data_mem['mem_detail'] = $this->regis->getmembers($mem_id);
+	$data['result'] = $this->setting->getall();
+	$data['about'] = $this->menu->getabout();
+	$data['support'] = $this->menu->getsupport();
+	$data['bid'] = $this->menu->getmenubid();
+	$this->load->view('layout_home/header', $data);
+	$this->load->view('layout_home/headerdetial');
+	$this->load->view('home/deleteaccount');
+	$this->load->view('layout_home/footer', $data);
+}
+
+public function viewchangepassword()
+{
+	$session_data = $this->session->userdata('logged_in');
+	$mem_id = $session_data['id'];
+	$data_mem['mem_detail'] = $this->regis->getmembers($mem_id);
+	$data['result'] = $this->setting->getall();
+	$data['about'] = $this->menu->getabout();
+	$data['support'] = $this->menu->getsupport();
+	$data['bid'] = $this->menu->getmenubid();
+	$this->load->view('layout_home/header', $data);
+	$this->load->view('layout_home/headerdetial');
+	$this->load->view('home/changepassword');
+	$this->load->view('layout_home/footer', $data);
 }
 
 	  /********** End View Account ************/

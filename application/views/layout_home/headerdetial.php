@@ -1,4 +1,4 @@
-<div id="loader-wrapper">
+<!-- <div id="loader-wrapper">
   <div class="cube-wrapper">
     <div class="cube-folding">
       <span class="leaf1"></span>
@@ -7,7 +7,7 @@
       <span class="leaf4"></span>
     </div>
   </div>
-</div>
+</div> -->
 <!-- /Loader -->
 
 <div id="wrapper">
@@ -37,23 +37,32 @@
             <!-- /Header Currency -->
 
             <!-- Header Account -->
-            <div class="header-link dropdown-link header-account">
+            <?php if($this->session->userdata('logged_in')){ ?>
+              <div class="header-link dropdown-link header-account">
 
-              <a><i class="icon icon-user"></i></a>
-              <div class="dropdown-container right">
-                <form method="post" action="https://seikostore-default.myshopify.com/account/login" id="customer_login" accept-charset="UTF-8"><input type="hidden" value="customer_login" name="form_type" /><input type="hidden" name="utf8" value="✓" />
-                  <div class="title">Registered</div>
-                  <div class="top-text">If you have an account with us, please log in.</div>
-                  <!-- form -->
-                  <input type="email" class="form-control" name="customer[email]" placeholder="Email*">
-                  <input type="password" class="form-control" name="customer[password]" placeholder="Password*">
-                  <button type="submit" class="btn">Sign In</button>
-                  <!-- /form -->
-                  <div class="title">OR</div>
-                  <div class="bottom-text"><a href="#" id="customer_register_link">Create account</a></div>
-                </form>
+                <a href="<?php echo site_url('home/myaccount');?>"><i class="icon icon-user"></i> My Account</a>
+                <div class="dropdown-container right">
+                    <a href="<?php echo site_url('home/logout');?>" class="btn">Logout</a>
+                </div>
               </div>
-            </div>
+              <?php }else{ ?>
+                <div class="header-link dropdown-link header-account">
+
+                  <a><i class="icon icon-user"></i></a>
+                  <div class="dropdown-container right">
+                      <div class="title">Registered</div>
+                      <div class="top-text">If you have an account with us, please log in.</div>
+                      <?php echo form_open('home/login'); ?>
+                      <input type="email" class="form-control" name="email" placeholder="Email*">
+                      <input type="password" class="form-control" name="password" placeholder="Password*">
+                      <button type="submit" class="btn">Sign In</button>
+                      <?php echo form_close(); ?>
+                      <div class="title">OR</div>
+                      <div class="bottom-text"><a href="<?php echo site_url('home/regis');?>" id="customer_register_link">Create account</a></div>
+                  </div>
+                </div>
+                <?php } ?>
+
             <!-- /Header Account -->
           </div>
           <!-- /Header Links -->
@@ -72,7 +81,7 @@
           <!-- Logo -->
 
           <div class="header-logo">
-            <img alt="BidCups" src="<?php echo base_url('uploads/icon/'. $result->general_logo); ?>">
+            <a href="<?php echo site_url('home/index');?>"><img alt="BidCups" src="<?php echo base_url('uploads/icon/'. $result->general_logo); ?>"></a>
           </div>
 
 

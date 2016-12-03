@@ -1,56 +1,110 @@
-<div class="content_container" style="background:#ffffff url(images/content_bg2.png) repeat-x left bottom;">
-	<div class="bidnow_row">
-   		<div class="content_middlebg" style="padding-top:0px;">
-      		<div class="myaccount_container">
-    	        <div class="login_main_container" style="width:980px;">
-            <div class="allauctions_heading_row" style="width:980px;">
-                <div class="myaccount_heading_leftbg">&nbsp;</div>
-                    <div class="static_pg_heading_middlebg" style="width:967px;">BidCups เข้าสู่ระบบ</div>
-                <div class="myaccount_heading_rightbg">&nbsp;</div>
-            </div>
-            <div class="login_content_inner" style="width:977px;">
-            	<div style="width:930px; float:left; padding-left:1px;">
-                    <div class="login_box">
-											<?php $attr = array('class'=>'form', 'id'=> 'login-form');
-						          echo form_open('home/login', $attr);?>
-                        <div class="login_bottom_login_box_inner">
 
-                                                        <div class="login_bottom_login_title">ได้ลงทะเบียนหรือยังครับ</div>
-                            <div class="login_bottom_login_inner_content">กรอกข้อมูลเพื่อเริ่มสนุกกับ BidCups ตรงนี้เลยครับ</div>
-                                                        <div class="login_bottom_login_inner_box">
-                                <div>Username&nbsp;/&nbsp;อีเมล์:</div>
-                                <div class="login_username_box_content"><input type="text" name="email" id="username1" class="logintextboxclas" autofocus /></div>
-																<?php echo $this->session->flashdata('error_mess');?>
-                                <div class="login_password_box_title">รหัสผ่าน:</div>
-                                <div class="login_password_box_content"><input type="password" name="password" id="password1" class="logintextboxclas" maxlength="16" /></div>
-                                <div class="login_bottom_login_button">
-                                <button type="submit" class="btn btn-bid btn-sml">เข้าสู่ระบบ</button>
-                                </div>
-                                <!--<div class="login_bottom_forgot_password"><a href='forgotpassword'>ลืม username หรือ รหัสผ่าน?</a></div>!-->
-                                </div>
-                        </div>
-                        <input type="hidden" value="" name="wonauctions" />
-                    <?php echo form_close(); ?>
-                    </div>
-                	<div id="register_box" style="background: url(https://www.dinoza.com/images/thai/login_voucher.gif) no-repeat;">
-						<div class="login_bottom_register_box_inner">
-							<div class="login_bottom_register_title"><strong>เริ่มเล่นได้เลย</strong></div>
-							<div class="login_bottom_register_content">BidCups -- เว็บไซต์การประมูลที่น่าตื่นเต้นที่สุดบนอินเตอร์เน็ต</div>
-							<div class="login_bottom_register_content_ul">
-								<ul type="disc">
-									<li>ประมูลชนะผลิตภัณฑ์ใหม่ๆ จากรายการมันส์ๆ ทุกวัน!</li>
-									<li>รับฟรีส่วนลด 100 บาท สมัครสมาชิก BidCups!</li>
-									<li>ลงทะเบียนฟรี และรับ Bid เพิ่มทันทีเมื่อแนะนำเแล้วพื่อนซือ!</li>
-								</ul>
-								<div class="login_bottom_register_button"><a href="<?php echo site_url('home/regis');?>" class="btn btn-bid btn-sml">ลงทะเบียน</a></div>
-							</div>
-						</div>
-					</div>
-					<div style="height: 15px;" class="clear">&nbsp;</div>
-                </div>
-            </div>
-            </div>
-    	</div>
-     	</div>
-     </div>
+<div class="block">
+	<div class="container">
+		<ul class="breadcrumbs">
+			<li><a href="/"  title="Back to the frontpage"><i class="icon icon-home"></i></a></li>
+			<li>
+
+
+				/
+				<span>Account</span>
+
+
+
+			</li>
+
+		</ul>
+	</div>
 </div>
+
+
+
+
+<div class="block boxed">
+	<div class="container">
+		<div class="note form-success" id="ResetSuccess" style="display:none;">
+			We&#39;ve sent you an email with a link to update your password.<br /><br />
+		</div>
+		<div class="row row-eq-height">
+
+
+			<div class="col-sm-6">
+				<div class="form-card">
+					<h4>New Customers</h4>
+					<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+					<div><a class="btn btn-lg" style="width:300px;" href="/account/register"><i class="icon icon-user"></i><span>Create account</span></a></div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-card">
+
+					<?php echo form_open('home/login'); ?>
+					<h4>Login</h4>
+					<p>If you have an account with us, please log in.</p>
+					<div class="errors"><ul><li><?php echo $this->session->flashdata('error_mess');?></li></ul></div>
+					<label>Email<span class="required">*</span></label>
+					<input class="form-control input-lg" type="email" name="email" id="CustomerEmail" placeholder="Email" autocorrect="off" autocapitalize="off" autofocus>
+
+					<label>Password<span class="required">*</span></label>
+
+					<input  class="form-control input-lg" type="password" value="" name="password" id="CustomerPassword" placeholder="Password" >
+					<button class="btn" type="submit">Sign In</button>
+
+					<!-- <div class="back"><a href="#" onclick="showRecoverPasswordForm();return false;">Forgot your password?</a></div> -->
+					<?php echo form_close(); ?>
+					<!--
+					<div id="RecoverPasswordForm" style="display: none;">
+
+					<h4 class="section-header__title">Reset your password</h4>
+					<p>We will send you an email to reset your password.</p>
+
+
+					<form method="post" action="/account/recover" accept-charset="UTF-8"><input type="hidden" value="recover_customer_password" name="form_type" /><input type="hidden" name="utf8" value="✓" />
+
+
+
+
+
+
+					<label>Email</label>
+					<input class="form-control input-lg" type="email" value="" name="email" id="RecoverEmail" placeholder="Email" autocorrect="off" autocapitalize="off">
+
+					<p>
+					<input type="submit" class="btn btn-lg" value="Submit">
+				</p>
+				<a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a>
+			</form>
+
+		</div> -->
+
+
+
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+/*
+Show/hide the recover password form when requested.
+*/
+function showRecoverPasswordForm() {
+	$('#RecoverPasswordForm').show();
+	$('#customer_login_main').hide();
+}
+
+function hideRecoverPasswordForm() {
+	$('#RecoverPasswordForm').hide();
+	$('#customer_login_main').show();
+}
+
+// Allow deep linking to the recover password form
+if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+
+// reset_success is only true when the reset form is
+
+</script>
+
+</main>

@@ -20,7 +20,7 @@
             <div class="carousel-inside">
               <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                  <a href="#">
+                  <a href="<?php echo site_url('home/viewproduct');?>">
                     <img class="product-image-photo" src="<?php echo base_url();?>assets/home/images/iphone.jpg">
                   </a>
                 </div>
@@ -30,14 +30,14 @@
             <div class="countdown-box">
               <div class="countdown-wrapper">
                 <div class="countdown-title">special auction</div>
-                <div class="countdown" data-countdown="2017/12/31"></div>
+                <div class="countdown" data-countdown="2019-12-3 10:49:33"></div>
               </div>
             </div>
           </div>
 
           <div class="product-item-details">
             <div class="product-item-name">
-              <a title="Backless mini dress" href="#" class="product-item-link">
+              <a title="Backless mini dress" href="<?php echo site_url('home/viewproduct');?>" class="product-item-link">
                 iPhone 6</a>
               </div>
 

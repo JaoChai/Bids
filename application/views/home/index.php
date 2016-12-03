@@ -46,7 +46,7 @@
                 <div class="col-content">
                   <a href="#" class="banner-wrap">
                     <div class="banner">
-                      <img src="http://demo.bidcups.com/assets/home/images/5-D-points-1040x218-3.png" alt="Banner"></img>
+                      <img src="<?php echo base_url();?>assets/home/images/5-D.png" ></img>
                     </div>
                   </a>
                 </div>

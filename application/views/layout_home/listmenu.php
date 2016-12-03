@@ -4,7 +4,7 @@
   <ul class="nav">
 
     <li>
-      <a href="#" title="">Home</i></a>
+      <a href="<?php echo site_url('home/index');?>" title="">Home</i></a>
     </li>
 
     <li>
