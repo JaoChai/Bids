@@ -6,14 +6,13 @@ class bidding_model extends CI_Model {
 			 parent::__construct();
 
      }
-
-  public function updatebid($id, $data = array()){
-      $this->db->where("auc_id", $id)->update("auction", $data);
-  }
-
-
-	public function insert_his($data = array())
-	{
-		$this->db->insert('history', $data);
-	}
+		 public function getbid($id){
+			 $this->db->select('mem_id, mem_bid');
+			 $this->db->from('members');
+			 $this->db->where('mem_id', $id);
+			 $query = $this->db->get();
+			 if($query->num_rows() > 0){
+				 return $query->row();
+			 }
+		 }
 }

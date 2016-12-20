@@ -1,12 +1,12 @@
 <!-- <div id="loader-wrapper">
-  <div class="cube-wrapper">
-    <div class="cube-folding">
-      <span class="leaf1"></span>
-      <span class="leaf2"></span>
-      <span class="leaf3"></span>
-      <span class="leaf4"></span>
-    </div>
-  </div>
+<div class="cube-wrapper">
+<div class="cube-folding">
+<span class="leaf1"></span>
+<span class="leaf2"></span>
+<span class="leaf3"></span>
+<span class="leaf4"></span>
+</div>
+</div>
 </div> -->
 <!-- /Loader -->
 
@@ -39,59 +39,72 @@
             <!-- Header Account -->
             <?php if($this->session->userdata('logged_in')){ ?>
               <div class="header-link dropdown-link header-account">
-
-                <a href="<?php echo site_url('home/myaccount');?>"><i class="icon icon-user"></i> My Account</a>
+                <?php $session_data = $this->session->userdata('logged_in');?>
+                <a href="<?php echo site_url('home/myaccount');?>"><?php echo $session_data['username'];?></a>
                 <div class="dropdown-container right">
-                    <a href="<?php echo site_url('home/logout');?>" class="btn">Logout</a>
+                  <a href="<?php echo site_url('home/logout');?>" class="btn">Logout</a>
                 </div>
+              </div>
+              <div class="header-link dropdown-link header-account">
+
+                <a>
+                  <i class="fa fa-gavel fa-2x"></i>
+
+                  <span class="badge" id="bid"></span>
+                </a>
+
               </div>
               <?php }else{ ?>
                 <div class="header-link dropdown-link header-account">
 
                   <a><i class="icon icon-user"></i></a>
                   <div class="dropdown-container right">
-                      <div class="title">Registered</div>
-                      <div class="top-text">If you have an account with us, please log in.</div>
-                      <?php echo form_open('home/login'); ?>
-                      <input type="email" class="form-control" name="email" placeholder="Email*">
-                      <input type="password" class="form-control" name="password" placeholder="Password*">
-                      <button type="submit" class="btn">Sign In</button>
-                      <?php echo form_close(); ?>
-                      <div class="title">OR</div>
-                      <div class="bottom-text"><a href="<?php echo site_url('home/regis');?>" id="customer_register_link">Create account</a></div>
+                    <div class="title">Registered</div>
+                    <div class="top-text">If you have an account with us, please log in.</div>
+                    <?php echo form_open('home/login'); ?>
+                    <input type="email" class="form-control" name="email" placeholder="Email*">
+                    <input type="password" class="form-control" name="password" placeholder="Password*">
+                    <button type="submit" class="btn">Sign In</button>
+                    <?php echo form_close(); ?>
+                    <div class="title">OR</div>
+                    <div class="bottom-text"><a href="<?php echo site_url('home/regis');?>" id="customer_register_link">Create account</a></div>
                   </div>
                 </div>
                 <?php } ?>
 
-            <!-- /Header Account -->
-          </div>
-          <!-- /Header Links -->
+                <!-- /Header Account -->
+              </div>
+              <!-- /Header Links -->
 
-          <div class="header-link header-search header-search">
-            <div class="exp-search">
-              <form  action="/search">
-                <input name="q" class="exp-search-input " placeholder="Search here ..." type="text" value="">
-                <input class="exp-search-submit" type="submit" value="">
-                <span class="exp-icon-search"><i class="icon icon-magnify"></i></span>
-                <span class="exp-search-close"><i class="icon icon-close"></i></span>
-              </form>
+              <div class="header-link header-search header-search">
+                <div class="exp-search">
+                  <form  action="/search">
+                    <input name="q" class="exp-search-input " placeholder="Search here ..." type="text" value="">
+                    <input class="exp-search-submit" type="submit" value="">
+                    <span class="exp-icon-search"><i class="icon icon-magnify"></i></span>
+                    <span class="exp-search-close"><i class="icon icon-close"></i></span>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Logo -->
+
+              <div class="header-logo">
+                <a href="<?php echo base_url();?>"><img alt="BidCups" src="<?php echo base_url('uploads/icon/'. $result->general_logo); ?>"></a>
+              </div>
+
+
+              <!-- /Logo -->
+              <?php $this->load->view('layout_home/mobilemenu'); ?>
+
+              <?php $this->load->view('layout_home/listmenu'); ?>
+
             </div>
           </div>
-
-          <!-- Logo -->
-
-          <div class="header-logo">
-            <a href="<?php echo site_url('home/index');?>"><img alt="BidCups" src="<?php echo base_url('uploads/icon/'. $result->general_logo); ?>"></a>
-          </div>
-
-
-            <!-- /Logo -->
-            <?php $this->load->view('layout_home/mobilemenu'); ?>
-
-            <?php $this->load->view('layout_home/listmenu'); ?>
-
-          </div>
-        </div>
-      </header>
-
-      <main class="page-main">
+        </header>
+        <script>
+        setInterval(function(){
+      		$("#bid").load('<?php echo site_url('product/liftbid');?>', {mem_id: '<?php echo $liftbid->mem_id;?>'} );
+      	},500);
+        </script>
+        <main class="page-main">

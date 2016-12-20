@@ -34,7 +34,7 @@
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
             <li><a href="<?php echo site_url("dashboard/admin_index"); ?>"><i class="fa fa-circle-o"></i>Setting Admin</a></li>
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Setting Bank</a></li>
+            <li><a href="<?php echo site_url('bank/index');?>"><i class="fa fa-circle-o"></i>Setting Bank</a></li>
             <li class="active"><i class="fa fa-circle-o"></i></a></li>
           </ul>
         </li>
@@ -80,8 +80,20 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li><a href="<?php echo site_url('members/index');?>"><i class="fa fa-circle-o"></i> User List</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa fa-money"></i> <span>Transaction</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo site_url('dashboard/viewtransactionbid');?>"><i class="fa fa-circle-o"></i> Transaction Bid</a></li>
+            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Transaction Auction</a></li>
           </ul>
         </li>
 

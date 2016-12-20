@@ -19,25 +19,25 @@
     <div class="col-md-9">
       <div>
         <h2>Change Password</h2>
-        <form>
+        <?php echo form_open('home/changepassword');?>
           <div class="form-group">
             <label for="password1">Please enter your old password.</label>
-              <input type="text" class="form-control" id="password1">
+              <input type="password" class="form-control" id="password1" name="oldpassword">
           </div>
 
 
           <div class="form-group">
             <label for="password2">Please enter your new password</label>
-            <input type="text" class="form-control" id="password2">
+            <input type="password" class="form-control" id="password2" name="password">
           </div>
 
           <div class="form-group">
             <label for="password2">Please enter your new password again.</label>
-            <input type="text" class="form-control" id="password2">
+            <input type="password" class="form-control" id="password2" name="password2">
           </div>
-
+          <?php echo $this->session->flashdata('alert');?>
           <button type="submit" class="btn">Save</button>
-        </form>
+        <?php echo form_close();?>
 
       </div>
 

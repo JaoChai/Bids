@@ -96,7 +96,9 @@ class auction extends CI_Controller {
            "auc_start" => $this->input->post('auc_start'),
            "auc_bids_inc" => $this->input->post('bids_inc'),
            "auc_start_date" => date('Y-m-d H:i:s'),
-           "auc_end_date" => date('Y-m-d H:i:s', strtotime($end_date))
+           "auc_end_date" => date('Y-m-d H:i:s', strtotime($end_date)),
+           "auc_status" => 0,
+           "auc_user" => "---"
          );
 
          $this->auction->insert($data);

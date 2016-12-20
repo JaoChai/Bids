@@ -173,7 +173,7 @@
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/bootstrap.min.js?18321598552377106331" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/slick.min.js?18321598552377106331" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/swiper.min.js?18321598552377106331" type="text/javascript"></script>
-  <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/jquery.countdown.min.js?18321598552377106331" type="text/javascript"></script>
+  <script src="https://cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/tocca.js?18321598552377106331" type="text/javascript"></script>
 
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/megamenu.js?18321598552377106331" type="text/javascript"></script>
@@ -191,7 +191,7 @@
   });
   </script>
 
-  <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/app.js?18321598552377106331" type="text/javascript"></script>
+  <script src="<?php echo base_url();?>assets/home/js/app.js" type="text/javascript"></script>
 
 
   <script src="//cdn.shopify.com/s/javascripts/currencies.js" type="text/javascript"></script>

@@ -236,6 +236,17 @@ class dashboard extends CI_Controller {
     $this->load->view('layout_dashboard/footer');
   }
 
+  public function viewtransactionbid()
+  {
+    $this->load->model('bank_model', 'bank');
+    $data['result'] = $this->bank->gettransfer();
+    $this->load->view('layout_dashboard/header');
+    $this->load->view('layout_dashboard/navbar');
+    $this->load->view('layout_dashboard/sitebar');
+    $this->load->view('dashboard/transferbid', $data);
+    $this->load->view('layout_dashboard/footer');
+  }
+
   public function _get_csrf_nonce()
 {
   $this->load->helper('string');

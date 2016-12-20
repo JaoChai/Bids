@@ -1,3 +1,9 @@
+<?php
+$session_data = $this->session->userdata('logged_in');
+//$mem_id = $session_data['id'];
+$mem_id = $session_data['id'];
+$username = $session_data['username'];
+?>
 <div class="block">
 	<div class="container">
 		<ul class="breadcrumbs">
@@ -5,8 +11,6 @@
 		</ul>
 	</div>
 </div>
-
-
 
 <div itemscope itemtype="http://schema.org/Product">
 	<meta itemprop="url" content="https://seikostore-default.myshopify.com/products/contrast-dress-shirt">
@@ -19,7 +23,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-4">
 					<!-- Product Gallery -->
 					<div class="main-image">
-						<img src="<?php echo base_url();?>assets/home/images/iphone.jpg" alt="Iphone 6">
+						<img src="<?php echo base_url('uploads/'. $item->auc_newpic); ?>">
 					</div>
 
 
@@ -62,7 +66,7 @@
 					</div>
 
 					<div class="product-name-wrapper" style="text-align:center;">
-						<h1 itemprop="name" class="product-name">Contrast Dress Shirt</h1>
+						<h1 itemprop="name" class="product-name"><?php echo $item->auc_item_title;?></h1>
 						<div class="product-labels">
 							<!--<span class="product-label sale">Sale</span>!-->
 						</div>
@@ -76,7 +80,7 @@
 
 					<div class="countdown-circle">
 						<div class="countdown-wrapper">
-							<div class="countdown" data-countdown="2016/12/31"></div>
+							<div class="countdown" data-countdown="<?php echo $item->auc_end_date;?>"></div>
 							<!-- <div class="countdown-text">
 
 							<div class="text1">Discount 23% OFF</div>
@@ -94,45 +98,54 @@
 						</script>
 						<br/>
 						<div class="price" >
-							<span class="special-price"> <span class=money>฿77.00</span></span>
+							<span class="special-price"> <span class="money<?php echo $item->auc_id;?>">฿ <?php echo $item->auc_start;?></span></span>
 						</div>
 
 						<div class="mem" >
-							<span class="special-price"> <span class=money>ผู้ชนะ</span></span>
-							<span class="special-price"> <span class=money>Toh</span></span>
-							<br/> <br/>
-							<span class="special-price">
-								<div>
-									<a class="btn btn-lg" style="width:200px;"></i>
-										<span>BID</span></a>
-									</div>
-								</span>
-							</div>
-						</div>
+							<!-- <span class="special-price"> <span class=money>ผู้ชนะ</span></span> -->
+							<span id="ended" style="display: none;"><p style="color:#FF1010; font-size:36px;"><b>Winner</b></p></span>
+							<span class="special-member"> <span class="member<?php echo $item->auc_id;?>"><?php echo $item->auc_user;?></span></span>
 
-						<!-- <div class="product-actions">
-						<div class="row">
-						<div class="col-md-6">
-						<div class="product-meta">
-						<span>
-						<a href="#" title="Add to Wishlist" class="no_wishlist"> <i class="icon icon-heart"></i><span>Add to Wishlist</span> </a>
-					</span>
+							<br/> <br/>
+
+							<span class="special-price">
+								<?php if($this->session->userdata('logged_in')){?>
+									<div>
+										<button type="button" class="btn btn-lg" id="btn_bid<?php echo $item->auc_id;?>" style="width:200px;"></i>
+											<span>BID</span></button>
+										</div>
+										<?php }else{ ?>
+											<button type="button" class="btn btn-lg" style="width:200px;" onmouseover="$(this).find('span').text('Login')" onmouseout="$(this).find('span').text('Bid')" onclick="window.location.href='<?php echo site_url('home/viewlogin');?>'">
+												<span>Bid</span>
+											</button>
+											<?php }?>
+										</span>
+									</div>
+								</div>
+
+								<!-- <div class="product-actions">
+								<div class="row">
+								<div class="col-md-6">
+								<div class="product-meta">
+								<span>
+								<a href="#" title="Add to Wishlist" class="no_wishlist"> <i class="icon icon-heart"></i><span>Add to Wishlist</span> </a>
+							</span>
+						</div>
+					</div>
+
+
+					<div class="col-md-6">
+					<div class="price" itemprop="price" content="77">
+					<span class="old-price"><span class=money>$100.00</span></span>
+					<span class="special-price"> <span class=money>$77.00</span></span>
 				</div>
+
+				<div class="actions">
+				<button type="submit" class="btn"></i><span>BID</span></button>
 			</div>
 
-
-			<div class="col-md-6">
-			<div class="price" itemprop="price" content="77">
-			<span class="old-price"><span class=money>$100.00</span></span>
-			<span class="special-price"> <span class=money>$77.00</span></span>
 		</div>
-
-		<div class="actions">
-		<button type="submit" class="btn"></i><span>BID</span></button>
 	</div>
-
-</div>
-</div>
 </div> -->
 
 </form>
@@ -142,45 +155,110 @@
 <br/>
 <div class="col-md-12 col-lg-3 hidden-quickview">
 	<center><h2 itemprop="name" class="product-name">BidCups สินค้าราคาถูก</h2></center>
-	<div><a class="btn btn-lg" style="width:300px;" href="/account/register"><i class="icon icon-user"></i><span>Create account</span></a></div>
-</div>
+	<?php if($this->session->userdata('logged_in')){ ?>
+		<center><h2>Layout Banner</h2></center>
+		<?php }else{ ?>
+			<div><a class="btn btn-lg" style="width:300px;" href="<?php echo site_url('home/regis');?>"><i class="icon icon-user"></i><span>Create account</span></a></div>
+			<?php } ?>
+		</div>
 
-<div class="col-md-12 col-lg-3 hidden-quickview">
-	<center><h2 itemprop="name" class="product-name">History Auction</h2></center>
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th><h3>Price</h3></th>
-				<th><h3>Winner</h3></th>
-				<th><h3>Time</h3></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><h4>100</h4></td>
-				<td><h4>Doe</h4></td>
-				<td><h4>19:30:11</h4></td>
-			</tr>
-			<tr>
-				<td><h4>100</h4></td>
-				<td><h4>Doe</h4></td>
-				<td><h4>19:30:11</h4></td>
-			</tr>
-			<tr>
-				<td><h4>100</h4></td>
-				<td><h4>Doe</h4></td>
-				<td><h4>19:30:11</h4></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+		<div class="col-md-12 col-lg-3 hidden-quickview">
+			<center><h2 itemprop="name" class="product-name">History Auction</h2></center>
+			<div id="bid_history"></div>
 
+		</div>
 
-</div>
+	</div>
 </div>
 </div>
 
+<script>
+$(document).ready(function() {
+	setInterval(function(){
+		$("#bid_history").load('<?php echo site_url('product/bid_history');?>', {auc_id: '<?php echo $item->auc_id;?>'} );
 
+		$.getJSON('<?php echo site_url('product/bid_update');?>', {auc_id: '<?php echo $item->auc_id;?>'},function(result){
+			$('.countdown').countdown(result.end_date)
+			.on('update.countdown', function(event){
+				if(event.offset.totalSeconds <= 10){
+					$(this).addClass('highlight');
+					$('#btn_bid'+'<?php echo $item->auc_id;?>').attr('id', 'btn_time'+'<?php echo $item->auc_id;?>');
+				}else{
+					$('#btn_time'+'<?php echo $item->auc_id;?>').attr('id', 'btn_bid'+'<?php echo $item->auc_id;?>');
+					$(this).removeClass('highlight');
+				}
+				$(this).html(event.strftime('<span><span>%D</span>DAYS</span>' + '<span><span>%H</span>HRS</span>' + '<span><span>%M</span>MIN</span>' + '<span><span>%S</span>SEC</span>'));
+			});
+
+			$(".money"+'<?php echo $item->auc_id;?>').text('฿ '+result.price);
+			$(".member"+'<?php echo $item->auc_id;?>').text(result.user);
+		});
+	},1000);
+
+	// Countdown
+	//$('.countdown').each(function() {
+	var countdown = $('.countdown');
+	var finalDate = $('.countdown').data('countdown');
+	countdown.countdown(finalDate)
+	.on('update.countdown', function(event){
+		countdown.html(event.strftime('<span><span>%D</span>DAYS</span>' + '<span><span>%H</span>HRS</span>' + '<span><span>%M</span>MIN</span>' + '<span><span>%S</span>SEC</span>'));
+	})
+	.on('finish.countdown', function(event){
+		$("#ended").show(0);
+		$('.countdown').remove();
+		$('#btn_time'+'<?php echo $item->auc_id;?>').remove();
+		setTimeout(function(){
+			window.location = "<?php echo base_url();?>";
+		}, 20000);
+	});
+	//});
+	$(document).on('click', '#btn_bid'+'<?php echo $item->auc_id;?>', function(){
+		$.ajax({
+			type: 'POST',
+			url:  '<?php echo site_url('product/bid_process');?>',
+			data:{
+				auc_id: '<?php echo $item->auc_id; ?>',
+				mem_id: '<?php echo $mem_id;?>',
+				user: '<?php echo $username;?>'
+			},
+			dataType: 'json',
+			success: function(data){
+				if(data.error === 1){
+					alert('You are already the highest bidder');
+				}else if(data.error === 2){
+					alert('You out of Bid');
+				}else{
+
+
+				}
+			}
+		});
+	});
+
+	$(document).on('click', '#btn_time'+'<?php echo $item->auc_id;?>', function(){
+		$.ajax({
+			type: 'POST',
+			url:  '<?php echo site_url('product/update_time');?>',
+			data:{
+				auc_id: '<?php echo $item->auc_id; ?>',
+				mem_id: '<?php echo $mem_id;?>',
+				user: '<?php echo $username;?>'
+			},
+			dataType: 'json',
+			success: function(data){
+				if(data.error === 1){
+					alert('You are already the highest bidder');
+				}else if(data.error === 2){
+					alert('You out of Bid');
+				}else{
+
+
+				}
+			}
+		});
+	});
+});
+</script>
 
 
 <div class="block">
@@ -225,7 +303,7 @@
 
 					<!--description-->
 
-					<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful</p>
+					<p><?php echo $item->auc_item_des;?></p>
 
 
 				</div>

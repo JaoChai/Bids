@@ -32,7 +32,7 @@
 				<div class="form-card">
 					<h4>New Customers</h4>
 					<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-					<div><a class="btn btn-lg" style="width:300px;" href="/account/register"><i class="icon icon-user"></i><span>Create account</span></a></div>
+					<div><a class="btn btn-lg" style="width:300px;" href="<?php echo site_url('home/regis');?>"><i class="icon icon-user"></i><span>Create account</span></a></div>
 				</div>
 			</div>
 			<div class="col-sm-6">
