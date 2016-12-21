@@ -42,8 +42,25 @@
 					<h4>Login</h4>
 					<p>If you have an account with us, please log in.</p>
 					<div class="errors"><ul><li><?php echo $this->session->flashdata('error_mess');?></li></ul></div>
+					<?php if($this->session->flashdata('js')=="1"){ ?>
+						<script>
+						swal({
+            title: "แสดงความยินดีด้วย",
+            text: "คุณยืนยันอีเมล์สำเร็จแล้ว กรุณาล็อคอิน",
+            type: "success"
+      			});
+						</script>
+						<?php }else if($this->session->flashdata('js')=="2"){ ?>
+							<script>
+							swal({
+	            title: "ยืนยังไม่สำเร็จ",
+	            text: "กรุณาลองใหม่อีกครั้ง",
+	            type: "error"
+	      			});
+							</script>
+						<?php } ?>
 					<label>Email<span class="required">*</span></label>
-					<input class="form-control input-lg" type="email" name="email" id="CustomerEmail" placeholder="Email" autocorrect="off" autocapitalize="off" autofocus>
+					<input class="form-control input-lg" type="text" name="email" id="CustomerEmail" placeholder="Email/Username" autocorrect="off" autocapitalize="off" autofocus>
 
 					<label>Password<span class="required">*</span></label>
 

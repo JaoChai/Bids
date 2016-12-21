@@ -224,9 +224,22 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(data){
 				if(data.error === 1){
-					alert('You are already the highest bidder');
+					swal({
+						title: "บิทคุณสูงสุดแล้ว",
+						type: "warning"
+					});
 				}else if(data.error === 2){
-					alert('You out of Bid');
+					swal({
+					title: 'บิทคุณหมดแล้ว ?',
+					text: "กรุณาซื้อบิท",
+					type: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Buy Bid !'
+				}).then(function () {
+					window.location.href = "<?php echo site_url('home/viewauctionbuy');?>";
+				})
 				}else{
 
 
@@ -247,9 +260,22 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(data){
 				if(data.error === 1){
-					alert('You are already the highest bidder');
+					swal({
+						title: "บิทคุณสูงสุดแล้ว",
+						type: "warning"
+					});
 				}else if(data.error === 2){
-					alert('You out of Bid');
+					swal({
+					title: 'บิทคุณหมดแล้ว ?',
+					text: "กรุณาซื้อบิท",
+					type: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Buy Bid !'
+				}).then(function () {
+					window.location.href = "<?php echo site_url('home/viewauctionbuy');?>";
+				})
 				}else{
 
 

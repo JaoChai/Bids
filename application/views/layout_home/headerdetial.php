@@ -62,7 +62,7 @@
                     <div class="title">Registered</div>
                     <div class="top-text">If you have an account with us, please log in.</div>
                     <?php echo form_open('home/login'); ?>
-                    <input type="email" class="form-control" name="email" placeholder="Email*">
+                    <input type="text" class="form-control" name="email" placeholder="Email/Username*">
                     <input type="password" class="form-control" name="password" placeholder="Password*">
                     <button type="submit" class="btn">Sign In</button>
                     <?php echo form_close(); ?>

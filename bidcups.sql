@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2016 at 05:01 AM
+-- Generation Time: Dec 21, 2016 at 06:08 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -28,20 +28,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `admin_id` int(20) NOT NULL,
-  `admin_username` varchar(100) NOT NULL,
+  `admin_email` varchar(255) NOT NULL,
   `admin_password` varchar(100) NOT NULL,
-  `admin_confpass` varchar(100) NOT NULL,
   `admin_fname` varchar(100) NOT NULL,
   `admin_lname` varchar(100) NOT NULL,
-  `admin_pic` varchar(100) NOT NULL
+  `admin_newpic` varchar(255) NOT NULL,
+  `admin_pic` varchar(100) NOT NULL,
+  `admin_picpath` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `admin_username`, `admin_password`, `admin_confpass`, `admin_fname`, `admin_lname`, `admin_pic`) VALUES
-(1, 'admin', 'admin', 'admin', 'Wason', 'Thamasak', 'admin.jpg');
+INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_password`, `admin_fname`, `admin_lname`, `admin_newpic`, `admin_pic`, `admin_picpath`) VALUES
+(2, 'admin1@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 'test1', 'test1', '1480490869minions.jpg', 'minions.jpg', 'C:/xampp/htdocs/auction/uploads/1480490869minions.jpg'),
+(3, 'admin@admin.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Wason', 'Thamasak', '1480402279admin.jpg', 'admin.jpg', 'C:/xampp/htdocs/auction/uploads/1480402279admin.jpg');
 
 -- --------------------------------------------------------
 
@@ -53,7 +55,7 @@ CREATE TABLE `auction` (
   `auc_id` int(10) NOT NULL,
   `auc_cate_id` int(10) NOT NULL,
   `auc_item_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `auc_item_des` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auc_item_des` text COLLATE utf8_unicode_ci NOT NULL,
   `auc_price` double NOT NULL,
   `auc_newpic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auc_pic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -63,6 +65,7 @@ CREATE TABLE `auction` (
   `auc_start_date` datetime NOT NULL,
   `auc_end_date` datetime NOT NULL,
   `auc_status` int(2) NOT NULL,
+  `auc_user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `mem_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -70,10 +73,31 @@ CREATE TABLE `auction` (
 -- Dumping data for table `auction`
 --
 
-INSERT INTO `auction` (`auc_id`, `auc_cate_id`, `auc_item_title`, `auc_item_des`, `auc_price`, `auc_newpic`, `auc_pic`, `auc_path`, `auc_start`, `auc_bids_inc`, `auc_start_date`, `auc_end_date`, `auc_status`, `mem_id`) VALUES
-(32, 1, 'oppo n1', '<p>oppo n1</p>\r\n', 6500, '1479959375photo_2016-11-10_23-44-20.jpg', 'photo_2016-11-10_23-44-20.jpg', 'C:/xampp/htdocs/auction/uploads/1479959375photo_2016-11-10_23-44-20.jpg', 0, 0.5, '2016-11-24 10:49:32', '2016-11-25 10:49:33', 0, 0),
-(33, 1, 'Remax', '<p>&nbsp;Sport Magnet Bluetooth Headset 4</p>\r\n', 3500, '1479959467newbanner-marshall-major-ll3.jpg', 'newbanner-marshall-major-ll3.jpg', 'C:/xampp/htdocs/auction/uploads/1479959467newbanner-marshall-major-ll3.jpg', 0, 0.5, '2016-11-24 10:51:04', '2016-11-26 10:51:05', 0, 0),
-(34, 1, 'Asus zenfone 5', '<p>Asus zenfone 5</p>\r\n', 4500, '1479959676E12789826-74.jpg', 'E12789826-74.jpg', 'C:/xampp/htdocs/auction/uploads/1479959676E12789826-74.jpg', 0, 0.5, '2016-11-24 10:53:31', '2016-11-26 10:53:32', 0, 0);
+INSERT INTO `auction` (`auc_id`, `auc_cate_id`, `auc_item_title`, `auc_item_des`, `auc_price`, `auc_newpic`, `auc_pic`, `auc_path`, `auc_start`, `auc_bids_inc`, `auc_start_date`, `auc_end_date`, `auc_status`, `auc_user`, `mem_id`) VALUES
+(37, 1, 'Iphone 7', '<p><strong>iPhone 7 128GB (Rose Gold)</strong></p>\r\n\r\n<h2>Product details of Apple iPhone7 128GB (Rose Gold)&nbsp;</h2>\r\n\r\n<p>Apple iPhone7 128GB (Rose Gold) - Aยกระดับประสบการณ์การใช้งาน iPhone ในส่วนที่สำคัญที่สุด ให้ดียิ่งขึ้นกว่าเดิม ไม่ว่าจะเป็นระบบกล้องสุดล้ำแบบใหม่ ประสิทธิภาพการทำงาน ที่ดีที่สุดและแบตเตอรี่ที่ใช้งานได้นานที่สุดเท่าที่เคยมีมาใน iPhone ลำโพงสเตอริโอ ที่ให้เสียงเต็มอิ่มสมจริง จอภาพ iPhone ที่สว่างและมีสีสันสดใสที่สุด อีกทั้งยัง ทนน้ำและน้ำที่กระเด็นใส่1 และมีรูปลักษณ์ภายนอกที่ดูทรงพลังไม่แพ้ภายใน<br />\r\n<br />\r\nคุณสมบัติเด่น<br />\r\n<br />\r\niPhone 7 ได้ก้าวสู่อีกระดับของคำว่านวัตกรรมและความแม่นยำ<br />\r\nเริ่มตั้งแต่ สีดำเจ็ทแบล็คที่แตกต่างโดยสิ้นเชิงจากทุกสิ่งที่เราเคยสร้างมา ตัวเครื่องที่ สามารถทนน้ำและน้ำที่กระเด็นใส่1 ไปจนถึงปุ่มโฮมที่ถูกสร้างขึ้น ใหม่หมด ในทุกรายละเอียดและดีไซน์ Unibody แบบใหม่ที่เรียบเนียนไร้รอยต่อ   ไม่น่าแปลกใจเลยที่ iPhone 7 จะรู้สึกยอดเยี่ยมเมื่อถืออยู่ในมือ ไม่แพ้รูปลักษณ์ภายนอกที่เห็น<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app1.png" /><br />\r\n<br />\r\niPhone คือกล้องที่ได้รับความนิยมสูงสุดในโลก<br />\r\nและในวันนี้เราได้ รังสรรค์กล้องที่ทุกคนชื่นชอบขึ้นใหม่ด้วยการเพิ่มระบบป้องกันภาพสั่นไหว แบบออปติคอล รูรับแสงขนาด &fnof;/1.8 และชุดเลนส์ 6 ชิ้น เพื่อให้คุณถ่ายรูปและวิดีโอ ในสภาวะแสงน้อยได้สวยงามยิ่งขึ้น นอกจากนี้ยังมีคุณสมบัติสุดล้ำใหม่ๆ อย่างเช่น การบันทึกภาพด้วยขอบเขตสีกว้างที่จะทำให้รูปถ่ายและ Live Photos ของคุณดูสวยงามสดใสยิ่งขึ้น<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app2.png" /><br />\r\n<br />\r\nกล้องหน้า 7MP ใหม่ จะตกหลุมรักเซลฟี่ก็คราวนี้<br />\r\nกล้อง FaceTime HD ไม่ได้มีแค่ความละเอียดที่สูงขึ้น แต่ยังสามารถ บันทึกภาพด้วยขอบเขตสีกว้างได้อีกด้วย คราวนี้คุณก็ถ่ายเซลฟี่ได้ คมชัดและสวยงามสดใสยิ่งกว่าเดิม แต่ถ้าห่วงว่าแสงจะไม่สวย Retina Flash จะช่วยจัดแสงให้พอดีกับสภาพแสงโดยรอบ เพื่อสีผิว ที่ดูสวยเป็นธรรมชาติ<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app3.png" /><br />\r\n<br />\r\nเบื้องหลังการทำงานที่เร็วสุดแรงของ iPhone 7 คือชิพที่ทรงพลังที่สุดเท่าที่เคยมีมา<br />\r\nในสมาร์ทโฟน และก็ไม่ใช่แค่เร็วกว่า iPhone ทุกรุ่นก่อนหน้านี้ แต่ยังประหยัดพลังงาน มากขึ้นด้วย นั่นเป็นเพราะชิพ A10 Fusion ใช้สถาปัตยกรรมแบบใหม่หมดที่ช่วยให้การประมวลผลรวดเร็วยิ่งขึ้นในเวลาที่คุณต้องการ และใช้พลังงานน้อยลงกว่าเดิมในยามที่ คุณไม่ได้ใช้ ยิ่งกว่านั้นยังมีแบตเตอรี่ที่ใช้งานได้นานที่สุดเท่าที่ iPhone เคยมีมาอีกด้วย คุณจึงสามารถทำอะไรๆ ได้เร็วกว่า iPhone 6 ถึง 2 เท่า และในขณะเดียวกันก็ยังใช้งาน ได้นานขึ้นต่อการชาร์จหนึ่งครั้ง<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app4.png" /><br />\r\n<br />\r\nข้อมูลจำเพาะ<br />\r\n<br />\r\nจอภาพ<br />\r\n- จอภาพ Retina HD<br />\r\n- จอภาพไวด์สกรีน แบ็คไลท์แบบ LED<br />\r\n- ขนาด 4.7 นิ้ว (แนวทแยง)<br />\r\n- จอภาพ Multi-Touch พร้อมเทคโนโลยี IPS<br />\r\n- ความละเอียด 1334 x 750 พิกเซลที่ 326 ppi<br />\r\n- อัตราส่วนคอนทราสต์ 1400:1 (ทั่วไป)<br />\r\n- จอภาพขอบเขตสีกว้าง (P3)<br />\r\n- ความสว่างสูงสุด 625 cd/m2 (ทั่วไป)<br />\r\n- พิกเซลแบบโดเมนคู่เพื่อการมองในมุมกว้าง<br />\r\n- เคลือบสารกันรอยนิ้วมือ<br />\r\n- รองรับการแสดงผลหลายภาษาและตัวอักษรหลายแบบพร้อมกัน<br />\r\n- คุณสมบัติ &quot;การซูมหน้าจอ&quot;<br />\r\n- คุณสมบัติ &quot;การดึงจอลงเพื่อแตะ&quot;<br />\r\n<br />\r\nการทนน้ำ น้ำที่กระเด็นใส่ และฝุ่น4<br />\r\n- ที่ระดับ IP67 ตามมาตรฐาน IEC 60529<br />\r\n<br />\r\nชิพ<br />\r\n- ชิพ A10 Fusion พร้อมสถาปัตยกรรม 64 บิต<br />\r\n- โปรเซสเซอร์ร่วม M10 สำหรับประมวลผลการเคลื่อนไหวในตัว<br />\r\n<br />\r\nกล้อง<br />\r\n- กล้องความละเอียด 12MP<br />\r\n- รูรับแสงขนาด &fnof;/1.8<br />\r\n- ซูมดิจิตอลได้สูงสุด 5 เท่า<br />\r\n- ระบบป้องกันภาพสั่นไหวแบบออปติคอล<br />\r\n- ชุดเลนส์ 6 ชิ้น<br />\r\n- แฟลช True Tone แบบ LED สี่ดวง<br />\r\n- พาโนรามา (สูงสุด 63 เมกะพิกเซล)<br />\r\n- ผลึกแซฟไฟร์ป้องกันหน้าเลนส์<br />\r\n- เซ็นเซอร์รับแสงด้วยส่วนหลัง<br />\r\n- ฟิลเตอร์ Hybrid IR<br />\r\n- ออโต้โฟกัสพร้อม Focus Pixels<br />\r\n- ระบบการแตะเพื่อโฟกัสพร้อม Focus Pixels<br />\r\n- คุณสมบัติ Live Photos พร้อมระบบป้องกันภาพสั่นไหว<br />\r\n- บันทึกภาพถ่ายและ Live Photos ด้วยขอบเขตสีกว้าง<br />\r\n- การแมปโทนที่ได้รับการปรับปรุง<br />\r\n- ระบบตรวจจับใบหน้าและร่างกาย<br />\r\n- การควบคุมค่าแสง<br />\r\n- การลดนอยซ์<br />\r\n- HDR อัตโนมัติสำหรับภาพถ่าย<br />\r\n- ระบบป้องกันภาพสั่นไหวอัตโนมัติ<br />\r\n- โหมดภาพถ่ายต่อเนื่อง<br />\r\n- โหมดตั้งเวลาถ่ายภาพ<br />\r\n- แนบข้อมูลพิกัดตำแหน่งในภาพถ่าย<br />\r\n<br />\r\nการบันทึกวิดีโอ<br />\r\n- บันทึกวิดีโอระดับ 4K ที่ 30 fps<br />\r\n- บันทึกวิดีโอระดับ HD 1080p ที่ 30 fps หรือ 60 fps<br />\r\n- บันทึกวิดีโอระดับ HD 720p ที่ 30 fps<br />\r\n- ระบบป้องกันภาพสั่นไหวแบบออปติคอลสำหรับวิดีโอ<br />\r\n- ซูมออปติคอล 2 เท่า และซูมดิจิตอล 6 เท่า (เฉพาะ iPhone 7 Plus)<br />\r\n- แฟลช True Tone แบบ LED สี่ดวง<br />\r\n- รองรับวิดีโอสโลว์โมชั่น ความละเอียด 1080p ที่ 120 fps และ 720p ที่ 240 fps<br />\r\n- วิดีโอไทม์แลปส์ พร้อมระบบป้องกันภาพสั่นไหว<br />\r\n- ระบบป้องกันภาพวิดีโอสั่นไหวในคุณภาพระดับภาพยนตร์ (1080p และ 720p)<br />\r\n- วิดีโอออโต้โฟกัสแบบต่อเนื่อง<br />\r\n- ระบบตรวจจับใบหน้าและร่างกาย<br />\r\n- การลดนอยซ์<br />\r\n- ถ่ายภาพนิ่งความละเอียด 8 เมกะพิกเซล ขณะบันทึกวิดีโอ 4K<br />\r\n- ซูมขณะเล่น<br />\r\n- แนบข้อมูลพิกัดตำแหน่งในวิดีโอ<br />\r\n<br />\r\nกล้อง FaceTime HD<br />\r\n- รูปถ่าย 7 เมกะพิกเซล<br />\r\n- บันทึกวิดีโอระดับ HD 1080p<br />\r\n- Retina Flash<br />\r\n- รูรับแสงขนาด &fnof;/2.2<br />\r\n- บันทึกภาพถ่ายและ Live Photos ด้วยขอบเขตสีกว้าง<br />\r\n- HDR อัตโนมัติ<br />\r\n- เซ็นเซอร์รับแสงด้วยส่วนหลัง<br />\r\n- ระบบตรวจจับใบหน้าและร่างกาย<br />\r\n- ระบบป้องกันภาพสั่นไหวอัตโนมัติ<br />\r\n- โหมดภาพถ่ายต่อเนื่อง<br />\r\n- การควบคุมค่าแสง<br />\r\n- โหมดตั้งเวลาถ่ายภาพ<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app5.png" /><br />\r\n<br />\r\n<img alt="" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/inbox.jpg" /></p>\r\n\r\n<p>ข้อมูลจำเพาะของ Apple&nbsp;<strong>iPhone 7 128GB (Rose Gold)</strong></p>\r\n\r\n<p>รายการสินค้าในกล่อง</p>\r\n\r\n<ul>\r\n	<li>Apple iPhone 7 128GB x 1 pcs USB Cabler&nbsp;x 1 pcs Adapter&nbsp;x 1 pcs EarPods&nbsp;x 1 pcs</li>\r\n</ul>\r\n\r\n<p>คุณสมบัติทั่วไป</p>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>SKU</td>\r\n			<td>AP067ELAA4UD92ANTH-10372293</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Camera Back</td>\r\n			<td>11-15MP</td>\r\n		</tr>\r\n		<tr>\r\n			<td>กล้องหน้า (เมกะพิกเซล)</td>\r\n			<td>7 MP ขึ้นไป</td>\r\n		</tr>\r\n		<tr>\r\n			<td>สภาพ</td>\r\n			<td>ใหม่</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Screen Size (inches)</td>\r\n			<td>4.7</td>\r\n		</tr>\r\n		<tr>\r\n			<td>โมเดล</td>\r\n			<td>iphone 7</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Network Connections</td>\r\n			<td>4G - LTE</td>\r\n		</tr>\r\n		<tr>\r\n			<td>ระบบปฏิบัติการ</td>\r\n			<td>iOS 10​</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Phone Features</td>\r\n			<td>Touchscreen</td>\r\n		</tr>\r\n		<tr>\r\n			<td>PPI</td>\r\n			<td>300-400 PPI</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Processor Type</td>\r\n			<td>Quad-core</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Size (cm)</td>\r\n			<td>13.8 x 6.8 x 0.8</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Weight (kg)</td>\r\n			<td>0.138</td>\r\n		</tr>\r\n		<tr>\r\n			<td>RAM memory</td>\r\n			<td>2GB</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Screen Type</td>\r\n			<td>IPS LCD</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Slim Slots</td>\r\n			<td>1</td>\r\n		</tr>\r\n		<tr>\r\n			<td>ความจุของหน่วยความจำ</td>\r\n			<td>128GB</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Type of Battery</td>\r\n			<td>Built-in Rechargeable Battery</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Video Resolution</td>\r\n			<td>2160p</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Warranty type</td>\r\n			<td>ไม่มีการรับประกัน</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', 22000, '1480999742iphone.jpg', 'iphone.jpg', 'C:/xampp/htdocs/auction/uploads/1480999742iphone.jpg', 18.5, 0.5, '2016-12-06 11:49:02', '2016-12-22 23:31:51', 0, 'paly1234', 3),
+(38, 1, 'Iphone 7', '<p><strong>iPhone 7 128GB (Rose Gold)</strong></p>\r\n\r\n<h2>Product details of Apple iPhone7 128GB (Rose Gold)&nbsp;</h2>\r\n\r\n<p>Apple iPhone7 128GB (Rose Gold) - Aยกระดับประสบการณ์การใช้งาน iPhone ในส่วนที่สำคัญที่สุด ให้ดียิ่งขึ้นกว่าเดิม ไม่ว่าจะเป็นระบบกล้องสุดล้ำแบบใหม่ ประสิทธิภาพการทำงาน ที่ดีที่สุดและแบตเตอรี่ที่ใช้งานได้นานที่สุดเท่าที่เคยมีมาใน iPhone ลำโพงสเตอริโอ ที่ให้เสียงเต็มอิ่มสมจริง จอภาพ iPhone ที่สว่างและมีสีสันสดใสที่สุด อีกทั้งยัง ทนน้ำและน้ำที่กระเด็นใส่1 และมีรูปลักษณ์ภายนอกที่ดูทรงพลังไม่แพ้ภายใน<br />\r\n<br />\r\nคุณสมบัติเด่น<br />\r\n<br />\r\niPhone 7 ได้ก้าวสู่อีกระดับของคำว่านวัตกรรมและความแม่นยำ<br />\r\nเริ่มตั้งแต่ สีดำเจ็ทแบล็คที่แตกต่างโดยสิ้นเชิงจากทุกสิ่งที่เราเคยสร้างมา ตัวเครื่องที่ สามารถทนน้ำและน้ำที่กระเด็นใส่1 ไปจนถึงปุ่มโฮมที่ถูกสร้างขึ้น ใหม่หมด ในทุกรายละเอียดและดีไซน์ Unibody แบบใหม่ที่เรียบเนียนไร้รอยต่อ   ไม่น่าแปลกใจเลยที่ iPhone 7 จะรู้สึกยอดเยี่ยมเมื่อถืออยู่ในมือ ไม่แพ้รูปลักษณ์ภายนอกที่เห็น<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app1.png" /><br />\r\n<br />\r\niPhone คือกล้องที่ได้รับความนิยมสูงสุดในโลก<br />\r\nและในวันนี้เราได้ รังสรรค์กล้องที่ทุกคนชื่นชอบขึ้นใหม่ด้วยการเพิ่มระบบป้องกันภาพสั่นไหว แบบออปติคอล รูรับแสงขนาด &fnof;/1.8 และชุดเลนส์ 6 ชิ้น เพื่อให้คุณถ่ายรูปและวิดีโอ ในสภาวะแสงน้อยได้สวยงามยิ่งขึ้น นอกจากนี้ยังมีคุณสมบัติสุดล้ำใหม่ๆ อย่างเช่น การบันทึกภาพด้วยขอบเขตสีกว้างที่จะทำให้รูปถ่ายและ Live Photos ของคุณดูสวยงามสดใสยิ่งขึ้น<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app2.png" /><br />\r\n<br />\r\nกล้องหน้า 7MP ใหม่ จะตกหลุมรักเซลฟี่ก็คราวนี้<br />\r\nกล้อง FaceTime HD ไม่ได้มีแค่ความละเอียดที่สูงขึ้น แต่ยังสามารถ บันทึกภาพด้วยขอบเขตสีกว้างได้อีกด้วย คราวนี้คุณก็ถ่ายเซลฟี่ได้ คมชัดและสวยงามสดใสยิ่งกว่าเดิม แต่ถ้าห่วงว่าแสงจะไม่สวย Retina Flash จะช่วยจัดแสงให้พอดีกับสภาพแสงโดยรอบ เพื่อสีผิว ที่ดูสวยเป็นธรรมชาติ<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app3.png" /><br />\r\n<br />\r\nเบื้องหลังการทำงานที่เร็วสุดแรงของ iPhone 7 คือชิพที่ทรงพลังที่สุดเท่าที่เคยมีมา<br />\r\nในสมาร์ทโฟน และก็ไม่ใช่แค่เร็วกว่า iPhone ทุกรุ่นก่อนหน้านี้ แต่ยังประหยัดพลังงาน มากขึ้นด้วย นั่นเป็นเพราะชิพ A10 Fusion ใช้สถาปัตยกรรมแบบใหม่หมดที่ช่วยให้การประมวลผลรวดเร็วยิ่งขึ้นในเวลาที่คุณต้องการ และใช้พลังงานน้อยลงกว่าเดิมในยามที่ คุณไม่ได้ใช้ ยิ่งกว่านั้นยังมีแบตเตอรี่ที่ใช้งานได้นานที่สุดเท่าที่ iPhone เคยมีมาอีกด้วย คุณจึงสามารถทำอะไรๆ ได้เร็วกว่า iPhone 6 ถึง 2 เท่า และในขณะเดียวกันก็ยังใช้งาน ได้นานขึ้นต่อการชาร์จหนึ่งครั้ง<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app4.png" /><br />\r\n<br />\r\nข้อมูลจำเพาะ<br />\r\n<br />\r\nจอภาพ<br />\r\n- จอภาพ Retina HD<br />\r\n- จอภาพไวด์สกรีน แบ็คไลท์แบบ LED<br />\r\n- ขนาด 4.7 นิ้ว (แนวทแยง)<br />\r\n- จอภาพ Multi-Touch พร้อมเทคโนโลยี IPS<br />\r\n- ความละเอียด 1334 x 750 พิกเซลที่ 326 ppi<br />\r\n- อัตราส่วนคอนทราสต์ 1400:1 (ทั่วไป)<br />\r\n- จอภาพขอบเขตสีกว้าง (P3)<br />\r\n- ความสว่างสูงสุด 625 cd/m2 (ทั่วไป)<br />\r\n- พิกเซลแบบโดเมนคู่เพื่อการมองในมุมกว้าง<br />\r\n- เคลือบสารกันรอยนิ้วมือ<br />\r\n- รองรับการแสดงผลหลายภาษาและตัวอักษรหลายแบบพร้อมกัน<br />\r\n- คุณสมบัติ &quot;การซูมหน้าจอ&quot;<br />\r\n- คุณสมบัติ &quot;การดึงจอลงเพื่อแตะ&quot;<br />\r\n<br />\r\nการทนน้ำ น้ำที่กระเด็นใส่ และฝุ่น4<br />\r\n- ที่ระดับ IP67 ตามมาตรฐาน IEC 60529<br />\r\n<br />\r\nชิพ<br />\r\n- ชิพ A10 Fusion พร้อมสถาปัตยกรรม 64 บิต<br />\r\n- โปรเซสเซอร์ร่วม M10 สำหรับประมวลผลการเคลื่อนไหวในตัว<br />\r\n<br />\r\nกล้อง<br />\r\n- กล้องความละเอียด 12MP<br />\r\n- รูรับแสงขนาด &fnof;/1.8<br />\r\n- ซูมดิจิตอลได้สูงสุด 5 เท่า<br />\r\n- ระบบป้องกันภาพสั่นไหวแบบออปติคอล<br />\r\n- ชุดเลนส์ 6 ชิ้น<br />\r\n- แฟลช True Tone แบบ LED สี่ดวง<br />\r\n- พาโนรามา (สูงสุด 63 เมกะพิกเซล)<br />\r\n- ผลึกแซฟไฟร์ป้องกันหน้าเลนส์<br />\r\n- เซ็นเซอร์รับแสงด้วยส่วนหลัง<br />\r\n- ฟิลเตอร์ Hybrid IR<br />\r\n- ออโต้โฟกัสพร้อม Focus Pixels<br />\r\n- ระบบการแตะเพื่อโฟกัสพร้อม Focus Pixels<br />\r\n- คุณสมบัติ Live Photos พร้อมระบบป้องกันภาพสั่นไหว<br />\r\n- บันทึกภาพถ่ายและ Live Photos ด้วยขอบเขตสีกว้าง<br />\r\n- การแมปโทนที่ได้รับการปรับปรุง<br />\r\n- ระบบตรวจจับใบหน้าและร่างกาย<br />\r\n- การควบคุมค่าแสง<br />\r\n- การลดนอยซ์<br />\r\n- HDR อัตโนมัติสำหรับภาพถ่าย<br />\r\n- ระบบป้องกันภาพสั่นไหวอัตโนมัติ<br />\r\n- โหมดภาพถ่ายต่อเนื่อง<br />\r\n- โหมดตั้งเวลาถ่ายภาพ<br />\r\n- แนบข้อมูลพิกัดตำแหน่งในภาพถ่าย<br />\r\n<br />\r\nการบันทึกวิดีโอ<br />\r\n- บันทึกวิดีโอระดับ 4K ที่ 30 fps<br />\r\n- บันทึกวิดีโอระดับ HD 1080p ที่ 30 fps หรือ 60 fps<br />\r\n- บันทึกวิดีโอระดับ HD 720p ที่ 30 fps<br />\r\n- ระบบป้องกันภาพสั่นไหวแบบออปติคอลสำหรับวิดีโอ<br />\r\n- ซูมออปติคอล 2 เท่า และซูมดิจิตอล 6 เท่า (เฉพาะ iPhone 7 Plus)<br />\r\n- แฟลช True Tone แบบ LED สี่ดวง<br />\r\n- รองรับวิดีโอสโลว์โมชั่น ความละเอียด 1080p ที่ 120 fps และ 720p ที่ 240 fps<br />\r\n- วิดีโอไทม์แลปส์ พร้อมระบบป้องกันภาพสั่นไหว<br />\r\n- ระบบป้องกันภาพวิดีโอสั่นไหวในคุณภาพระดับภาพยนตร์ (1080p และ 720p)<br />\r\n- วิดีโอออโต้โฟกัสแบบต่อเนื่อง<br />\r\n- ระบบตรวจจับใบหน้าและร่างกาย<br />\r\n- การลดนอยซ์<br />\r\n- ถ่ายภาพนิ่งความละเอียด 8 เมกะพิกเซล ขณะบันทึกวิดีโอ 4K<br />\r\n- ซูมขณะเล่น<br />\r\n- แนบข้อมูลพิกัดตำแหน่งในวิดีโอ<br />\r\n<br />\r\nกล้อง FaceTime HD<br />\r\n- รูปถ่าย 7 เมกะพิกเซล<br />\r\n- บันทึกวิดีโอระดับ HD 1080p<br />\r\n- Retina Flash<br />\r\n- รูรับแสงขนาด &fnof;/2.2<br />\r\n- บันทึกภาพถ่ายและ Live Photos ด้วยขอบเขตสีกว้าง<br />\r\n- HDR อัตโนมัติ<br />\r\n- เซ็นเซอร์รับแสงด้วยส่วนหลัง<br />\r\n- ระบบตรวจจับใบหน้าและร่างกาย<br />\r\n- ระบบป้องกันภาพสั่นไหวอัตโนมัติ<br />\r\n- โหมดภาพถ่ายต่อเนื่อง<br />\r\n- การควบคุมค่าแสง<br />\r\n- โหมดตั้งเวลาถ่ายภาพ<br />\r\n<br />\r\n<img alt="image" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/app5.png" /><br />\r\n<br />\r\n<img alt="" src="http://th-live.slatic.net/cms/Content%20Retail%202016/October/inbox.jpg" /></p>\r\n\r\n<p>ข้อมูลจำเพาะของ Apple&nbsp;<strong>iPhone 7 128GB (Rose Gold)</strong></p>\r\n\r\n<p>รายการสินค้าในกล่อง</p>\r\n\r\n<ul>\r\n	<li>Apple iPhone 7 128GB x 1 pcs USB Cabler&nbsp;x 1 pcs Adapter&nbsp;x 1 pcs EarPods&nbsp;x 1 pcs</li>\r\n</ul>\r\n\r\n<p>คุณสมบัติทั่วไป</p>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>SKU</td>\r\n			<td>AP067ELAA4UD92ANTH-10372293</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Camera Back</td>\r\n			<td>11-15MP</td>\r\n		</tr>\r\n		<tr>\r\n			<td>กล้องหน้า (เมกะพิกเซล)</td>\r\n			<td>7 MP ขึ้นไป</td>\r\n		</tr>\r\n		<tr>\r\n			<td>สภาพ</td>\r\n			<td>ใหม่</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Screen Size (inches)</td>\r\n			<td>4.7</td>\r\n		</tr>\r\n		<tr>\r\n			<td>โมเดล</td>\r\n			<td>iphone 7</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Network Connections</td>\r\n			<td>4G - LTE</td>\r\n		</tr>\r\n		<tr>\r\n			<td>ระบบปฏิบัติการ</td>\r\n			<td>iOS 10​</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Phone Features</td>\r\n			<td>Touchscreen</td>\r\n		</tr>\r\n		<tr>\r\n			<td>PPI</td>\r\n			<td>300-400 PPI</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Processor Type</td>\r\n			<td>Quad-core</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Size (cm)</td>\r\n			<td>13.8 x 6.8 x 0.8</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Weight (kg)</td>\r\n			<td>0.138</td>\r\n		</tr>\r\n		<tr>\r\n			<td>RAM memory</td>\r\n			<td>2GB</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Screen Type</td>\r\n			<td>IPS LCD</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Slim Slots</td>\r\n			<td>1</td>\r\n		</tr>\r\n		<tr>\r\n			<td>ความจุของหน่วยความจำ</td>\r\n			<td>128GB</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Type of Battery</td>\r\n			<td>Built-in Rechargeable Battery</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Video Resolution</td>\r\n			<td>2160p</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Warranty type</td>\r\n			<td>ไม่มีการรับประกัน</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', 6500, '1481000263iphone.jpg', 'iphone.jpg', 'C:/xampp/htdocs/auction/uploads/1481000263iphone.jpg', 39, 0.5, '2016-12-06 11:57:21', '2016-12-20 22:56:09', 1, 'paly123456', 4),
+(39, 1, 'oppo n1', '<p>oppo n1</p>\r\n', 6500, '14822073071480999742iphone.jpg', '1480999742iphone.jpg', 'C:/xampp/htdocs/auction/uploads/14822073071480999742iphone.jpg', 0, 0.5, '2016-12-20 11:15:07', '2016-12-21 11:15:03', 1, '---', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank`
+--
+
+CREATE TABLE `bank` (
+  `bank_id` int(100) NOT NULL,
+  `bank_name` varchar(255) NOT NULL,
+  `bank_num` int(100) NOT NULL,
+  `bank_members` varchar(255) NOT NULL,
+  `bank_branch` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bank`
+--
+
+INSERT INTO `bank` (`bank_id`, `bank_name`, `bank_num`, `bank_members`, `bank_branch`) VALUES
+(1, 'ธนาคารกรุงไทย', 1234567890, 'toh', 'พระราม 8');
 
 -- --------------------------------------------------------
 
@@ -92,10 +116,10 @@ CREATE TABLE `bidpackage` (
 --
 
 INSERT INTO `bidpackage` (`package_id`, `package_bid`, `package_cost`) VALUES
-(5, '100', '500'),
-(6, '200', '1000'),
-(7, '500', '2500'),
-(8, '1000', '5000');
+(5, 'BidPack 100', '500'),
+(6, 'BidPack 200', '1000'),
+(7, 'BidPack 500', '2500'),
+(8, 'BidPack 1000', '5000');
 
 -- --------------------------------------------------------
 
@@ -119,29 +143,6 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`cate_id`, `cate_name`, `cate_title`, `cate_meta_des`, `cate_meta_key`, `cate_description`) VALUES
 (1, 'Electronics', 'Electronics', 'Electronics', 'Electronics', '<p>Electronics</p>\r\n'),
 (2, 'test2', 'test2', 'test1                                       ', 'test1                        ', '<p>grhtn</p>\r\n');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `final`
---
-
-CREATE TABLE `final` (
-  `final_id` int(100) NOT NULL,
-  `auc_id` int(100) NOT NULL,
-  `final_time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `final`
---
-
-INSERT INTO `final` (`final_id`, `auc_id`, `final_time`) VALUES
-(9, 17, '2016-11-13 22:45:18'),
-(10, 22, '2016-11-13 22:44:58'),
-(11, 23, '2016-11-13 00:19:53'),
-(12, 24, '2016-11-14 11:45:37'),
-(13, 25, '2016-11-14 11:46:03');
 
 -- --------------------------------------------------------
 
@@ -171,27 +172,7 @@ CREATE TABLE `general_set` (
 --
 
 INSERT INTO `general_set` (`general_id`, `general_logo`, `general_site_title`, `general_meta_des`, `general_meta_key`, `general_footer`, `general_address`, `general_email`, `general_line`, `general_tel`, `general_facebook`, `general_youtube`, `general_twitter`, `general_google`) VALUES
-(1, 'minions.jpg', 'Bidcups - ประมูล เริ่มต้นแค่ 1 บาท ประหยัดถึง 99%!', 'ที่ Bidcups ซื้อของออนไลน์ สินค้าสุด Cool ที่ตอบโจทย์ Lifestyle ลดถึง 50% หรือ ประมูล เริ่มต้น 1 บาท ลุ้นประหยัดถึง 99%! ประหยัดได้จริง มากกว่า 500 คนที่ได้สินค้ากลับบ้านอย่างมีความสุข ไม่ว่าจะเป็นโทรศัพท์มือถือ แท็บเล็ต Power Bank', 'บิท,บิทคลับ,bidcups,ซื้อของออนไลน์', '© 2016 BidCups Online Co., Ltd. All rights reserved.', '2086 ถนนรามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพมหานคร 10240', 'bidcups_88@gmail.com', '@bidcups', '02-12345678', 'www.facebook.com', 'www.youtube.com', 'www.twitter.com', 'www.plus.google.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `groups`
---
-
-CREATE TABLE `groups` (
-  `id` mediumint(8) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `groups`
---
-
-INSERT INTO `groups` (`id`, `name`, `description`) VALUES
-(1, 'admin', 'Administrator'),
-(4, 'members', 'member');
+(1, 'logo.png', 'Bidcups - ประมูล เริ่มต้นแค่ 1 บาท ประหยัดถึง 99%!', 'ที่ Bidcups ซื้อของออนไลน์ สินค้าสุด Cool ที่ตอบโจทย์ Lifestyle ลดถึง 50% หรือ ประมูล เริ่มต้น 1 บาท ลุ้นประหยัดถึง 99%! ประหยัดได้จริง มากกว่า 500 คนที่ได้สินค้ากลับบ้านอย่างมีความสุข ไม่ว่าจะเป็นโทรศัพท์มือถือ แท็บเล็ต Power Bank', 'บิท,บิทคลับ,bidcups,ซื้อของออนไลน์', '© 2016 BidCups Online Co., Ltd. All rights reserved.', '2086 ถนนรามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพมหานคร 10240', 'bidcups_88@gmail.com', '@bidcups', '02-12345678', 'www.facebook.com', 'www.youtube.com', 'www.twitter.com', 'www.plus.google.com');
 
 -- --------------------------------------------------------
 
@@ -203,6 +184,8 @@ CREATE TABLE `history` (
   `his_id` int(100) NOT NULL,
   `mem_id` int(100) NOT NULL,
   `auc_id` int(100) NOT NULL,
+  `mem_name` varchar(255) NOT NULL,
+  `auc_title` varchar(255) NOT NULL,
   `his_date` datetime NOT NULL,
   `his_price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -211,40 +194,114 @@ CREATE TABLE `history` (
 -- Dumping data for table `history`
 --
 
-INSERT INTO `history` (`his_id`, `mem_id`, `auc_id`, `his_date`, `his_price`) VALUES
-(8, 3, 25, '2016-11-21 12:50:52', 4),
-(9, 3, 25, '2016-11-21 12:50:55', 4.5),
-(10, 3, 25, '2016-11-21 12:51:48', 5),
-(11, 3, 25, '2016-11-21 12:57:14', 5.5),
-(12, 3, 25, '2016-11-21 13:02:06', 6),
-(13, 3, 25, '2016-11-21 19:05:29', 6.5),
-(14, 0, 25, '2016-11-21 21:56:29', 7),
-(15, 3, 25, '2016-11-21 21:57:36', 7.5),
-(16, 3, 26, '2016-11-21 21:58:37', 0.5),
-(17, 4, 26, '2016-11-21 22:12:11', 1),
-(18, 3, 25, '2016-11-21 23:01:36', 8),
-(19, 3, 25, '2016-11-21 23:01:39', 8.5),
-(20, 0, 25, '2016-11-21 23:04:56', 9),
-(21, 0, 25, '2016-11-21 23:04:59', 9.5),
-(22, 0, 25, '2016-11-21 23:05:02', 10),
-(23, 0, 26, '2016-11-21 23:05:45', 1.5),
-(24, 0, 25, '2016-11-21 23:05:53', 10.5),
-(25, 0, 25, '2016-11-21 23:21:48', 11),
-(26, 0, 25, '2016-11-21 23:21:51', 11.5),
-(27, 0, 25, '2016-11-21 23:22:20', 12),
-(28, 0, 25, '2016-11-21 23:29:04', 12.5),
-(29, 0, 25, '2016-11-22 08:28:23', 13),
-(30, 0, 25, '2016-11-22 08:28:39', 13.5),
-(31, 0, 25, '2016-11-22 08:31:13', 14),
-(32, 3, 25, '2016-11-22 08:42:28', 14.5),
-(33, 3, 26, '2016-11-22 08:42:30', 2),
-(34, 3, 25, '2016-11-22 08:42:32', 15),
-(35, 4, 25, '2016-11-22 12:01:32', 15.5),
-(36, 3, 27, '2016-11-23 19:02:13', 0.5),
-(37, 3, 27, '2016-11-23 19:11:07', 1),
-(38, 3, 27, '2016-11-23 19:11:12', 1.5),
-(39, 4, 27, '2016-11-23 19:12:43', 2),
-(40, 3, 27, '2016-11-23 19:18:20', 2.5);
+INSERT INTO `history` (`his_id`, `mem_id`, `auc_id`, `mem_name`, `auc_title`, `his_date`, `his_price`) VALUES
+(41, 4, 37, 'paly123456', 'Iphone 6', '2016-12-07 04:31:45', 3.5),
+(42, 4, 38, 'paly123456', 'oppo n1', '2016-12-07 10:32:31', 2.5),
+(43, 3, 38, 'paly1234', 'oppo n1', '2016-12-07 10:33:01', 3),
+(44, 3, 37, 'paly1234', 'Iphone 6', '2016-12-07 10:40:46', 4),
+(45, 4, 37, 'paly123456', 'Iphone 6', '2016-12-07 11:19:31', 4.5),
+(46, 4, 38, 'paly123456', 'oppo n1', '2016-12-07 11:22:39', 3.5),
+(47, 3, 38, 'paly1234', 'oppo n1', '2016-12-07 11:24:26', 4),
+(48, 3, 37, 'paly1234', 'Iphone 6', '2016-12-07 11:27:52', 5),
+(49, 4, 37, 'paly123456', 'Iphone 6', '2016-12-07 11:28:18', 5.5),
+(50, 4, 38, 'paly123456', 'oppo n1', '2016-12-07 11:28:28', 4.5),
+(51, 3, 37, 'paly1234', 'Iphone 6', '2016-12-07 11:43:27', 6),
+(52, 3, 38, 'paly1234', 'oppo n1', '2016-12-07 17:23:34', 5),
+(53, 4, 37, 'paly123456', 'Iphone 6', '2016-12-07 17:28:48', 6.5),
+(54, 4, 38, 'paly123456', 'Iphone 7', '2016-12-07 17:39:01', 5.5),
+(55, 3, 37, 'paly1234', 'Iphone 7', '2016-12-08 02:13:33', 7),
+(56, 3, 38, 'paly1234', 'Iphone 7', '2016-12-08 02:13:56', 6),
+(57, 4, 37, 'paly123456', 'Iphone 7', '2016-12-08 02:17:56', 7.5),
+(58, 3, 37, 'paly1234', 'Iphone 7', '2016-12-08 02:25:21', 8),
+(59, 4, 38, 'paly123456', 'Iphone 7', '2016-12-08 02:32:04', 6.5),
+(60, 4, 37, 'paly123456', 'Iphone 7', '2016-12-08 02:32:11', 8.5),
+(61, 3, 38, 'paly1234', 'Iphone 7', '2016-12-08 02:32:42', 7),
+(62, 3, 37, 'paly1234', 'Iphone 7', '2016-12-08 02:32:45', 9),
+(63, 4, 38, 'paly123456', 'Iphone 7', '2016-12-08 02:33:12', 7.5),
+(64, 3, 38, 'paly1234', 'Iphone 7', '2016-12-14 22:52:42', 8),
+(65, 4, 38, 'paly123456', 'Iphone 7', '2016-12-14 22:55:31', 8.5),
+(66, 4, 37, 'paly123456', 'Iphone 7', '2016-12-14 22:59:18', 9.5),
+(67, 3, 37, 'paly1234', 'Iphone 7', '2016-12-14 23:02:31', 10),
+(68, 3, 38, 'paly1234', 'Iphone 7', '2016-12-14 23:13:58', 9),
+(69, 4, 37, 'paly123456', 'Iphone 7', '2016-12-14 23:20:06', 10.5),
+(70, 4, 38, 'paly123456', 'Iphone 7', '2016-12-14 23:20:18', 9.5),
+(71, 3, 37, 'paly1234', 'Iphone 7', '2016-12-14 23:21:49', 11),
+(72, 3, 38, 'paly1234', 'Iphone 7', '2016-12-14 23:28:56', 10),
+(73, 4, 37, 'paly123456', 'Iphone 7', '2016-12-14 23:29:14', 11.5),
+(74, 3, 37, 'paly1234', 'Iphone 7', '2016-12-15 00:14:48', 12),
+(75, 4, 37, 'paly123456', 'Iphone 7', '2016-12-15 00:17:40', 12.5),
+(76, 4, 38, 'paly123456', 'Iphone 7', '2016-12-15 00:17:48', 10.5),
+(77, 3, 37, 'paly1234', 'Iphone 7', '2016-12-15 00:18:17', 13),
+(78, 3, 38, 'paly1234', 'Iphone 7', '2016-12-15 00:23:28', 11),
+(79, 4, 37, 'paly123456', 'Iphone 7', '2016-12-15 00:24:43', 13.5),
+(80, 4, 38, 'paly123456', 'Iphone 7', '2016-12-15 00:24:56', 11.5),
+(81, 3, 37, 'paly1234', 'Iphone 7', '2016-12-15 00:25:10', 14),
+(82, 3, 38, 'paly1234', 'Iphone 7', '2016-12-15 00:25:15', 12),
+(83, 4, 37, 'paly123456', 'Iphone 7', '2016-12-15 00:29:48', 14.5),
+(84, 4, 38, 'paly123456', 'Iphone 7', '2016-12-15 01:15:37', 12.5),
+(85, 3, 38, 'paly1234', 'Iphone 7', '2016-12-15 02:04:43', 13),
+(86, 3, 37, 'paly1234', 'Iphone 7', '2016-12-15 02:10:10', 15),
+(87, 4, 38, 'paly123456', 'Iphone 7', '2016-12-15 02:17:02', 13.5),
+(88, 4, 37, 'paly123456', 'Iphone 7', '2016-12-15 02:17:06', 15.5),
+(89, 6, 38, 'paly12345', 'Iphone 7', '2016-12-15 17:34:55', 14),
+(90, 6, 37, 'paly12345', 'Iphone 7', '2016-12-15 17:35:33', 16),
+(91, 3, 38, 'paly1234', 'Iphone 7', '2016-12-15 17:36:33', 14.5),
+(92, 3, 37, 'paly1234', 'Iphone 7', '2016-12-15 17:36:33', 16.5),
+(93, 6, 38, 'paly12345', 'Iphone 7', '2016-12-15 17:41:49', 15),
+(94, 3, 38, 'paly1234', 'Iphone 7', '2016-12-15 18:08:53', 15.5),
+(95, 4, 38, 'paly123456', 'Iphone 7', '2016-12-15 22:55:09', 16),
+(96, 4, 37, 'paly123456', 'Iphone 7', '2016-12-15 23:20:36', 17),
+(97, 4, 37, 'paly123456', 'Iphone 7', '2016-12-15 23:20:36', 17),
+(98, 3, 38, 'paly1234', 'Iphone 7', '2016-12-15 23:32:55', 16.5),
+(99, 3, 37, 'paly1234', 'Iphone 7', '2016-12-15 23:50:34', 17.5),
+(100, 4, 38, 'paly123456', 'Iphone 7', '2016-12-16 13:11:49', 17),
+(101, 3, 38, 'paly1234', 'Iphone 7', '2016-12-16 13:12:21', 17.5),
+(102, 4, 38, 'paly123456', 'Iphone 7', '2016-12-16 13:12:49', 18),
+(103, 3, 38, 'paly1234', 'Iphone 7', '2016-12-16 13:17:22', 18.5),
+(104, 4, 38, 'paly123456', 'Iphone 7', '2016-12-16 13:17:46', 19),
+(105, 3, 38, 'paly1234', 'Iphone 7', '2016-12-16 13:18:46', 19.5),
+(106, 4, 38, 'paly123456', 'Iphone 7', '2016-12-16 13:24:25', 20),
+(107, 3, 38, 'paly1234', 'Iphone 7', '2016-12-16 13:24:59', 20.5),
+(108, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 08:58:21', 21),
+(109, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 09:08:21', 21.5),
+(110, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 09:08:48', 22),
+(111, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 09:10:12', 22.5),
+(112, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 09:20:13', 23),
+(113, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 09:31:10', 23.5),
+(114, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 09:31:11', 23.5),
+(115, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 09:32:20', 24),
+(116, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 09:33:20', 24.5),
+(117, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 09:35:21', 25),
+(118, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 09:38:21', 25.5),
+(119, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 09:45:32', 26),
+(120, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 10:08:41', 26.5),
+(121, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 10:11:51', 27),
+(122, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 10:13:01', 27.5),
+(123, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 10:14:17', 28),
+(124, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 10:15:27', 28.5),
+(125, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 10:21:34', 29),
+(126, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 10:21:55', 29.5),
+(127, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 10:23:06', 30),
+(128, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 14:16:57', 30.5),
+(129, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 14:18:01', 31),
+(130, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 14:21:01', 31.5),
+(131, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 14:26:02', 32),
+(132, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 14:29:06', 32.5),
+(133, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 14:30:05', 33),
+(134, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 14:31:01', 33.5),
+(135, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 14:33:11', 34),
+(136, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 14:35:22', 34.5),
+(137, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 14:50:21', 35),
+(138, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 14:51:07', 35.5),
+(139, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 14:51:34', 36),
+(140, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 14:52:31', 36.5),
+(141, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 15:08:05', 37),
+(142, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 15:08:21', 37.5),
+(143, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 15:09:41', 38),
+(144, 3, 38, 'paly1234', 'Iphone 7', '2016-12-19 22:45:50', 38.5),
+(145, 4, 38, 'paly123456', 'Iphone 7', '2016-12-19 22:46:55', 39),
+(146, 4, 37, 'paly123456', 'Iphone 7', '2016-12-20 11:32:37', 18),
+(147, 3, 37, 'paly1234', 'Iphone 7', '2016-12-21 00:09:29', 18.5);
 
 -- --------------------------------------------------------
 
@@ -264,22 +321,9 @@ CREATE TABLE `img_slider` (
 --
 
 INSERT INTO `img_slider` (`img_id`, `img_newname`, `img_name`, `img_path`) VALUES
-(19, '1479960127newbanner-marshall-major-ll.jpg', 'newbanner-marshall-major-ll.jpg', 'C:/xampp/htdocs/auction/uploads/1479960127newbanner-marshall-major-ll.jpg'),
-(20, '1479960142newbanner-marshall-major-ll1.jpg', 'newbanner-marshall-major-ll1.jpg', 'C:/xampp/htdocs/auction/uploads/1479960142newbanner-marshall-major-ll1.jpg'),
-(21, '1479960147newbanner-marshall-major-ll2.jpg', 'newbanner-marshall-major-ll2.jpg', 'C:/xampp/htdocs/auction/uploads/1479960147newbanner-marshall-major-ll2.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login_attempts`
---
-
-CREATE TABLE `login_attempts` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `ip_address` varchar(15) NOT NULL,
-  `login` varchar(100) NOT NULL,
-  `time` int(11) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(23, '148061366811.jpg', '11.jpg', 'C:/xampp/htdocs/auction/uploads/148061366811.jpg'),
+(24, '148061367212.jpg', '12.jpg', 'C:/xampp/htdocs/auction/uploads/148061367212.jpg'),
+(25, '148061367613.jpg', '13.jpg', 'C:/xampp/htdocs/auction/uploads/148061367613.jpg');
 
 -- --------------------------------------------------------
 
@@ -294,19 +338,28 @@ CREATE TABLE `members` (
   `mem_birth_day` varchar(255) NOT NULL,
   `mem_birth_month` varchar(255) NOT NULL,
   `mem_birth_year` varchar(255) NOT NULL,
+  `mem_gender` varchar(100) NOT NULL,
   `mem_tel` varchar(255) NOT NULL,
+  `mem_address` varchar(255) NOT NULL,
+  `mem_province` varchar(255) NOT NULL,
+  `mem_postcode` varchar(10) NOT NULL,
   `mem_username` varchar(255) NOT NULL,
   `mem_pass` varchar(32) NOT NULL,
-  `mem_email` varchar(255) NOT NULL
+  `mem_email` varchar(255) NOT NULL,
+  `mem_date` datetime NOT NULL,
+  `mem_bid` int(100) NOT NULL,
+  `mem_verify` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`mem_id`, `mem_fname`, `mem_lname`, `mem_birth_day`, `mem_birth_month`, `mem_birth_year`, `mem_tel`, `mem_username`, `mem_pass`, `mem_email`) VALUES
-(3, 'Jirachot', 'Aphirangsimun', '23', '02', '1993', '0875696451', 'paly1234', 'e10adc3949ba59abbe56e057f20f883e', 'jirachot23@gmail.com'),
-(4, 'Jirachot111', 'Aphirangsimun111', '12', '08', '1999', '0875696451', 'paly123456', 'e10adc3949ba59abbe56e057f20f883e', 'jirachot234@gmail.com');
+INSERT INTO `members` (`mem_id`, `mem_fname`, `mem_lname`, `mem_birth_day`, `mem_birth_month`, `mem_birth_year`, `mem_gender`, `mem_tel`, `mem_address`, `mem_province`, `mem_postcode`, `mem_username`, `mem_pass`, `mem_email`, `mem_date`, `mem_bid`, `mem_verify`) VALUES
+(4, 'Jirachot1112', 'Aphirangsimun1112', '12', '08', '1999', 'Male', '0875696451', '302/39 ม.1 ต.ฟากห้วย อ.อรัญประเทศ', 'สระแก้ว', '27120', 'paly123456', 'e10adc3949ba59abbe56e057f20f883e', 'jirachot234@gmail.com', '0000-00-00 00:00:00', 0, 1),
+(5, 'pongsi', 'custom', '26', '11', '2000', 'Male', '0801234567', '302/39 ม.1 ต.ฟากห้วย อ.อรัญประเทศ', 'นครราชสีมา', '30120', 'pongsi', 'e10adc3949ba59abbe56e057f20f883e', 'pongsi@gmail.com', '0000-00-00 00:00:00', 10, 0),
+(6, 'test', 'test', '23', '02', '1993', 'Male', '0875696451', '124 ต.ฟากห้วย อ.อรัญประเทศ', 'สระแก้ว', '27120', 'paly12345', 'e10adc3949ba59abbe56e057f20f883e', 'jirachot2345@gmail.com', '0000-00-00 00:00:00', 0, 0),
+(27, 'Jirachot', 'Aphirangsimun', '14', '03', '1990', 'Male', '0875696451', '302/39', 'ตาก', '27120', 'paly1234', 'e10adc3949ba59abbe56e057f20f883e', 'jirachot23@gmail.com', '2016-12-21 23:11:40', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -362,60 +415,25 @@ INSERT INTO `review` (`review_id`, `review_title`, `review_newimg`, `review_img`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `transfer_bid`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `username` varchar(100) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `salt` varchar(255) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `activation_code` varchar(40) DEFAULT NULL,
-  `forgotten_password_code` varchar(40) DEFAULT NULL,
-  `forgotten_password_time` int(11) UNSIGNED DEFAULT NULL,
-  `remember_code` varchar(40) DEFAULT NULL,
-  `created_on` int(11) UNSIGNED NOT NULL,
-  `last_login` int(11) UNSIGNED DEFAULT NULL,
-  `active` tinyint(1) UNSIGNED DEFAULT NULL,
-  `first_name` varchar(50) DEFAULT NULL,
-  `last_name` varchar(50) DEFAULT NULL,
-  `company` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `img` varchar(200) NOT NULL,
-  `img_path` varchar(255) NOT NULL
+CREATE TABLE `transfer_bid` (
+  `tb_id` int(100) NOT NULL,
+  `tb_bank` varchar(255) NOT NULL,
+  `tb_amount` int(100) NOT NULL,
+  `tb_date` datetime NOT NULL,
+  `tb_username` varchar(255) NOT NULL,
+  `tb_other` text NOT NULL,
+  `package_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `transfer_bid`
 --
 
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `img`, `img_path`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1479975782, 1, 'Wason', 'Thamasak', 'ADMIN', '0', 'admin.jpg', ''),
-(3, '::1', 'jirachot23@gmail.com', '$2y$08$wIeFjFzu6BVvHJjK/iaIyudvx9UNs04eXoA9X3WijHxsrZo4W2CG2', NULL, 'jirachot23@gmail.com', NULL, NULL, NULL, NULL, 1477889924, 1477997760, 1, 'test1', 'test1', 'test1', '0875696451', 'Tulips.jpg', ''),
-(22, '::1', 'jirachot233@gmail.com', '$2y$08$lUgcbXjUUkSpUehTrkiigu2xxs0mqP3P36j9/fhgYRvN0qcDbyRIa', NULL, 'jirachot233@gmail.com', NULL, NULL, NULL, NULL, 1478104561, NULL, 1, 'test1', 'test1', NULL, NULL, 'minions.jpg', 'C:/xampp/htdocs/auction/uploads/minions.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users_groups`
---
-
-CREATE TABLE `users_groups` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL,
-  `group_id` mediumint(8) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users_groups`
---
-
-INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(24, 1, 1),
-(25, 3, 1),
-(30, 22, 1);
+INSERT INTO `transfer_bid` (`tb_id`, `tb_bank`, `tb_amount`, `tb_date`, `tb_username`, `tb_other`, `package_id`) VALUES
+(6, 'ธนาคารกรุงไทย', 5000, '2016-12-08 01:51:08', 'paly1234', 'test', 8);
 
 --
 -- Indexes for dumped tables
@@ -434,6 +452,12 @@ ALTER TABLE `auction`
   ADD PRIMARY KEY (`auc_id`);
 
 --
+-- Indexes for table `bank`
+--
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`bank_id`);
+
+--
 -- Indexes for table `bidpackage`
 --
 ALTER TABLE `bidpackage`
@@ -446,22 +470,10 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`cate_id`);
 
 --
--- Indexes for table `final`
---
-ALTER TABLE `final`
-  ADD PRIMARY KEY (`final_id`);
-
---
 -- Indexes for table `general_set`
 --
 ALTER TABLE `general_set`
   ADD PRIMARY KEY (`general_id`);
-
---
--- Indexes for table `groups`
---
-ALTER TABLE `groups`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `history`
@@ -474,12 +486,6 @@ ALTER TABLE `history`
 --
 ALTER TABLE `img_slider`
   ADD PRIMARY KEY (`img_id`);
-
---
--- Indexes for table `login_attempts`
---
-ALTER TABLE `login_attempts`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `members`
@@ -500,19 +506,10 @@ ALTER TABLE `review`
   ADD PRIMARY KEY (`review_id`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `transfer_bid`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users_groups`
---
-ALTER TABLE `users_groups`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uc_users_groups` (`user_id`,`group_id`),
-  ADD KEY `fk_users_groups_users1_idx` (`user_id`),
-  ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
+ALTER TABLE `transfer_bid`
+  ADD PRIMARY KEY (`tb_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -522,12 +519,17 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `admin_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `auc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `auc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT for table `bank`
+--
+ALTER TABLE `bank`
+  MODIFY `bank_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `bidpackage`
 --
@@ -539,40 +541,25 @@ ALTER TABLE `bidpackage`
 ALTER TABLE `categories`
   MODIFY `cate_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `final`
---
-ALTER TABLE `final`
-  MODIFY `final_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
 -- AUTO_INCREMENT for table `general_set`
 --
 ALTER TABLE `general_set`
   MODIFY `general_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `groups`
---
-ALTER TABLE `groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `his_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `his_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 --
 -- AUTO_INCREMENT for table `img_slider`
 --
 ALTER TABLE `img_slider`
-  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
---
--- AUTO_INCREMENT for table `login_attempts`
---
-ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `img_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `mem_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `mem_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `menu`
 --
@@ -584,26 +571,10 @@ ALTER TABLE `menu`
 ALTER TABLE `review`
   MODIFY `review_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `transfer_bid`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
---
--- AUTO_INCREMENT for table `users_groups`
---
-ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `users_groups`
---
-ALTER TABLE `users_groups`
-  ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
+ALTER TABLE `transfer_bid`
+  MODIFY `tb_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

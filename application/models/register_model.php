@@ -8,7 +8,7 @@ class register_model extends CI_Model {
 
     public function insert($data = array())
     {
-      $this->db->insert('members', $data);
+      return $this->db->insert('members', $data);
     }
 
 		public function getmembers($id)
@@ -88,5 +88,39 @@ class register_model extends CI_Model {
 				return TRUE;
 			}
 			return FALSE;
+		}
+
+		public function sendEmail($to_email, $username)
+		{
+			$from_email = 'webmaster@bidcups.com';
+			$subject = 'Verify Your Email Address';
+			$message = 'Dear '. $username .',<br /><br />Please click on the below activation link to verify your
+			email address.<br /><br /> '.base_url().'home/verify/' . md5($to_email) . '<br /><br /><br />
+			Thanks<br />Bidcups Team';
+
+		$config = Array(
+    'protocol' => 'smtp',
+    'smtp_host' => 'mail.bidcups.com',
+		'smtp_port' => 25,
+    'smtp_user' => $from_email,
+    'smtp_pass' => '8uqT1S940',
+    'mailtype'  => 'html',
+    'charset'   => 'iso-8859-1'
+		);
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");
+				//send mail
+        $this->email->from($from_email, 'Bidcups');
+        $this->email->to($to_email);
+        $this->email->subject($subject);
+        $this->email->message($message);
+        return $this->email->send();
+		}
+
+		public function verifyEmail($key)
+		{
+			$data = array('mem_verify' => 1);
+			$this->db->where('md5(mem_email)', $key);
+			return $this->db->update('members', $data);
 		}
 }

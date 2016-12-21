@@ -17,6 +17,7 @@
 
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
   <!-- Vendor -->
+  <link href="https://cdn.jsdelivr.net/sweetalert2/6.2.3/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all" />
   <link href="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/slick.css?18321598552377106331" rel="stylesheet" type="text/css" media="all" />
   <link href="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/swiper.min.css?18321598552377106331" rel="stylesheet" type="text/css" media="all" />
   <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
@@ -38,6 +39,7 @@
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/html5shiv.min.js?18321598552377106331" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/respond.min.js?18321598552377106331" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/jquery.js?18321598552377106331" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/sweetalert2/6.2.3/sweetalert2.min.js" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/jquery.cookie.js?18321598552377106331" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/parallax.min.js?18321598552377106331" type="text/javascript"></script>
   <script src="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/jquery.darktooltip.js?18321598552377106331" type="text/javascript"></script>
@@ -49,6 +51,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
   <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
   <link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+
   <script>
   //<![CDATA[
   var Shopify = Shopify || {};

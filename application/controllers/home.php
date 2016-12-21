@@ -106,8 +106,6 @@ class home extends CI_Controller {
 
 	public function register()
 	{
-	date_default_timezone_set('Asia/Bangkok');
-	if($this->input->post()){
 	$this->form_validation->set_rules('fname', '<b>ชื่อ</b>', 'required');
 	$this->form_validation->set_rules('lname', '<b>นามสกุล</b>', 'required');
 	$this->form_validation->set_rules('day', '<b>วัน</b>', 'required');
@@ -133,6 +131,7 @@ class home extends CI_Controller {
 		redirect('home/regis');
 
 	 }else{
+		 date_default_timezone_set('Asia/Bangkok');
 		 $data = array(
 			 'mem_fname' => $this->input->post('fname'),
 			 'mem_lname' => $this->input->post('lname'),
@@ -150,14 +149,37 @@ class home extends CI_Controller {
 			 'mem_date' => Date('Y-m-d H:i:s')
 		 );
 
-		 $this->regis->insert($data);
-		 redirect('home/index');
+		 if($this->regis->insert($data)){
+			 if($this->regis->sendEmail($this->input->post('email'), $this->input->post('username'))){
+				 //$this->session->set_flashdata('mess_regis','');
+				 //redirect('home/index');
+			 }else{
+
+				 $this->session->set_flashdata('alert','<div class="alert alert-danger text-center">Oops! Send Email Error.  Please try again later!!!</div>');
+				 redirect('home/regis');
+			 }
+		 }else{
+			 $this->session->set_flashdata('alert','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
+			 redirect('home/regis');
+		 }
+
 	 }
- }else{
-	 redirect('home/index');
- }
 	}
 
+	public function verify($hash=NULL)
+	{
+		if($this->regis->verifyEmail($hash)){
+			//message modal Verify Success
+			$js = "1";
+			$this->session->set_flashdata('js', $js);
+			redirect('home/viewlogin');
+		}else{
+			//message modal Verify False
+			$js = "2";
+			$this->session->set_flashdata('js', $js);
+			redirect('home/viewlogin');
+		}
+	}
 	public function login()
 	{
 		$this->load->model("login_model", "login_db");
@@ -172,12 +194,9 @@ class home extends CI_Controller {
 				redirect('home/viewlogin');
 			}
 		}else{
-			$data = array(
-				'email' => $this->input->post('email'),
-				'password' => md5($this->input->post('password'))
-			);
-
-			$result = $this->login_db->login($data);
+			$email = $this->input->post('email');
+			$password = md5($this->input->post('password'));
+			$result = $this->login_db->login($email, $password);
 			//login Successfully
 			if($result == TRUE){
 				$email = $this->input->post('email');

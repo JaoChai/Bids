@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM auction WHERE auc_status = 0";
+$sql = "SELECT * FROM auction WHERE auc_status = 0 ORDER BY auc_end_date ASC";
 $query = $this->db->query($sql);
 $num = 1;
 $session_data = $this->session->userdata('logged_in');
@@ -88,7 +88,6 @@ $username = $session_data['username'];
 
             <script>
             setInterval(function(){
-
               $.getJSON('<?php echo site_url('product/bid_update');?>', {auc_id: '<?php echo $row->auc_id; ?>'},function(result){
                 $('#countdown'+'<?php echo $num;?>').countdown(result.end_date)
                 .on('update.countdown', function(event){
@@ -128,15 +127,14 @@ $username = $session_data['username'];
                   url:  '<?php echo site_url('product/bid_winner');?>',
                   data:{
                     auc_id: '<?php echo $row->auc_id; ?>',
-                    mem_id: '<?php echo $mem_id;?>',
                   },
                   dataType: 'json',
                   success: function(data){
-                    if(data.success === "success"){
-                      setTimeout(function(){
-                        location.reload();
-                      }, 20000);
-                    }
+                    // if(data.success === "success"){
+                    //   setTimeout(function(){
+                    //     location.reload();
+                    //   }, 20000);
+                    // }
                   }
                 });
               });
@@ -189,9 +187,22 @@ $username = $session_data['username'];
                   dataType: 'json',
                   success: function(data){
                     if(data.error === 1){
-                      alert('You are already the highest bidder');
+                      swal({
+                        title: "บิทคุณสูงสุดแล้ว",
+                        type: "warning"
+                      });
                     }else if(data.error === 2){
-                      alert('You out of Bid');
+                      swal({
+                      title: 'บิทคุณหมดแล้ว ?',
+                      text: "กรุณาซื้อบิท",
+                      type: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Buy Bid !'
+                    }).then(function () {
+                      window.location.href = "<?php echo site_url('home/viewauctionbuy');?>";
+                    })
                     }else{
                       //alert('hello');
                       //$('#btn_time'+'<?php echo $num;?>').attr('id', 'btn_bid'+'<?php echo $num;?>');
@@ -216,7 +227,10 @@ $username = $session_data['username'];
                   dataType: 'json',
                   success: function(data){
                     if(data.error === 1){
-                      alert('You are already the highest bidder');
+                      swal({
+                        title: "บิทคุณสูงสุดแล้ว",
+                        type: "warning"
+                      });
                     }else if(data.error === 2){
                       alert('You out of Bid');
                     }else{

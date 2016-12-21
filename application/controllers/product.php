@@ -104,18 +104,8 @@ class product extends CI_Controller {
 
   public function bid_winner()
   {
-    date_default_timezone_set('Asia/Bangkok');
     $auc_id = $this->input->post('auc_id');
-    $mem_id = $this->input->post('mem_id');
-    $data = array(
-      'win_date' => date("Y-m-d H:i:s"),
-      'auc_id' => $auc_id,
-      'mem_id' => $mem_id
-    );
     $this->product->update_status_win($auc_id);
-    $this->product->insert_win($data);
-    $return['success'] = "success";
-    echo json_encode($return);
   }
 
   public function bid_update()
@@ -145,8 +135,8 @@ class product extends CI_Controller {
 
       'heading_row_start'     => '<tr>',
       'heading_row_end'       => '</tr>',
-      'heading_cell_start'    => '<th><h3>',
-      'heading_cell_end'      => '</h3></th>',
+      'heading_cell_start'    => '<th bgcolor="#FF1010"><font color="#FFF">',
+      'heading_cell_end'      => '</font></th>',
 
       'tbody_open'            => '<tbody>',
       'tbody_close'           => '</tbody>',

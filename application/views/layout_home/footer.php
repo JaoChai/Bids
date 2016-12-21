@@ -1,5 +1,5 @@
 <footer class="page-footer variant4 fullboxed">
-  <div class="footer-top bg"  data-bg="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/footer_bg_parallax.jpg?18321598552377106331">
+  <!-- <div class="footer-top bg"  data-bg="//cdn.shopify.com/s/files/1/1323/8471/t/12/assets/footer_bg_parallax.jpg?18321598552377106331">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -17,7 +17,7 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="footer-middle">
     <div class="container">

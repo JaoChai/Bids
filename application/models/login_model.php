@@ -7,12 +7,14 @@ class login_model extends CI_Model {
 
      }
 
-  public function login($data)
+  public function login($email, $password)
   {
-    $condition = "mem_email =" . "'" . $data['email'] . "' AND " . "mem_pass =" . "'" . $data['password'] . "'";
+    //$condition = "mem_email =" . "'" . $data['email'] . "' AND " . "mem_pass =" . "'" . $data['password'] . "' AND " . "mem_verify = 1";
     $this->db->select('*');
     $this->db->from('members');
-    $this->db->where($condition);
+    $this->db->where("(mem_email = '$email' OR mem_username = '$email')");
+		$this->db->where('mem_pass', $password);
+		$this->db->where('mem_verify', 1);
     $this->db->limit(1);
     $query = $this->db->get();
 
@@ -41,10 +43,10 @@ class login_model extends CI_Model {
 
   public function get_data($email)
   {
-    $condition = "mem_email =" . "'" . $email . "'";
+    //$condition = "mem_email =" . "'" . $email . "'";
     $this->db->select('*');
     $this->db->from('members');
-    $this->db->where($condition);
+    $this->db->where("(mem_email = '$email' OR mem_username = '$email')");
     $this->db->limit(1);
     $query = $this->db->get();
 

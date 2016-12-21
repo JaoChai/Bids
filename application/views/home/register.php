@@ -236,6 +236,21 @@
     }
 
   }
+
+  $(document).ready(function() {
+    $('#btn_submit').click(function(){
+      swal({
+            title: "กรุณายืนยัน Email ที่ท่านสมัครไว้",
+            text: "ถ้าไม่เจอกรุณาไปดูที่เมล์ขยะ",
+            type: "success"
+      });
+
+      setTimeout(function(){
+  			window.location.href = "<?php echo site_url('home/index');?>";
+  		}, 5000);
+
+    });
+  });
   </script>
 
 
